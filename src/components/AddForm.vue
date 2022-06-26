@@ -461,6 +461,7 @@ export default {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-color: #fff!important;
 }
 .area-unit:after {
   content: ">";

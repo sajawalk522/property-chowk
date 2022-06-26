@@ -129,5 +129,11 @@ export default {
   .property-list .card-container {
     width: 160px;
   }
+  .pagination .pagination-primary{
+    width: 80%;
+  }
+  .block-pagination{
+    margin: 0 5px;
+  }
 }
 </style>
