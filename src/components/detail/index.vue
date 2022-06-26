@@ -124,10 +124,10 @@ export default {
   flex-wrap: wrap;
 }
 @media (max-width: 479px) and (min-width: 320px) {
-  .similar-property{
+  .similar-property {
     padding: 20px 10px;
   }
-  .similar-property h1{
+  .similar-property h1 {
     padding-bottom: 20px;
   }
   .detail-container {
@@ -152,7 +152,7 @@ export default {
     font-size: 12px !important;
     padding: 6px 10px !important;
   }
-  .overview{
+  .overview {
     padding: 0 10px;
   }
 }

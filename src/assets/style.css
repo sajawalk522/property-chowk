@@ -262,7 +262,7 @@ label {
   top: 25% !important;
 }
 @media (max-width: 479px) and (min-width: 320px) {
-  .content-container{
+  .content-container {
     margin: 40px 10px 50px 10px;
   }
   .carousel__prev {
@@ -275,13 +275,13 @@ label {
     font-size: 18px;
   }
   label {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
   .contentheader {
-    padding: 20px 15px!important;
+    padding: 20px 15px !important;
   }
-  .add-property{
-    padding-left:13px!important;
+  .add-property {
+    padding-left: 13px !important;
   }
 }
 /* common css */

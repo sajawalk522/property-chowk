@@ -68,10 +68,10 @@ export default {
   width: 100%;
 }
 @media (max-width: 479px) and (min-width: 320px) {
-  .agent-details{
+  .agent-details {
     flex-wrap: wrap-reverse;
   }
-  .agent-image{
+  .agent-image {
     margin: 10px 0;
   }
 }

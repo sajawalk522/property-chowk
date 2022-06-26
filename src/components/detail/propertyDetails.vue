@@ -58,7 +58,7 @@ export default {
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-display: table-caption;
+  display: table-caption;
 }
 .details-list li {
   color: #606060;
@@ -76,14 +76,14 @@ display: table-caption;
   color: #000 !important;
 }
 @media (max-width: 479px) and (min-width: 320px) {
-  .details-list{
+  .details-list {
     columns: 1;
-  -webkit-columns: 1;
-  -moz-columns: 1;
-  display: block;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    display: block;
   }
   .details-list li div:nth-child(2) {
     white-space: normal;
-}
+  }
 }
 </style>

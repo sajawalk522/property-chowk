@@ -114,7 +114,7 @@ export default {
   background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
 }
 @media (max-width: 479px) and (min-width: 320px) {
-  .property-list .card-list{
+  .property-list .card-list {
     padding: 0 10px;
   }
   .property-list {

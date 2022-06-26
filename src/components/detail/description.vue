@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style scoped>
-
 .discription-container h3 {
   color: #000000;
   font-size: 16px;

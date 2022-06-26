@@ -62,7 +62,7 @@ export default {
   .main-card .image-card {
     height: 320px;
   }
-  .icons-wrapper{
+  .icons-wrapper {
     padding: 20px 10px;
     width: 50%;
   }
