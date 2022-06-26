@@ -90,7 +90,7 @@ export default {
   margin-top: 20px;
 }
 .main-container{
-  padding:10px;
+  padding:10px 0;
 }
 .main-container .search-header h1 {
   font-size: 60px;
@@ -169,6 +169,9 @@ h2 {
 }
 /* responsive */
 @media (max-width: 479px) and (min-width: 320px) {
+   .main-container{
+    padding: 10px;
+   }
   .main-container .search-header h1 {
     font-size: 26px;
   }

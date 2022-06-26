@@ -17,4 +17,9 @@ export default {};
 .bluehead h6 {
   color: #fff;
 }
+@media (max-width: 479px) and (min-width: 320px) {
+  .bluehead{
+    margin: 20px 10px 10px 10px;
+  }
+}
 </style>

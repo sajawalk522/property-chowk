@@ -279,6 +279,7 @@ label {
   }
   .contentheader {
     padding: 20px 15px !important;
+    margin: 0 10px;
   }
   .add-property {
     padding-left: 13px !important;
