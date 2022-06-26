@@ -100,6 +100,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   min-height: 90px;
+  padding: 0 10px;
 }
 .header .logo {
   width: 175px;
