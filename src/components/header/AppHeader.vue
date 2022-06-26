@@ -163,15 +163,13 @@ export default {
     display: none;
   }
   .header.mobile {
-    padding: 20px 10px;
+    padding: 10px;
     position: relative;
     display: flex;
+    min-height: unset;
   }
   .header.mobile .logo {
     width: 130px;
-  }
-  .header.mobile{
-    min-height: unset;
   }
   .header.mobile .navigation-profile .btn {
     font-size: 10px;
