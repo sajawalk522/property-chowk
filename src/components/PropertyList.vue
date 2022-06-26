@@ -127,7 +127,7 @@ export default {
     width: 100%;
   }
   .property-list .card-container {
-    width: 170px;
+    width: 160px;
   }
 }
 </style>

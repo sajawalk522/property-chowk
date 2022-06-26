@@ -163,7 +163,7 @@ export default {
     display: none;
   }
   .header.mobile {
-    padding: 20px;
+    padding: 20px 10px;
     position: relative;
     display: flex;
   }

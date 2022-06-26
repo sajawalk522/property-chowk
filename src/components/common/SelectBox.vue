@@ -38,6 +38,7 @@ export default {
   position: relative;
   font-size: 16px;
   left: -3px;
+  background-color: #fff!important;
 }
 .drop-down .active{
   padding-bottom:2px;

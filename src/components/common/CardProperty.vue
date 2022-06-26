@@ -196,10 +196,10 @@ export default {
 }
 @media (max-width: 479px) and (min-width: 320px) {
   .card-container {
-    width: 170px;
+    width: 160px;
   }
   .card-container .image-card {
-    height: 140px;
+    height: 130px;
   }
   .super-hot .btn-hot {
     font-size: 10px;
