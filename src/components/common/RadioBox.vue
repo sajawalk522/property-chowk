@@ -1,22 +1,22 @@
 <template>
-  <div>
-    <div class="check-group">
+  <div class="primary-radio">
+    <label class="input-feild">
+      {{ name }}
       <input
         type="radio"
         :id="`'${name}+${inputfor}'`"
-        :name="`'${inputfor}'`"
-        v-model="activeCategories"
         v-on:change="filterMedia()"
-        :required="true"
+        :name="`'${inputfor}'`"
       />
-      <label :for="`'${name}+${inputfor}'`">{{name}}</label>
-    </div>
+      <span class="checkmark"></span>
+    </label>
   </div>
+  
 </template>
 
 <script>
 export default {
-  props:['name', 'inputfor'],
+  props: ["name", "inputfor"],
   data() {
     return {
       activeCategories: false,
@@ -24,15 +24,82 @@ export default {
   },
   methods: {
     filterMedia() {
-      if (this.activeCategories) {
-        console.log(this.activeCategories);
-      }
+      // console.log("wokring");
     },
   },
 };
 </script>
 
 <style scoped>
+/* Customize the label (the input-feild) */
+.primary-radio {
+  background: #e8e8e8;
+  padding: 10px 28px;
+  position: relative;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+.input-feild {
+  display: block;
+  position: relative;
+  top:1px;
+  padding-left: 35px;
+  cursor: pointer;
+  color: #000;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.input-feild input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  position: relative;
+  top:-1px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  content: "";
+  -webkit-appearance: none;
+  background-color: white;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%),
+    inset 0px -15px 10px -12px rgb(0 0 0 / 5%);
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the checkmark when checked */
+.input-feild input:checked ~ .checkmark:after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.input-feild .checkmark:after {
+  position: absolute;
+  top: 1px;
+  left: 6px;
+  width: 6px;
+  height: 14px;
+  border: solid #0079bf;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 .check-group {
   display: block;
   width: fit-content;

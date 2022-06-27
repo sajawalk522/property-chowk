@@ -367,7 +367,7 @@ export default {
 }
 .property-type {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 25px 0;
 }
 .purpose-section .label {
