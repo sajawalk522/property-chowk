@@ -1,7 +1,7 @@
 <template>
   <default-layout>
     <section class="container">
-     <BlueHead  :title="'Filters'"/>
+      <BlueHead  :title="'Rent'"/>
       <section class="filters-search">
         <div class="main-search">
           <SelectBox :category="'Buy'" :selected="'Islamabad'" />
@@ -53,7 +53,7 @@ import AreaRangeBox from "@/components/common/AreaRangeBox.vue";
 import PropertydetailTabs from "@/components/PropertydetailTabs.vue";
 import PropertyList from "@/components/PropertyList.vue";
 export default {
-  name: "SearchView",
+  name: "RentView",
   components: {
     DefaultLayout,
     FeatureBox,

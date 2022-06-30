@@ -16,12 +16,15 @@
         </div>
         <div class="login-form">
           <div class="form-container">
-            <form>
+            <form autocomplete="off">
               <div class="input-div">
-                <input type="text" value="" placeholder="name" />
+                <input type="text" value="" placeholder="Name" />
               </div>
               <div class="input-div">
                 <input type="email" value="" placeholder="Email" />
+              </div>
+              <div class="input-div">
+                <input type="number" value="" placeholder="Phone Number" />
               </div>
               <div class="input-div">
                 <input type="password" value="" placeholder="Password" />
@@ -29,9 +32,7 @@
               <div class="input-div">
                 <input type="text" value="" placeholder="Estate Name" />
               </div>
-              <div class="input-div">
-                <input type="text" value="" placeholder="Package" />
-              </div>
+              
               <div class="input-div">
                 <button type="submit">Sign Up</button>
               </div>
@@ -126,7 +127,9 @@ img {
   box-shadow: 0px 0px 3px 1px #f1f1f1;
   outline: none;
   margin-bottom: 22px;
+  background-color: #fff!important;
 }
+ 
 .login-form input::placeholder {
   color: #b0b0b0;
 }

@@ -16,9 +16,9 @@
         </div>
         <div class="login-form">
           <div class="form-container">
-            <form>
+            <form autocomplete="off">
               <div class="input-div">
-                <input type="text" value="" placeholder="Email" />
+                <input type="email" value="" placeholder="Email" />
               </div>
               <div class="input-div">
                 <input type="password" value="" placeholder="Password" />
@@ -117,6 +117,7 @@ img {
   box-shadow: 0px 0px 3px 1px #f1f1f1;
   outline: none;
   margin-bottom: 22px;
+   user-select: none;
 }
 .login-form input::placeholder {
   color: #b0b0b0;

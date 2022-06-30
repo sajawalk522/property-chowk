@@ -1,11 +1,13 @@
 <template>
   <div class="bluehead">
-    <h6>FILTERS</h6>
+    <h6>{{title}}</h6>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:['title']
+};
 </script>
 
 <style scoped>
@@ -16,6 +18,7 @@ export default {};
 }
 .bluehead h6 {
   color: #fff;
+  text-transform: uppercase;
 }
 @media (max-width: 479px) and (min-width: 320px) {
   .bluehead{

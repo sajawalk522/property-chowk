@@ -6,6 +6,9 @@ import DetailView from '../views/DetailView.vue';
 import AboutView from '../views/AboutView.vue';
 import PrivacyView from '../views/PrivacyView.vue';
 import ConditionsView from '../views/TermsView.vue';
+import PlotsView from '../views/PlotsView.vue';
+import ComercialView from '../views/ComercialView.vue';
+import RentView from '../views/RentView.vue';
 const routes = [
   {
     path: '/',
@@ -16,6 +19,21 @@ const routes = [
     path: '/search',
     name: 'search',
     component: SearchView
+  },
+  {
+    path: '/plots',
+    name: 'plots',
+    component: PlotsView
+  },
+  {
+    path: '/comercial',
+    name: 'comercial',
+    component: ComercialView
+  },
+  {
+    path: '/rent',
+    name: 'rent',
+    component: RentView
   },
   {
     path: '/add-property',
@@ -37,13 +55,13 @@ const routes = [
     // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path:'/privacy',
-    name:'privacy',
+    path: '/privacy',
+    name: 'privacy',
     component: PrivacyView
   },
   {
-    path:'/term-conditions',
-    name:'term conditions',
+    path: '/term-conditions',
+    name: 'term conditions',
     component: ConditionsView,
   }
 ]
@@ -54,7 +72,7 @@ const router = createRouter({
   scrollBehavior() {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({behavior: 'smooth', left: 0, top: 0 })
+        resolve({ behavior: 'smooth', left: 0, top: 0 })
       }, 100)
     })
   },

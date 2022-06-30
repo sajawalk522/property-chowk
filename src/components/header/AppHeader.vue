@@ -16,9 +16,9 @@
           <div class="nav">
             <ul>
               <li><router-link to="/">Home</router-link></li>
-              <li><router-link to="/about">About</router-link></li>
-              <li><router-link to="/privacy">privacy</router-link></li>
-              <li><router-link to="/about">About</router-link></li>
+              <li><router-link to="/plots">PLots</router-link></li>
+              <li><router-link to="/comercial">Comercial</router-link></li>
+              <li><router-link to="/rent">Rent</router-link></li>
               <li class="login-container">
                 <div class="add">
                   <button class="btn" @click="goTo">add property</button>
