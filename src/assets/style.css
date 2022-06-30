@@ -257,10 +257,10 @@ label {
 .carousel__next--in-active {
   opacity: 0.3;
 }
-.custom-div .carousel__prev,
+/* .custom-div .carousel__prev,
 .custom-div .carousel__next {
   top: 25% !important;
-}
+} */
 @media (max-width: 479px) and (min-width: 320px) {
   .content-container {
     margin: 40px 10px 50px 10px;
