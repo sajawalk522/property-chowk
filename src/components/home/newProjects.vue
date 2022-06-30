@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-title">
-      <h1>New Projects</h1>
+      <h1>Popular Cities</h1>
     </div>
     <carousel
       :settings="settings"
