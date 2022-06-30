@@ -310,7 +310,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -328,7 +328,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -346,7 +346,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -364,7 +364,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -382,7 +382,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -400,7 +400,7 @@ export default {
           address: "Block D, Phase 5, Sector D, DHA, Lahore",
           expertise: "",
           eState: "Miler Real Estate",
-          img: "",
+          img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
           officeTiming: "",
         },
@@ -628,19 +628,37 @@ export default {
   .agent-details {
     flex-wrap: wrap-reverse;
   }
-
+.agent-model .model-main{
+  width: 90%;
+}
+.model-main .agent-details .details-list li div:nth-child(2) {
+    white-space: pre-wrap;
+}
   .agent-image {
     margin: 10px 0;
+  }
+  .model-main .agent-details .details-list{
+    width: 100%;
   }
 }
 
 @media (max-width: 479px) and (min-width: 320px) {
   .carousel__slide .carousel__item img {
-    width: 25%;
+    width: 100%;
   }
 
   .carousel__slide--active .carousel__item img {
-    width: 30% !important;
+    width: 100% !important;
+  }
+
+  /* .explert-content .expert-inner{
+    width: 100%;
+  } */
+  .experts-main{
+    height: unset;
+  }
+  .experts-tilte {
+    left: -65%;
   }
 }
 </style>
