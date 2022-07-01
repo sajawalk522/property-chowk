@@ -15,12 +15,12 @@
               >
                 Buy
               </button>
-              <button
+              <!-- <button
                 :class="['btn', { active: type == 'sell' }]"
                 @click="selectedType('sell')"
               >
                 Sell
-              </button>
+              </button> -->
               <button
                 :class="['btn', { active: type == 'rent' }]"
                 @click="selectedType('rent')"
@@ -30,29 +30,40 @@
             </div>
             <div class="checkboxes">
               <div class="location">
-                <CheckBox category="City" :selected="'Islamabad'" />
+                <SelectBox
+                  category="City"
+                  :dataInput="cities"
+                  @selected="selectedValues"
+                />
                 <div class="main-location">
                   <div class="location-search">
                     <label>location</label>
-                    <input type="text" name="location" />
+                    <input type="text" name="location" v-model="location" />
                   </div>
-                  <div class="search-btn">
-                    <router-link to="/search">
-                      <button>
-                        <img src="../../assets/images/search.svg" alt="" />
-                        <!-- <span>Search</span> -->
-                      </button>
-                    </router-link>
+                  <div class="search-btn" @click="goToSlug()">
+                    <button>
+                      <img src="../../assets/images/search.svg" alt="" />
+                      <!-- <span>Search</span> -->
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="checkboxes">
               <div class="all-boxes">
-                <CheckBox category="Home" :selected="'Mansehra'" />
-                <RangeBox category="Price Range" />
+                <SelectBox
+                  category="Property Type"
+                  :dataInput="propertyType"
+                  @selected="selectedValues"
+                />
+                <SelectBox
+                  category="Society"
+                  :dataInput="society"
+                  :selectors="citySelected"
+                  @selected="selectedValues"
+                />
+                <RangeBox category="Price Range" @selected="selectedValues" />
                 <AreaBox category="Area" />
-                <CheckBox category="bads" :selected="'Mansehra'" />
               </div>
             </div>
           </section>
@@ -63,25 +74,92 @@
 </template>
 
 <script>
-import CheckBox from "../common/SelectBox.vue";
+import SelectBox from "../common/SelectBox.vue";
 import RangeBox from "../common/RangeBox.vue";
 import AreaBox from "../common/AreaRangeBox.vue";
 export default {
   data() {
     return {
       type: "buy",
+      location: "",
       showBox: "",
+      citySelected: true,
+      search: {},
+      // input data
+      cities: [
+        {
+          name: "Islamabad",
+          society: [
+            { name: "7th Avenue" },
+            { name: "9th Avenue" },
+            { name: "D-12" },
+          ],
+        },
+        {
+          name: "Karachi",
+          society: [
+            { name: "k7th Avenue" },
+            { name: "k9th Avenue" },
+            { name: "kD-12" },
+          ],
+        },
+        {
+          name: "Lahore",
+          society: [
+            { name: "l7th Avenue" },
+            { name: "l9th Avenue" },
+            { name: "lD-12" },
+          ],
+        },
+      ],
+      society: [],
+      propertyType: [
+        { name: "Home" },
+        { name: "Plot" },
+        { name: "Commercial Farm House" },
+      ],
     };
-  },
-  components: {
-    CheckBox,
-    RangeBox,
-    AreaBox,
   },
   methods: {
     selectedType(type) {
       this.type = type;
     },
+    selectedValues(values) {
+      if (values.category == "City") {
+        this.search.city = values;
+        var filterSociety = this.cities.filter((v) => {
+          return v.name == values.name;
+        });
+        this.society = filterSociety[0].society;
+        this.citySelected = false;
+      } else if (values.category == "Property Type") {
+        this.search.ptype = values;
+      } else if (values.category == "Society") {
+        this.search.society = values;
+      } else if (values.category == "price") {
+        // console.log(values)
+        this.search.price = values;
+      }
+    },
+    goToSlug() {
+      // console.log(this.search);
+      // var url = "?";
+      // Object.keys(this.search).forEach((e) => {
+      //   if (this.search[e] && this.search[e].category !== "undefined")
+      //     url += `${this.search[e].category.toLowerCase().replace(/\s/g, "")}=${
+      //       this.search[e].name
+      //     }&`;
+      // });
+      // if (this.location) {
+      //   url += `location=${this.location}`;
+      // }
+      // console.log(url);
+    },
+  },
+  components: {
+    SelectBox,
+    RangeBox,
+    AreaBox,
   },
 };
 </script>
@@ -89,8 +167,8 @@ export default {
 .checkboxes {
   margin-top: 20px;
 }
-.main-container{
-  padding:10px 0;
+.main-container {
+  padding: 10px 0;
 }
 .main-container .search-header h1 {
   font-size: 60px;
@@ -169,9 +247,9 @@ h2 {
 }
 /* responsive */
 @media (max-width: 479px) and (min-width: 320px) {
-   .main-container{
+  .main-container {
     padding: 10px;
-   }
+  }
   .main-container .search-header h1 {
     font-size: 26px;
   }
@@ -185,45 +263,48 @@ h2 {
     padding: 5px 10px;
     font-size: 12px;
   }
-  .main-container .drop-down select{
-    font-size:12px;
+  .main-container .drop-down select {
+    font-size: 12px;
   }
-  .main-container .search{
+  .main-container .search {
     padding: 10px 10px 10px 10px;
   }
-  .all-boxes{
-    flex-wrap:wrap;
+  .all-boxes {
+    flex-wrap: wrap;
   }
-  .range{
-    width:36%;
+  .range {
+    width: 36%;
   }
-  .all-boxes > div:nth-child(3){
-    width:100%;
+  .all-boxes > div:nth-child(4) {
+    width: 100%;
     margin: 10px 0;
   }
-  .all-boxes > div:nth-child(2){
-    width:45%;
+  .all-boxes > div:nth-child(3) {
+    margin-top: 10px;
   }
-  .main-location{
-    width:64%;
+  .all-boxes > div:nth-child(2) {
+    width: 45%;
+  }
+  .main-location {
+    width: 64%;
     justify-content: space-between;
   }
-   .drop-down{
-    width:36%;
+  .drop-down {
+    width: 36%;
     padding: 10px 10px;
   }
-  .search .location .drop-down{
-    width:30%;
+  .search .location .drop-down {
+    width: 30%;
   }
-  .search .checkboxes{
-    margin-top:10px;
+  .search .checkboxes {
+    margin-top: 10px;
   }
-  .main-location .location-search{
-    width:39%;
+  .main-location .location-search {
+    width: 39%;
     justify-content: space-between;
   }
-  .search-btn button{
-    padding: 10px 12px
+  .search-btn button {
+    padding: 10px 12px;
   }
 }
 </style>

@@ -1,11 +1,19 @@
 <template>
-  <div class="drop-down">
-    <div @click="showDropdown">
+  <div class="drop-down" @click="society">
+    <div>
       <label>{{ category }}</label>
-      <select v-model="select" :class="{active: $route.fullPath == '/search'}">
-        <option>Islamabad</option>
-        <option>Mansehra</option>
-        <option>Oghi</option>
+      <select
+        :class="{ active: $route.fullPath == '/search' }"
+        @change="onChange($event)"
+        v-if="!selectors"
+      >
+        <option
+          v-for="(opt, index) in dataInput"
+          :key="index"
+          :selected="index == 0"
+        >
+          {{ opt.name }}
+        </option>
       </select>
     </div>
   </div>
@@ -13,11 +21,21 @@
 
 <script>
 export default {
-  props: ["category", "selected"],
-  data() {
-    return {
-      select: this.selected,
-    };
+  props: ["category", "selected", "dataInput", "selectors"],
+  methods: {
+    onChange(event) {
+      var value = {};
+      value.category = this.category;
+      value.name = event.target.value;
+      this.$emit("selected", value);
+    },
+    society() {
+      if (this.category == "Society") {
+        if (this.selectors) {
+          alert("please select city before society");
+        }
+      }
+    },
   },
 };
 </script>
@@ -38,9 +56,8 @@ export default {
   position: relative;
   font-size: 16px;
   left: -3px;
-  background-color: #fff!important;
 }
-.drop-down .active{
-  padding-bottom:2px;
+.drop-down .active {
+  padding-bottom: 2px;
 }
 </style>

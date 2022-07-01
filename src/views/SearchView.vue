@@ -1,19 +1,31 @@
 <template>
   <default-layout>
     <section class="container">
-     <BlueHead  :title="'Filters'"/>
+      <BlueHead :title="'Filters'" />
       <section class="filters-search">
         <div class="main-search">
-          <SelectBox :category="'Buy'" :selected="'Islamabad'" />
-          <RangeBox category="Price Range" />
-          <SelectBox :category="'City'" :selected="'Islamabad'" />
-          <SelectBox :category="'Property Type'" :selected="'Islamabad'" />
+          <SelectBox :category="'Buy'" :dataInput="buy" @selected="selectedValues" />
+          <!-- <RangeBox category="Price Range" @selected="selectedValues" /> -->
+          <div class="location-search">
+                    <label>location</label>
+                    <input type="text" name="location" v-model="location" />
+                  </div>
+          <SelectBox :category="'City'" :dataInput="cities" @selected="selectedValues" />
+          <SelectBox
+            :category="'Property Type'"
+            :dataInput="propertyType"
+            @selected="selectedValues"
+          />
         </div>
         <div class="main-search main-search-sec">
           <AreaRangeBox category="Price Range" />
-          <SelectBox :category="'Buy'" :selected="'Islamabad'" />
-          <SelectBox :category="'City'" :selected="'Islamabad'" />
-          <SelectBox :category="'Property Type'" :selected="'Islamabad'" />
+          <SelectBox :category="'Buy'" :dataInput="buy" @selected="selectedValues" />
+          <SelectBox :category="'City'" :dataInput="cities" @selected="selectedValues" />
+          <SelectBox
+            :category="'Property Type'"
+            :dataInput="propertyType"
+            @selected="selectedValues"
+          />
         </div>
         <div class="features-section">
           <div class="features-head">
@@ -48,7 +60,7 @@ import DefaultLayout from "@/components/layouts/DefaultLayout.vue";
 import FeatureBox from "@/components/common/FeatureBox.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
 import SelectBox from "@/components/common/SelectBox.vue";
-import RangeBox from "@/components/common/RangeBox.vue";
+// import RangeBox from "@/components/common/RangeBox.vue";
 import AreaRangeBox from "@/components/common/AreaRangeBox.vue";
 import PropertydetailTabs from "@/components/PropertydetailTabs.vue";
 import PropertyList from "@/components/PropertyList.vue";
@@ -59,14 +71,109 @@ export default {
     FeatureBox,
     BlueHead,
     SelectBox,
-    RangeBox,
     AreaRangeBox,
     PropertydetailTabs,
-    PropertyList,
+    PropertyList
   },
+  data() {
+    return {
+      type: "buy",
+      location: "",
+      showBox: "",
+      citySelected: true,
+      search: {},
+      // input data
+      buy:[
+         { name: "Buy" },
+         { name: "Sell" },
+         { name: "rent" }
+      ],
+      cities: [
+        {
+          name: "Islamabad",
+          society: [
+            { name: "7th Avenue" },
+            { name: "9th Avenue" },
+            { name: "D-12" }
+          ]
+        },
+        {
+          name: "Karachi",
+          society: [
+            { name: "k7th Avenue" },
+            { name: "k9th Avenue" },
+            { name: "kD-12" }
+          ]
+        },
+        {
+          name: "Lahore",
+          society: [
+            { name: "l7th Avenue" },
+            { name: "l9th Avenue" },
+            { name: "lD-12" }
+          ]
+        }
+      ],
+      society: [],
+      propertyType: [
+        { name: "Home" },
+        { name: "Plot" },
+        { name: "Commercial Farm House" }
+      ]
+    };
+  },
+  methods: {
+    selectedType(type) {
+      this.type = type;
+    },
+    selectedValues(values) {
+      if (values.category == "City") {
+        this.search.city = values;
+        var filterSociety = this.cities.filter(v => {
+          return v.name == values.name;
+        });
+        this.society = filterSociety[0].society;
+        this.citySelected = false;
+      } else if (values.category == "Property Type") {
+        this.search.ptype = values;
+      } else if (values.category == "Society") {
+        this.search.society = values;
+      } else if (values.category == "price") {
+        // console.log(values)
+        this.search.price = values;
+      }
+    }
+  }
 };
 </script>
 <style scoped>
+.location-search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  padding: 13px 10px 10px 22px;
+  position: relative;
+  box-shadow: 0px 0px 4px 0px #89878754;
+}
+.location-search:before {
+  position: absolute;
+  content: "";
+  height: 50px;
+  background-color: #ebebeb;
+  width: 1px;
+  top: 16px;
+  left: -1px;
+}
+.location-search input[type="text"] {
+  height: 100%;
+  border: none;
+  color: #707070;
+}
+.location-search input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
 .filters-search {
   padding: 10px 0;
 }

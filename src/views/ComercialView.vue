@@ -64,6 +64,70 @@ export default {
     PropertydetailTabs,
     PropertyList,
   },
+  data() {
+    return {
+      type: "buy",
+      location: "",
+      showBox: "",
+      citySelected: true,
+      search: {},
+      // input data
+      cities: [
+        {
+          name: "Islamabad",
+          society: [
+            { name: "7th Avenue" },
+            { name: "9th Avenue" },
+            { name: "D-12" },
+          ],
+        },
+        {
+          name: "Karachi",
+          society: [
+            { name: "k7th Avenue" },
+            { name: "k9th Avenue" },
+            { name: "kD-12" },
+          ],
+        },
+        {
+          name: "Lahore",
+          society: [
+            { name: "l7th Avenue" },
+            { name: "l9th Avenue" },
+            { name: "lD-12" },
+          ],
+        },
+      ],
+      society: [],
+      propertyType: [
+        { name: "Home" },
+        { name: "Plot" },
+        { name: "Commercial Farm House" },
+      ],
+    };
+  },
+  methods: {
+    selectedType(type) {
+      this.type = type;
+    },
+    selectedValues(values) {
+      if (values.category == "City") {
+        this.search.city = values;
+        var filterSociety = this.cities.filter((v) => {
+          return v.name == values.name;
+        });
+        this.society = filterSociety[0].society;
+        this.citySelected = false;
+      } else if (values.category == "Property Type") {
+        this.search.ptype = values;
+      } else if (values.category == "Society") {
+        this.search.society = values;
+      } else if (values.category == "price") {
+        // console.log(values)
+        this.search.price = values;
+      }
+    },
+  },
 };
 </script>
 <style scoped>
