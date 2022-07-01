@@ -42,7 +42,9 @@
                   </div>
                   <div class="search-btn" @click="goToSlug()">
                     <button>
-                      <img src="../../assets/images/search.svg" alt="" />
+                      <router-link to="search">
+                        <img src="../../assets/images/search.svg" alt="" />
+                      </router-link>
                       <!-- <span>Search</span> -->
                     </button>
                   </div>
