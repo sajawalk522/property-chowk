@@ -86,7 +86,7 @@ export default {
       buy:[
          { name: "Buy" },
          { name: "Sell" },
-         { name: "rent" }
+         { name: "Rent" }
       ],
       cities: [
         {
