@@ -97,6 +97,7 @@ export default {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background: #fff!important;
 }
 .area-unit {
   position: relative;
