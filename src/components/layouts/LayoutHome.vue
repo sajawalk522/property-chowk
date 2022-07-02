@@ -5,7 +5,7 @@
       <div class="primary">
         <div>
           <div class="slide-imges" v-for="(img, index) in images" :key="index">
-            <img :src="img" :class="{ active: index == imageShow }" />
+            <img :src="require(`../../assets/images/${img}`)" :class="{ active: index == imageShow }" />
           </div>
         </div>
         <SearchHeader />
@@ -30,8 +30,8 @@ export default {
   data() {
     return {
       images: [
-        "http://ui.propertychowk.com/wp-content/uploads/2022/06/modern-house-exterior-E3A7NAJ-web.jpg",
-        "http://ui.propertychowk.com/wp-content/uploads/2022/06/architectural-house-exterior-7HVDWWS-web.jpg",
+        "hero1.jpg",
+        "hero2.jpg",
       ],
       imageShow: 0,
     };
