@@ -49,8 +49,8 @@ export default {
   padding: 30px 0;
 }
 .tending-project .trend-card {
-  margin: 12px 0 1px 12px;
-  width: calc(33% - 9px);
+ margin: 12px 20px 15px 20px;
+    width: calc(30% - 9px);
   text-decoration: none;
 }
 .tending-project .trend-image img {
@@ -58,7 +58,7 @@ export default {
 }
 .tending-project h2 {
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
   padding: 10px 0;

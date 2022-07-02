@@ -79,7 +79,7 @@ export default {
   padding: 30px 0;
 }
 .tending-project .trend-card {
-  margin: 12px 0 1px 12px;
+  margin: 12px 0 1px 18px;
   width: calc(24% - 9px);
   text-decoration: none;
 }
