@@ -22,7 +22,7 @@
                 ><button class="btns">Societies</button></router-link
               >
             </div>
-            <router-link to="/search" class="quick-search">
+            <section class="quick-search">
               <div class="quick-main">
                 <div class="heading">
                   <h1>QUICK SEARCH</h1>
@@ -54,13 +54,13 @@
                       </select>
                     </div>
                   </div>
-                  <div class="yellow-btns">
+                  <router-link to="/search" class="yellow-btns">
                     <button>Buy</button>
                     <button>Rent</button>
-                  </div>
+                  </router-link>
                 </div>
               </div>
-            </router-link>
+            </section>
           </section>
         </div>
       </div>
