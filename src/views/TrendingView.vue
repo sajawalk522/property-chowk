@@ -1,22 +1,21 @@
 <template>
-  <div class="home">
+  <div>
     <layout-home>
-      <DetailPage />
-      <AppFooter />
+        <TrendingProjects/>
     </layout-home>
-    <BottomFooter/>
+    <BottomFooter />
   </div>
 </template>
 <script>
 import LayoutHome from "@/components/layouts/LayoutHome.vue";
-import DetailPage from "@/components/detail/index.vue";
 import BottomFooter from "@/components/footer/bottomFooter.vue";
+import TrendingProjects from "@/components/trending/trendingProjects.vue";
 export default {
-  name: "DetailView",
+  name: "TrendingView",
   components: {
     LayoutHome,
-    DetailPage,
-    BottomFooter,
-  },
+    TrendingProjects,
+    BottomFooter
+  }
 };
 </script>

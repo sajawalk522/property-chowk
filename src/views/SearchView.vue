@@ -1,56 +1,226 @@
 <template>
   <default-layout>
     <section class="container">
-      <BlueHead :title="'Filters'" />
-      <section class="filters-search">
-        <div class="main-search">
-          <SelectBox :category="'Buy'" :dataInput="buy" @selected="selectedValues" />
-          <!-- <RangeBox category="Price Range" @selected="selectedValues" /> -->
-          <div class="location-search">
-                    <label>location</label>
-                    <input type="text" name="location" v-model="location" />
+      <BlueHead />
+      <section class="filter-search">
+        <section>
+          <div class="toggle-buttons">
+            <button
+              :class="['btn', { active: category == 'buy' }]"
+              @click="typeSelect('buy')"
+            >
+              Buy
+            </button>
+            <button
+              :class="['btn', { active: category == 'rent' }]"
+              @click="typeSelect('rent')"
+            >
+              Rent
+            </button>
+          </div>
+        </section>
+        <TypeAndSubtype title="Property type" :types="typeData" />
+        <TypeAndSubtype title="Property Sub type" :types="subTypeData" />
+        <div class="main-inputs">
+          <div class="range-section">
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Price</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="number" placeholder="0" />
+                </div>
+                <div class="mid-to">to</div>
+                <div>
+                  <input type="number" placeholder="any" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Property Size</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="number" name="" id="" />
+                </div>
+                <div>
+                  <select class="area">
+                    <option value="" selected>Marla</option>
+                    <option value="">Kanal</option>
+                    <option value="">Acre</option>
+                    <option value="">Yard</option>
+                    <option value="">sq.ft</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+          </div>
+          <!-- area detail -->
+          <section class="area-detail">
+            <!-- block of code -->
+            <div class="city-block">
+              <div class="title">
+                <h1>City</h1>
+              </div>
+              <div class="area-input">
+                <div>
+                  <input type="text" v-model="city" @focus="openDropdown" />
+                </div>
+                <div
+                  class="dropdown"
+                  v-if="dropdownCities"
+                  @blur="closeDropdown"
+                >
+                  <div class="city-search">
+                    <input type="search" placeholder="Search Location" />
                   </div>
-          <SelectBox :category="'City'" :dataInput="cities" @selected="selectedValues" />
-          <SelectBox
-            :category="'Property Type'"
-            :dataInput="propertyType"
-            @selected="selectedValues"
-          />
+                  <div class="city-list" @click="selectedCity('islamabad')">
+                    <ul>
+                      <li>Popular Cities</li>
+                      <li>Islamabad</li>
+                      <li>Karachi</li>
+                      <li>Lahore</li>
+                      <li>Peshawar</li>
+                    </ul>
+                    <ul>
+                      <li>Other Cities</li>
+                      <li>Abbottabad</li>
+                      <li>Abdul Hakim</li>
+                      <li>Alipur</li>
+                      <li>Bagh</li>
+                      <li>Bannu</li>
+                      <li>Chakwal</li>
+                      <li>Daska</li>
+                      <li>Daur</li>
+                      <li>FATA</li>
+                      <li>Gilgit</li>
+                      <li>Mansehra</li>
+                      <li>Okara</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- block of code -->
+          </section>
+          <section class="address-block">
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Society</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Phase</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Block</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Sector</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Road</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+            <!-- input block -->
+            <div class="check-buttons">
+              <div class="title">
+                <h1>Street</h1>
+              </div>
+              <div>
+                <div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <!-- input block -->
+          </section>
         </div>
-        <div class="main-search main-search-sec">
-          <AreaRangeBox category="Price Range" />
-          <SelectBox :category="'Buy'" :dataInput="buy" @selected="selectedValues" />
-          <SelectBox :category="'City'" :dataInput="cities" @selected="selectedValues" />
-          <SelectBox
-            :category="'Property Type'"
-            :dataInput="propertyType"
-            @selected="selectedValues"
-          />
+        <!-- area detail -->
+        <div class="main-inputs">
+          <DetailNumbers :title="'Floor'" :data="floorData" />
+          <DetailNumbers :title="'Bedrooms'" :data="bedRooms" />
+          <DetailNumbers :title="'Bathrooms'" :data="bathRooms" />
         </div>
+        <!-- input block -->
+        <div class="check-buttons property-number">
+          <div class="title">
+            <h1>Property Number</h1>
+          </div>
+          <div>
+            <div>
+              <input type="number" />
+            </div>
+          </div>
+        </div>
+        <!-- input block -->
         <div class="features-section">
           <div class="features-head">
-            <h6>Features</h6>
+            <h6>Property Status</h6>
           </div>
           <div class="features-list">
-            <FeatureBox :name="'Gas'" />
-            <FeatureBox :name="'Electricity'" />
-            <FeatureBox :name="'Corner'" />
-            <FeatureBox :name="'Near Masjid'" />
-            <FeatureBox :name="'Lawn'" />
-            <FeatureBox :name="'Near School'" />
-            <FeatureBox :name="'Pool'" />
-            <FeatureBox :name="'Tv Lounge'" />
-            <FeatureBox :name="'Near Market'" />
-            <FeatureBox :name="'Store Room'" />
-            <FeatureBox :name="'Drawing Room'" />
-            <FeatureBox :name="'Laundry Room'" />
-            <FeatureBox :name="'Kichen'" />
-            <FeatureBox :name="'Balcony'" />
-            <FeatureBox :name="'Near Park'" />
+            <FeatureBox :name="'Direct to Owner'" />
+            <FeatureBox :name="'Bayana'" />
+            <FeatureBox :name="'Ndc applied'" />
+            <FeatureBox :name="'Possession'" />
+            <FeatureBox :name="'Non-Possession'" />
+            <FeatureBox :name="'Army update'" />
+            <FeatureBox :name="'All Paid'" />
+            <FeatureBox :name="'File'" />
+            <FeatureBox :name="'Others'" />
           </div>
-          <PropertydetailTabs />
-          <PropertyList />
         </div>
+        <section class="btn-section">
+          <button class="btn">Search</button>
+        </section>
       </section>
     </section>
   </default-layout>
@@ -58,160 +228,100 @@
 <script>
 import DefaultLayout from "@/components/layouts/DefaultLayout.vue";
 import FeatureBox from "@/components/common/FeatureBox.vue";
+import TypeAndSubtype from "@/components/common/TypeAndSubtype.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
-import SelectBox from "@/components/common/SelectBox.vue";
-// import RangeBox from "@/components/common/RangeBox.vue";
-import AreaRangeBox from "@/components/common/AreaRangeBox.vue";
-import PropertydetailTabs from "@/components/PropertydetailTabs.vue";
-import PropertyList from "@/components/PropertyList.vue";
+import DetailNumbers from "@/components/common/DetailNumbers.vue";
 export default {
   name: "SearchView",
   components: {
     DefaultLayout,
     FeatureBox,
+    TypeAndSubtype,
     BlueHead,
-    SelectBox,
-    AreaRangeBox,
-    PropertydetailTabs,
-    PropertyList
+    DetailNumbers,
   },
   data() {
     return {
-      type: "buy",
-      location: "",
-      showBox: "",
-      citySelected: true,
-      search: {},
-      // input data
-      buy:[
-         { name: "Buy" },
-         { name: "Sell" },
-         { name: "Rent" }
+      category: "buy",
+      dropdownCities: false,
+      city: "",
+      typeData: [
+        { type: "Plot", icon: "bath.png" },
+        { type: "Home", icon: "bed.png" },
+        { type: "Commercial", icon: "bath.png" },
+        { type: "Farm House", icon: "bath.png" },
       ],
-      cities: [
-        {
-          name: "Islamabad",
-          society: [
-            { name: "7th Avenue" },
-            { name: "9th Avenue" },
-            { name: "D-12" }
-          ]
-        },
-        {
-          name: "Karachi",
-          society: [
-            { name: "k7th Avenue" },
-            { name: "k9th Avenue" },
-            { name: "kD-12" }
-          ]
-        },
-        {
-          name: "Lahore",
-          society: [
-            { name: "l7th Avenue" },
-            { name: "l9th Avenue" },
-            { name: "lD-12" }
-          ]
-        }
+      subTypeData: [
+        { type: "Residential", icon: "bath.png" },
+        { type: "Commercial", icon: "bed.png" },
+        { type: "Agricultural", icon: "bed.png" },
+        { type: "Plot", icon: "bath.png" },
+        { type: "Plot", icon: "bath.png" },
+        { type: "Plot", icon: "bed.png" },
+        { type: "Plot", icon: "bath.png" },
+        { type: "Plot", icon: "bath.png" },
+        { type: "Plot", icon: "bath.png" },
       ],
-      society: [],
-      propertyType: [
-        { name: "Home" },
-        { name: "Plot" },
-        { name: "Commercial Farm House" }
-      ]
+      floorData: [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15+",
+      ],
+      bedRooms: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+      bathRooms: ["1", "2", "3", "4", "5", "6", "7", "8"],
     };
   },
   methods: {
-    selectedType(type) {
-      this.type = type;
+    openDropdown() {
+      this.dropdownCities = true;
     },
-    selectedValues(values) {
-      if (values.category == "City") {
-        this.search.city = values;
-        var filterSociety = this.cities.filter(v => {
-          return v.name == values.name;
-        });
-        this.society = filterSociety[0].society;
-        this.citySelected = false;
-      } else if (values.category == "Property Type") {
-        this.search.ptype = values;
-      } else if (values.category == "Society") {
-        this.search.society = values;
-      } else if (values.category == "price") {
-        // console.log(values)
-        this.search.price = values;
-      }
-    }
-  }
+    closeDropdown() {
+      this.dropdownCities = false;
+    },
+    selectedCity(city) {
+      this.city = city;
+      this.dropdownCities = false;
+    },
+    typeSelect(type) {
+      this.category = type;
+    },
+  },
 };
 </script>
 <style scoped>
-.location-search {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.toggle-buttons {
+  margin-top: 30px;
+  width: max-content;
+  box-shadow: 2px 4px 7px 0px #40404057;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.toggle-buttons .btn {
+  border-radius: 40px;
   background: #fff;
-  padding: 13px 10px 10px 22px;
-  position: relative;
-  box-shadow: 0px 0px 4px 0px #89878754;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.8s;
 }
-.location-search:before {
-  position: absolute;
-  content: "";
-  height: 50px;
-  background-color: #ebebeb;
-  width: 1px;
-  top: 16px;
-  left: -1px;
+.toggle-buttons .btn.active {
+  background: #07abd3;
+  color: #fff;
 }
-.location-search input[type="text"] {
-  height: 100%;
-  border: none;
-  color: #707070;
-}
-.location-search input[type="text"]:focus {
-  border: none;
-  outline: none;
-}
-.filters-search {
-  padding: 10px 0;
-}
-.filters-search .main-search {
-  display: flex;
-  justify-content: space-between;
-  margin: 26px 0;
-}
-.filters-search .main-search .drop-down,
-.filters-search .main-search .range {
-  box-shadow: 0px 0px 4px 0px #89878754;
-}
-.main-search > div:nth-child(1) {
-  width: 16%;
-}
-.main-search > div:nth-child(2) {
-  width: 40%;
-}
-.main-search > div:nth-child(3) {
-  width: 14%;
-}
-.main-search > div:nth-child(4) {
-  width: 12%;
-}
-.main-search-sec {
-  margin-top: 32px !important;
-}
-.main-search-sec > div:nth-child(1) {
-  width: 36%;
-}
-.main-search-sec > div:nth-child(2) {
-  width: 17%;
-}
-.main-search-sec > div:nth-child(3) {
-  width: 13%;
-}
-.main-search-sec > div:nth-child(4) {
-  width: 14%;
+.main-inputs {
+  margin: 30px 0;
 }
 /* features-section start */
 .features-section .features-head h6 {
@@ -219,7 +329,7 @@ export default {
   font-size: 16px;
 }
 .features-section .features-head {
-  padding: 14px 0 24px 0;
+  padding: 14px 0 18px 0;
 }
 .features-list {
   display: flex;
@@ -230,34 +340,140 @@ export default {
   margin-right: 18px;
   margin-bottom: 18px;
 }
-/* features-section end */
-/* responsive */
-@media (max-width: 479px) and (min-width: 320px) {
-  .filters-search .main-search {
-    flex-wrap: wrap;
-    padding: 0 10px;
-  }
-  .filters-search .main-search .drop-down {
-    width: 40%;
-  }
-  .main-search > div:nth-child(3),
-  .main-search > div:nth-child(4) {
-    margin-top: 10px;
-  }
-  .main-search > div:nth-child(2) {
-    width: 40%;
-  }
-  .main-search-sec > div:nth-child(1) {
-    width: 40%;
-  }
-  .filters-search .main-search {
-    margin: 10px 10px 10px 10px !important;
-  }
-  .features-section .features-head {
-    padding-left: 18px;
-  }
-  .features-list {
-    padding-left: 18px;
-  }
+.check-buttons > div {
+  display: flex;
+  align-items: center;
+}
+.check-buttons input {
+  outline: none;
+  font-size: 14px;
+  min-width: 140px;
+  box-shadow: 0px 0px 10px #00000012;
+  padding: 10px 5px;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+.property-number input {
+  min-width: 383px;
+}
+.check-buttons .mid-to {
+  margin: 0 10px;
+}
+.check-buttons .title {
+  padding: 14px 0 18px 0;
+}
+.check-buttons .title h1,
+.area-detail .title h1 {
+  color: #000;
+  font-size: 16px;
+}
+.range-section {
+  display: flex;
+}
+.range-section > div:nth-child(2) {
+  margin-left: 60px;
+}
+.city-block .title {
+  padding: 14px 0 18px 0;
+}
+.check-buttons .area {
+  font-size: 14px;
+  min-width: 140px;
+  border: none;
+  box-shadow: 0px 0px 10px #00000012;
+  padding: 10px 5px;
+  outline: none;
+  margin-left: 10px;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+.area-input {
+  position: relative;
+  width: 36%;
+}
+.area-input .dropdown {
+  position: absolute;
+  background: #fff;
+  padding: 0px;
+  z-index: 2;
+  width: 99%;
+  border: 1px solid #eee;
+}
+.area-input input {
+  outline: none;
+  font-size: 14px;
+  min-width: 383px;
+  box-shadow: 0px 0px 10px #00000012;
+  padding: 10px 5px;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+.area-detail {
+  margin-top: 20px;
+}
+.address-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+.address-block .check-buttons {
+  margin: 20px 80px 0px 0;
+}
+.address-block .check-buttons input {
+  min-width: 190px;
+}
+.city-search {
+  background: #fff;
+  padding: 10px;
+}
+.city-search input {
+  outline: none;
+  font-size: 12px;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 10px #00000012;
+  padding: 10px 5px;
+  border-radius: 20px;
+  color: #3333;
+  background: #eee;
+  min-width: 100% !important;
+}
+.city-list {
+  overflow: scroll;
+  height: 400px;
+}
+.city-list ul {
+  padding: 0 10px;
+}
+.city-list::-webkit-scrollbar {
+  display: none;
+}
+
+.city-list {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.city-list ul li:first-child {
+  font-weight: 600;
+  padding: 10px 0;
+}
+.city-list ul li {
+  font-size: 14px;
+  color: #000;
+  padding: 10px;
+}
+.features-section {
+  margin: 30px 0;
+}
+.btn-section {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 50px 0;
+}
+.btn-section .btn {
+  padding: 16px 0px;
+  color: #fff;
+  border-radius: 40px;
+  background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
+  font-size: 14px;
+  min-width: 331px;
 }
 </style>

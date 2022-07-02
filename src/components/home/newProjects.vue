@@ -11,7 +11,7 @@
       class="carousel-container"
     >
       <slide :key="1">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/karachi.png" />
 
           <div class="layout">
@@ -23,7 +23,7 @@
         </router-link>
       </slide>
       <slide :key="2">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/lahore.png" />
           <div class="layout">
             <div>
@@ -34,7 +34,7 @@
         </router-link>
       </slide>
       <slide :key="3">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/islamabad.png" />
           <div class="layout">
             <div>
@@ -45,7 +45,7 @@
         </router-link>
       </slide>
       <slide :key="4">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/peshawar.png" />
           <div class="layout">
             <div>
@@ -56,7 +56,7 @@
         </router-link>
       </slide>
       <slide :key="1">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/karachi.png" />
           <div class="layout">
             <div>
@@ -67,7 +67,7 @@
         </router-link>
       </slide>
       <slide :key="2">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/lahore.png" />
           <div class="layout">
             <div>
@@ -78,7 +78,7 @@
         </router-link>
       </slide>
       <slide :key="3">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/islamabad.png" />
           <div class="layout">
             <div>
@@ -89,7 +89,7 @@
         </router-link>
       </slide>
       <slide :key="4">
-        <router-link to="/detail">
+        <router-link to="/trending">
           <img src="../../assets/images/peshawar.png" />
           <div class="layout">
             <div>

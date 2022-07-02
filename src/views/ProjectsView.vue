@@ -1,22 +1,21 @@
 <template>
-  <div class="home">
+  <div>
     <layout-home>
-      <DetailPage />
-      <AppFooter />
+      <ProjectsPage />
     </layout-home>
-    <BottomFooter/>
+    <BottomFooter />
   </div>
 </template>
 <script>
 import LayoutHome from "@/components/layouts/LayoutHome.vue";
-import DetailPage from "@/components/detail/index.vue";
 import BottomFooter from "@/components/footer/bottomFooter.vue";
+import ProjectsPage from "@/components/allProjects/index.vue";
 export default {
-  name: "DetailView",
+  name: "ProjectsView",
   components: {
     LayoutHome,
-    DetailPage,
-    BottomFooter,
-  },
+    ProjectsPage,
+    BottomFooter
+  }
 };
 </script>

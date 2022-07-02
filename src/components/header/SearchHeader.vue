@@ -1,73 +1,66 @@
 <template>
-  <section>
+  <section class="searchHeader">
     <div class="container">
       <div class="main-container">
         <div class="main-primary">
           <div class="search-header">
-            <h1>Search Properties in Pakistan</h1>
-            <h2>Find the best properties rates in Pakistan</h2>
+            <h1>Property Chowk</h1>
+            <h2>
+              A New Era of <br />
+              Pakistan's Real Estate Market
+            </h2>
           </div>
-          <section class="search">
-            <div class="header-buttons">
-              <button
-                :class="['btn', { active: type == 'buy' }]"
-                @click="selectedType('buy')"
+          <section class="search" v-if="$route.path == '/'">
+            <div class="heade-btns">
+              <router-link to="#"
+                ><button class="btns">Add Property</button></router-link
               >
-                Buy
-              </button>
-              <!-- <button
-                :class="['btn', { active: type == 'sell' }]"
-                @click="selectedType('sell')"
+              <router-link to="#"
+                ><button class="btns active">Top Projects</button></router-link
               >
-                Sell
-              </button> -->
-              <button
-                :class="['btn', { active: type == 'rent' }]"
-                @click="selectedType('rent')"
+              <router-link to="#"
+                ><button class="btns">Societies</button></router-link
               >
-                Rent
-              </button>
             </div>
-            <div class="checkboxes">
-              <div class="location">
-                <SelectBox
-                  category="City"
-                  :dataInput="cities"
-                  @selected="selectedValues"
-                />
-                <div class="main-location">
-                  <div class="location-search">
-                    <label>location</label>
-                    <input type="text" name="location" v-model="location" />
+            <router-link to="/search" class="quick-search">
+              <div class="quick-main">
+                <div class="heading">
+                  <h1>QUICK SEARCH</h1>
+                </div>
+                <div class="search-container">
+                  <div class="inputs">
+                    <div>
+                      <select>
+                        <option value="" selected>City</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select>
+                        <option value="" selected>Area</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select>
+                        <option value="" selected>All Types</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="search-btn" @click="goToSlug()">
-                    <button>
-                      <router-link to="search">
-                        <img src="../../assets/images/search.svg" alt="" />
-                      </router-link>
-                      <!-- <span>Search</span> -->
-                    </button>
+                  <div class="yellow-btns">
+                    <button>Buy</button>
+                    <button>Rent</button>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="checkboxes">
-              <div class="all-boxes">
-                <SelectBox
-                  category="Property Type"
-                  :dataInput="propertyType"
-                  @selected="selectedValues"
-                />
-                <SelectBox
-                  category="Society"
-                  :dataInput="society"
-                  :selectors="citySelected"
-                  @selected="selectedValues"
-                />
-                <RangeBox category="Price Range" @selected="selectedValues" />
-                <AreaBox category="Area" />
-              </div>
-            </div>
+            </router-link>
           </section>
         </div>
       </div>
@@ -76,107 +69,108 @@
 </template>
 
 <script>
-import SelectBox from "../common/SelectBox.vue";
-import RangeBox from "../common/RangeBox.vue";
-import AreaBox from "../common/AreaRangeBox.vue";
 export default {
   data() {
-    return {
-      type: "buy",
-      location: "",
-      showBox: "",
-      citySelected: true,
-      search: {},
-      // input data
-      cities: [
-        {
-          name: "Islamabad",
-          society: [
-            { name: "7th Avenue" },
-            { name: "9th Avenue" },
-            { name: "D-12" },
-          ],
-        },
-        {
-          name: "Karachi",
-          society: [
-            { name: "k7th Avenue" },
-            { name: "k9th Avenue" },
-            { name: "kD-12" },
-          ],
-        },
-        {
-          name: "Lahore",
-          society: [
-            { name: "l7th Avenue" },
-            { name: "l9th Avenue" },
-            { name: "lD-12" },
-          ],
-        },
-      ],
-      society: [],
-      propertyType: [
-        { name: "Home" },
-        { name: "Plot" },
-        { name: "Commercial Farm House" },
-      ],
-    };
-  },
-  methods: {
-    selectedType(type) {
-      this.type = type;
-    },
-    selectedValues(values) {
-      if (values.category == "City") {
-        this.search.city = values;
-        var filterSociety = this.cities.filter((v) => {
-          return v.name == values.name;
-        });
-        this.society = filterSociety[0].society;
-        this.citySelected = false;
-      } else if (values.category == "Property Type") {
-        this.search.ptype = values;
-      } else if (values.category == "Society") {
-        this.search.society = values;
-      } else if (values.category == "price") {
-        // console.log(values)
-        this.search.price = values;
-      }
-    },
-    goToSlug() {
-      // console.log(this.search);
-      // var url = "?";
-      // Object.keys(this.search).forEach((e) => {
-      //   if (this.search[e] && this.search[e].category !== "undefined")
-      //     url += `${this.search[e].category.toLowerCase().replace(/\s/g, "")}=${
-      //       this.search[e].name
-      //     }&`;
-      // });
-      // if (this.location) {
-      //   url += `location=${this.location}`;
-      // }
-      // console.log(url);
-    },
-  },
-  components: {
-    SelectBox,
-    RangeBox,
-    AreaBox,
+    return {};
   },
 };
 </script>
 <style scoped>
-.checkboxes {
-  margin-top: 20px;
+a{
+  text-decoration: none;
+}
+.searchHeader {
+  width: 100%;
+}
+.heade-btns {
+  display: flex;
+  justify-content: space-between;
+}
+.heade-btns .btns {
+  padding: 12px 26px;
+  font-size: 16px;
+  min-width: 169px;
+  border-radius: 3px;
+  background-color: #1783b4;
+  color: #fff;
+  transition: 0.5s;
+}
+.heade-btns .btns:hover {
+  background-color: #282828;
+}
+.heade-btns .btns.active {
+  background-color: #282828;
+}
+.heade-btns .btns.active:hover {
+  background-color: #1783b4;
+}
+.quick-main {
+  width: 80%;
+}
+.quick-search{
+  display:flex;
+  justify-content: center;
+}
+.quick-search .heading {
+  margin: 30px 0px 10px 0px;
+}
+.quick-search h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  position: relative;
+  left: -103px;
+  top: 7px;
+}
+.quick-search .search-container {
+  color: #fff;
+  display: flex;
+  width: 96%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5d9265;
+  padding: 16px;
+}
+.quick-search .search-container .inputs {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+.quick-search .search-container .inputs > div {
+  width: 100%;
+  border-right: 1px solid #d5d5d5;
+}
+.quick-search .search-container select {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 10px;
+  color: #000;
+  position: relative;
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .main-container {
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+.main-primary {
+  width: 90%;
 }
 .main-container .search-header h1 {
-  font-size: 60px;
+  font-size: 26px;
+  font-weight: 400;
 }
 .main-container .search-header h2 {
-  font-size: 28px;
+  font-size: 56px;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 2.5px;
 }
 .main-container .search-header h1,
 h2 {
@@ -185,128 +179,28 @@ h2 {
 .main-container .search-header {
   line-height: 1.5;
   margin-top: 40px;
+  text-align: center;
 }
 .main-container .search {
   padding: 18px 24px 28px 24px;
-  background: #0a1023ad;
   margin-top: 30px;
 }
-.main-container .search .btn {
-  color: #fff;
-  background: transparent;
-  padding: 10px 14px;
-  margin-right: 16px;
-  font-size: 16px;
-}
-.main-container .search .btn.active {
-  background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
-}
-.location {
+.yellow-btns {
+  width: 30%;
   display: flex;
+  flex-wrap: nowrap;
+  margin-left: 6px;
 }
-.main-location {
-  display: flex;
-  width: 85%;
-}
-.location-search {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: #fff;
-  padding: 13px 10px 10px 22px;
-  position: relative;
-}
-.location-search:before {
-  position: absolute;
-  content: "";
-  height: 50px;
-  background-color: #ebebeb;
-  width: 1px;
-  top: 16px;
-  left: -1px;
-}
-.location-search input[type="text"] {
-  height: 100%;
-  border: none;
-  color: #707070;
-}
-.location-search input[type="text"]:focus {
-  border: none;
-  outline: none;
-}
-.search-btn button {
-  height: 100%;
-  background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
-  color: #fff;
-  padding: 10px 40px;
-}
-.search-btn button img {
-  width: 75px;
-}
-.all-boxes {
-  display: flex;
-  justify-content: space-between;
-}
-/* responsive */
-@media (max-width: 479px) and (min-width: 320px) {
-  .main-container {
-    padding: 10px;
-  }
-  .main-container .search-header h1 {
-    font-size: 26px;
-  }
-  .main-container .search-header h2 {
-    font-size: 16px;
-  }
-  .main-container .search-header {
-    margin-top: 20px;
-  }
-  .main-container .search .btn {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-  .main-container .drop-down select {
-    font-size: 12px;
-  }
-  .main-container .search {
-    padding: 10px 10px 10px 10px;
-  }
-  .all-boxes {
-    flex-wrap: wrap;
-  }
-  .range {
-    width: 36%;
-  }
-  .all-boxes > div:nth-child(4) {
-    width: 100%;
-    margin: 10px 0;
-  }
-  .all-boxes > div:nth-child(3) {
-    margin-top: 10px;
-  }
-  .all-boxes > div:nth-child(2) {
-    width: 45%;
-  }
-  .main-location {
-    width: 64%;
-    justify-content: space-between;
-  }
-  .drop-down {
-    width: 36%;
-    padding: 10px 10px;
-  }
-  .search .location .drop-down {
-    width: 30%;
-  }
-  .search .checkboxes {
-    margin-top: 10px;
-  }
-  .main-location .location-search {
-    width: 39%;
-    justify-content: space-between;
-  }
-  .search-btn button {
-    padding: 10px 12px;
-  }
+.yellow-btns button {
+  background: #eae95f;
+  color: #000;
+  text-transform: uppercase;
+  padding: 8px 0px;
+  border-radius: 2px;
+  margin: 0px 0px 0px 6px;
+  font-weight: bolder;
+  width: 50%;
+  font-size: 14px;
+  font-weight: 800;
 }
 </style>

@@ -1,14 +1,21 @@
 <template>
-  <div>
+  <section>
+    <AppHeader :transparent="false" />
     <section class="container-main">
-      <AppHeader :transparent="true" />
-      <SearchHeader />
+      <div class="primary">
+        <div>
+          <div class="slide-imges" v-for="(img, index) in images" :key="index">
+            <img :src="img" :class="{ active: index == imageShow }" />
+          </div>
+        </div>
+        <SearchHeader />
+      </div>
     </section>
     <main>
       <slot />
     </main>
     <AppFooter />
-  </div>
+  </section>
 </template>
 <script>
 import AppFooter from "../footer/AppFooter.vue";
@@ -20,16 +27,63 @@ export default {
     AppHeader,
     SearchHeader,
   },
+  data() {
+    return {
+      images: [
+        "http://ui.propertychowk.com/wp-content/uploads/2022/06/modern-house-exterior-E3A7NAJ-web.jpg",
+        "http://ui.propertychowk.com/wp-content/uploads/2022/06/architectural-house-exterior-7HVDWWS-web.jpg",
+      ],
+      imageShow: 0,
+    };
+  },
+  mounted() {
+    var itration = this.images.length - 1;
+    setInterval(() => {
+      if (this.imageShow < itration) {
+        this.imageShow++;
+      } else {
+        this.imageShow = 0;
+      }
+    }, 5000);
+  },
 };
 </script>
 
 <style scoped>
-.container-main {
-  background-image: linear-gradient(180deg, rgb(0 0 0/24%), rgb(0 0 0/24%)),
-    url("../../assets/images/home-image.png");
-  background-repeat: no-repeat;
-  height: 690px;
-  background-size: cover;
+.slide-imges {
+  position: absolute;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
 }
-
+.slide-imges img {
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide-imges img.active {
+  opacity: 1;
+}
+.container-main {
+  position: relative;
+  height: 680px;
+}
+.container-main .primary > div {
+  height: 100%;
+  z-index: -1;
+}
+.container-main .primary {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #06758f7a;
+}
 </style>

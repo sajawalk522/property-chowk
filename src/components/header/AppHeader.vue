@@ -14,51 +14,32 @@
         </section>
         <section class="navigation-profile">
           <div class="nav">
-            <ul>
-              <li><router-link to="/">Home</router-link></li>
-              <li><router-link to="/plots">PLots</router-link></li>
-              <li><router-link to="/comercial">Comercial</router-link></li>
-              <li><router-link to="/rent">Rent</router-link></li>
-              <li class="login-container">
-                <div class="add">
+            <div>
+              <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/#">Properties</router-link></li>
+                <li><router-link to="/#">Realtors</router-link></li>
+                <li><router-link to="/#">Gallery</router-link></li>
+                <li><router-link to="/#">Blog</router-link></li>
+                <li><router-link to="/#">Contact</router-link></li>
+                <li>
+                  <!-- <div class="add">
                   <button class="btn" @click="goTo">add property</button>
-                </div>
-                <div class="profile-pic shadowActive" @click="login('login')">
-                  <img src="../../assets/images/profile.svg" alt="profile" />
-                </div>
-              </li>
-            </ul>
+                </div> -->
+                  <!-- <div class="profile-pic shadowActive" @click="login('login')">
+                    <img src="../../assets/images/profile.svg" alt="profile" />
+                  </div> -->
+                </li>
+              </ul>
+            </div>
+            <div class="login-container">
+              <div class="profile-pic shadowActive" @click="login('login')">
+                <img src="../../assets/images/profile.svg" alt="profile" />
+              </div>
+            </div>
           </div>
         </section>
       </div>
-      <!-- responsive -->
-      <div :class="[{ active: transparent }, 'header mobile']">
-        <section class="logo">
-          <router-link to="/">
-            <img
-              v-if="transparent"
-              src="../../assets/images/logo-transparent.svg"
-              alt="Logo"
-            />
-            <img v-else src="../../assets/images/logo.svg" alt="Logo" />
-          </router-link>
-        </section>
-        <section class="navigation-profile">
-          <div class="nav">
-            <ul>
-              <li class="login-container">
-                <div class="add">
-                  <button class="btn" @click="goTo">add property</button>
-                </div>
-                <div class="profile-pic shadowActive" @click="login('login')">
-                  <img src="../../assets/images/profile.svg" alt="profile" />
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-      <!-- responsive -->
     </div>
     <!-- model -->
     <LoginModel :model="showModel == 'login'" />
@@ -92,6 +73,12 @@ export default {
 </script>
 
 <style scoped>
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .shadowActive {
   box-shadow: 0px 2px 5px #888888a6;
 }
@@ -109,15 +96,22 @@ export default {
 }
 .navigation-profile {
   display: flex;
+  width: 60%;
 }
 .navigation-profile .nav ul {
   display: flex;
   align-items: center;
+  margin-top:3px;
 }
 .navigation-profile .nav ul li {
   margin-right: 40px;
   text-transform: uppercase;
   font-size: 14px;
+  
+}
+.navigation-profile .nav ul li a:hover {
+  border-bottom: 1px solid #4092cf;
+  color: #4092cf;
 }
 .navigation-profile .nav ul li:last-child {
   margin-right: unset;
@@ -125,15 +119,18 @@ export default {
 .navigation-profile .nav ul li a {
   text-decoration: none;
   color: #000;
+  border-bottom: 1px solid transparent;
+  transition: .3s;
+  padding:10px 0;
 }
 .header.active .navigation-profile .nav ul li a {
   color: #fff;
 }
-.navigation-profile .nav ul li.login-container {
+.login-container {
   display: flex;
   align-items: center;
 }
-.navigation-profile .nav ul li .profile-pic {
+.profile-pic {
   border-radius: 50%;
   overflow: hidden;
   width: 37px;
@@ -141,44 +138,8 @@ export default {
   height: 37px;
   cursor: pointer;
 }
-.navigation-profile .nav ul li .profile-pic img {
+.profile-pic img {
   width: 100%;
   height: 100%;
-}
-.navigation-profile .btn {
-  background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
-  color: #fff;
-  text-transform: uppercase;
-  border: none;
-  padding: 10px 25px;
-  margin-right: 18px;
-  cursor: pointer;
-}
-.mobile {
-  display: none;
-}
-/* responsive */
-@media (max-width: 479px) and (min-width: 320px) {
-  .disktop {
-    display: none;
-  }
-  .header.mobile {
-    padding: 10px;
-    position: relative;
-    display: flex;
-    min-height: unset;
-  }
-  .header.mobile .logo {
-    width: 130px;
-  }
-  .header.mobile .navigation-profile .btn {
-    font-size: 10px;
-    padding: 5px 10px;
-  }
-  .header.mobile .navigation-profile .nav ul li .profile-pic {
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-}
 }
 </style>

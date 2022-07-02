@@ -9,6 +9,9 @@ import ConditionsView from '../views/TermsView.vue';
 import PlotsView from '../views/PlotsView.vue';
 import ComercialView from '../views/ComercialView.vue';
 import RentView from '../views/RentView.vue';
+import AgentView from '../views/AgentView.vue';
+import TrendingView from '../views/TrendingView.vue';
+import ProjectsView from '../views/ProjectsView.vue';
 const routes = [
   {
     path: '/',
@@ -44,6 +47,21 @@ const routes = [
     path: '/detail',
     name: 'detail',
     component: DetailView
+  },
+  {
+    path: '/agent',
+    name: 'agent',
+    component: AgentView
+  },
+  {
+    path: '/trending',
+    name: 'trending',
+    component: TrendingView
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: ProjectsView
   },
   {
     path: '/about',

@@ -1,9 +1,8 @@
 <template>
   <section>
-    <section class="agent-model" v-if="Object.keys(agentDetail).length">
+    <!-- <section class="agent-model" v-if="Object.keys(agentDetail).length">
       <div class="model-main">
         <div class="headmodel" @click="close">
-          <!-- <h1 >c</h1> -->
           <img src="../../assets/images/close-icon.svg" />
         </div>
         <div class="agent-container">
@@ -47,7 +46,7 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
     <div class="main-title">
       <h1>Top PROPERTY EXPERTS IN CITY</h1>
     </div>
@@ -55,11 +54,13 @@
       :breakpoints="breakpoints" class="carousel-container custom-div">
       <!--  -->
       <slide v-for="(agent, index) in titanium" :key="index">
-        <div :id="`slide-${index}`" class="experts-main" @mouseover="mouseOver(index)" @mouseleave="mouseOut(index)">
+        <div :id="`slide-${index}`" class="experts-main">
           <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
+           <router-link to="/agent">
+             <img src="../../assets/images/expert.svg" />
+           </router-link>
           </div>
-          <div class="experts-tilte">
+          <!-- <div class="experts-tilte">
             <h1 @click="showModel(index)">{{ agent.name }}</h1>
             <div class="explert-content">
               <div class="expert-inner">
@@ -70,7 +71,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </slide>
       <!-- <slide :key="slide">
