@@ -4,10 +4,10 @@
       <div class="main-login">
         <div class="logo-close">
           <div class="logo">
-            <img src="../../assets/images/logo.svg" alt="" />
+            <img src="../../assets/images/logo.svg" alt />
           </div>
           <div class="close-icon" @click="closeModel">
-            <img src="../../assets/images/close-icon.svg" alt="" />
+            <img src="../../assets/images/close-icon.svg" alt />
           </div>
         </div>
         <div class="headings">
@@ -16,30 +16,41 @@
         </div>
         <div class="login-form">
           <div class="form-container">
-            <form autocomplete="off">
+            <form autocomplete="off" @submit.prevent="signUp">
               <div class="input-div">
-                <input type="text" value="" placeholder="Name" />
+                <input type="text" placeholder="Name" v-model="insertData.name" required />
               </div>
               <div class="input-div">
-                <input type="email" value="" placeholder="Email" />
+                <input type="email" placeholder="Email" v-model="insertData.email" required />
               </div>
               <div class="input-div">
-                <input type="number" value="" placeholder="Phone Number" />
+                <input
+                  type="number"
+                  placeholder="Phone Number"
+                  v-model="insertData.phone_number"
+                  required
+                />
               </div>
               <div class="input-div">
-                <input type="password" value="" placeholder="Password" />
+                <input type="password" placeholder="Password" v-model="password" required />
               </div>
               <div class="input-div">
-                <input type="text" value="" placeholder="Estate Name" />
+                <input
+                  type="text"
+                  placeholder="Estate Name"
+                  v-model="insertData.estate_name"
+                  required
+                />
               </div>
-              
+
               <div class="input-div">
                 <button type="submit">Sign Up</button>
               </div>
             </form>
           </div>
           <div class="buttom-text">
-            Don’t Have an Account? <span @click="Login">Login</span>
+            Don’t Have an Account?
+            <span @click="Login">Login</span>
           </div>
         </div>
       </div>
@@ -48,16 +59,69 @@
 </template>
 
 <script>
+import firebase from "../../firebase";
+const db = firebase.firestore();
 export default {
   props: ["model"],
-  methods:{
-    closeModel(){
-        this.$parent.showModel = '';
-    },
-    Login(){
-      this.$parent.showModel = 'login';
-    }
+  data() {
+    return {
+      password: "",
+      insertData: {
+        device_id: "",
+        email: "",
+        estate_name: "",
+        favorites: [],
+        hot_ads: 0,
+        id: "",
+        image: null,
+        name: "",
+        package: null,
+        packageName: "",
+        payAmount: 0,
+        phone_code: null,
+        phone_number: "",
+        superhot_ads: 0,
+        verified: false
+      }
+    };
   },
+  methods: {
+    async signUp() {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.insertData.email, this.password)
+        .then(u => {
+          this.insertData.id = u.user.uid;
+          db.collection("users")
+            .doc(this.insertData.id)
+            .set({ ...this.insertData })
+            .then(() => {
+              this.Login();
+              this.$swal({
+                icon: "success",
+                title: "Login Success",
+                showConfirmButton: false,
+                timer: 3000
+              });
+            });
+        })
+        .catch(err => {
+          this.$swal({
+            icon: "error",
+            title: err.message,
+            showConfirmButton: false,
+            timer: 3000
+          });
+          // alert(err.message);
+        });
+    },
+    closeModel() {
+      this.$parent.showModel = "";
+    },
+    Login() {
+      this.$parent.showModel = "login";
+    }
+  }
 };
 </script>
 <style scoped>
@@ -74,7 +138,7 @@ export default {
   z-index: 99;
   visibility: hidden;
 }
-.login-signup.active{
+.login-signup.active {
   visibility: visible;
 }
 .primary-login {
@@ -83,10 +147,10 @@ export default {
   height: fit-content;
   padding: 20px;
   border-radius: 20px;
-  transition: .2s linear;
+  transition: 0.2s linear;
   transform: translateY(-100%);
 }
-.login-signup.active .primary-login{
+.login-signup.active .primary-login {
   transform: translateY(0);
 }
 .logo-close {
@@ -127,9 +191,9 @@ img {
   box-shadow: 0px 0px 3px 1px #f1f1f1;
   outline: none;
   margin-bottom: 22px;
-  background-color: #fff!important;
+  background-color: #fff !important;
 }
- 
+
 .login-form input::placeholder {
   color: #b0b0b0;
 }
@@ -171,8 +235,8 @@ img {
   .primary-login {
     width: 84%;
   }
-  .headings h1{
-    font-size:20px;
+  .headings h1 {
+    font-size: 20px;
   }
 }
 </style>

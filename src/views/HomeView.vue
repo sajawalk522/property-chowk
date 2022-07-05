@@ -2,11 +2,11 @@
   <layout-home>
     <PropertyExpert />
     <NewProjects />
-    <NewProperty/>
-    <GetTouch/>
+    <NewProperty />
+    <GetTouch />
     <GetApp />
   </layout-home>
-  <BottomFooter/>
+  <BottomFooter />
 </template>
 <script>
 import LayoutHome from "@/components/layouts/LayoutHome.vue";

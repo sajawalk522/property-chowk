@@ -1,13 +1,13 @@
 <template>
   <section :class="['login-signup', { active: model }]">
-    <div class="primary-login">
+    <div class="primary-login" v-if="!forget">
       <div class="main-login">
         <div class="logo-close">
           <div class="logo">
-            <img src="../../assets/images/logo.svg" alt="" />
+            <img src="../../assets/images/logo.svg" alt />
           </div>
           <div class="close-icon" @click="closeModel">
-            <img src="../../assets/images/close-icon.svg" alt="" />
+            <img src="../../assets/images/close-icon.svg" alt />
           </div>
         </div>
         <div class="headings">
@@ -16,20 +16,58 @@
         </div>
         <div class="login-form">
           <div class="form-container">
-            <form autocomplete="off">
+            <form autocomplete="off" @submit.prevent="Login">
               <div class="input-div">
-                <input type="email" value="" placeholder="Email" />
+                <input type="email" placeholder="Email" v-model="email" required />
               </div>
               <div class="input-div">
-                <input type="password" value="" placeholder="Password" />
+                <input type="password" placeholder="Password" v-model="password" required />
               </div>
+              <div v-if="!isExist">User Not exist</div>
               <div class="input-div">
                 <button type="submit">Login</button>
               </div>
             </form>
           </div>
           <div class="buttom-text">
-            Don’t Have an Account? <span @click="signUp">Sign Up </span>
+            Don’t Have an Account?
+            <span @click="signUp">Sign Up</span>
+            or
+            <span @click="showForget">forgot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- forget  -->
+    <div class="primary-login" v-if="forget">
+      <div class="main-login">
+        <div class="logo-close">
+          <div class="logo">
+            <img src="../../assets/images/logo.svg" alt />
+          </div>
+          <div class="close-icon" @click="closeModel">
+            <img src="../../assets/images/close-icon.svg" alt />
+          </div>
+        </div>
+        <div class="headings">
+          <h1>forget</h1>
+          <h4>Please Email to continue</h4>
+        </div>
+        <div class="login-form">
+          <div class="form-container">
+            <form autocomplete="off" @submit.prevent="forgot">
+              <div class="input-div">
+                <input type="email" placeholder="Email" v-model="email" required />
+              </div>
+              <div v-if="!isExist">User Not exist</div>
+              <div class="input-div">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+          <div class="buttom-text">
+            Don’t Have an Account?
+            <span @click="signUp">Sign Up</span>
           </div>
         </div>
       </div>
@@ -38,16 +76,56 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   props: ["model"],
+  data() {
+    return {
+      email: "",
+      password: "",
+      isExist: true,
+      forget: false
+    };
+  },
   methods: {
+    async Login() {
+      try {
+        const login = await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password);
+        if (login) {
+          this.$parent.showModel = "";
+          this.$swal({
+            icon: "success",
+            title: "Login Success",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        }
+      } catch (error) {
+        this.isExist = false;
+      }
+    },
+    async forgot() {
+      try {
+        const forGot = await firebase.auth().sendPasswordResetEmail(this.email);
+        if (forGot) {
+          console.log("success!!");
+        }
+      } catch (error) {
+        // console.log(error);
+      }
+    },
+    showForget() {
+      this.forget = !this.forget;
+    },
     closeModel() {
       this.$parent.showModel = "";
     },
     signUp() {
       this.$parent.showModel = "signup";
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
@@ -117,7 +195,7 @@ img {
   box-shadow: 0px 0px 3px 1px #f1f1f1;
   outline: none;
   margin-bottom: 22px;
-   user-select: none;
+  user-select: none;
 }
 .login-form input::placeholder {
   color: #b0b0b0;
@@ -160,8 +238,8 @@ img {
   .primary-login {
     width: 84%;
   }
-  .headings h1{
-    font-size:20px;
+  .headings h1 {
+    font-size: 20px;
   }
 }
 </style>

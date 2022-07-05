@@ -12,7 +12,7 @@
           </div>
           <section class="search" v-if="$route.path == '/'">
             <div class="heade-btns">
-              <router-link to="#"
+              <router-link to="add-property" v-if="$store.state.userInfo.verified"
                 ><button class="btns">Add Property</button></router-link
               >
               <router-link to="#"
