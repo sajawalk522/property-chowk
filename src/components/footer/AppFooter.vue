@@ -1,5 +1,6 @@
 <template>
-  <footer class="footer">
+  <footer>
+    <div class="footer">
     <div class="footer-container">
       <section class="footer-row">
         <div class="col">
@@ -90,12 +91,18 @@
          <p>@2021 All rights reserved. Created by Lorem Ipsum</p>
       </div>
     </div>
+  </div>
+  <BottomFooter/>
   </footer>
 </template>
 
 <script>
+import BottomFooter from "@/components/footer/bottomFooter.vue";
 export default {
   name: "AppFooter",
+   components: {
+    BottomFooter,
+  },
 };
 </script>
 

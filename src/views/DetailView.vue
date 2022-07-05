@@ -4,19 +4,16 @@
       <DetailPage />
       <AppFooter />
     </layout-home>
-    <BottomFooter/>
   </div>
 </template>
 <script>
 import LayoutHome from "@/components/layouts/LayoutHome.vue";
 import DetailPage from "@/components/detail/index.vue";
-import BottomFooter from "@/components/footer/bottomFooter.vue";
 export default {
   name: "DetailView",
   components: {
     LayoutHome,
     DetailPage,
-    BottomFooter,
   },
 };
 </script>
