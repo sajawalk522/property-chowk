@@ -23,7 +23,7 @@
               <div class="input-div">
                 <input type="password" placeholder="Password" v-model="password" required />
               </div>
-              <div v-if="!isExist">User Not exist</div>
+              <div class="error" v-if="!isExist">Password is Incorrect!</div>
               <div class="input-div">
                 <button type="submit">Login</button>
               </div>
@@ -59,7 +59,7 @@
               <div class="input-div">
                 <input type="email" placeholder="Email" v-model="email" required />
               </div>
-              <div v-if="!isExist">User Not exist</div>
+              <div class="error" v-if="!isExist">Password is Incorrect!</div>
               <div class="input-div">
                 <button type="submit">Send</button>
               </div>
@@ -129,6 +129,11 @@ export default {
 };
 </script>
 <style scoped>
+.error{
+  padding: 0 15px 15px 15px;
+  color: red;
+  text-align: center;
+}
 .login-signup {
   position: fixed;
   top: 0;

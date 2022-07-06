@@ -46,6 +46,7 @@
               </div>
               <div class="logout-container" v-if="$store.state.user && loginState">
                 <ul>
+                  <li class="hi"><p>Hi</p></li>
                   <li>{{ $store.state.userInfo.name }}</li>
                   <li @click="logOut">Logout</li>
                 </ul>
@@ -112,6 +113,18 @@ export default {
 </script>
 
 <style scoped>
+.hi p{
+  width: 25px!important;
+  height: 25px!important;
+  border-radius: 50%;
+  background: #333;
+  color: #fff!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-transform: capitalize;
+}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -197,7 +210,7 @@ export default {
   padding: 10px;
   color: #333;
   font-size: 14px !important;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 !important;
   cursor: pointer;
   width: 85%;
