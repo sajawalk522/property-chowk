@@ -528,12 +528,11 @@
         </section>
         <!-- basic info seciton -->
         <section>
-          
           <!-- input block -->
           <div class="check-buttons property-number">
             <div class="features-head">
-            <h6>Basic Contact info</h6>
-          </div>
+              <h6>Basic Contact info</h6>
+            </div>
             <div class="title">
               <h1>Name</h1>
             </div>
@@ -733,7 +732,7 @@ export default {
     latLng(loc) {
       this.finalData.latitude = loc.lat;
       this.finalData.longitude = loc.lng;
-      console.log(loc)
+      console.log(loc);
     },
     // map location
     hotAdd(v) {
@@ -846,70 +845,69 @@ export default {
       if (!verify.sub_type) {
         // alert("please select sub Type");
         this.$swal({
-            icon: "error",
-            title: "Please Select Sub Type",
-            showConfirmButton: false,
-            timer: 3000
-          });
+          icon: "error",
+          title: "Please Select Sub Type",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
       if (!verify.city) {
         // alert("please select city");
-         this.$swal({
-            icon: "error",
-            title: "Please Select City",
-            showConfirmButton: false,
-            timer: 3000
-          });
+        this.$swal({
+          icon: "error",
+          title: "Please Select City",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
       if (this.society.society.length > 0) {
         if (!verify.society) {
           // alert("please select society");
-           this.$swal({
+          this.$swal({
             icon: "error",
             title: "Please Select Society",
             showConfirmButton: false,
-            timer: 3000
+            timer: 3000,
           });
           return;
         }
       }
       if (!verify.area) {
         // alert("please select area");
-         this.$swal({
-            icon: "error",
-            title: "Please Select Area",
-            showConfirmButton: false,
-            timer: 3000
-          });
+        this.$swal({
+          icon: "error",
+          title: "Please Select Area",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
       if (!verify.price) {
         // alert("please select price");
-         this.$swal({
-            icon: "error",
-            title: "Please Select Price",
-            showConfirmButton: false,
-            timer: 3000
-          });
+        this.$swal({
+          icon: "error",
+          title: "Please Select Price",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
       if (!verify.property_title) {
         // alert("please select Title");
-         this.$swal({
-            icon: "error",
-            title: "Please Select Title",
-            showConfirmButton: false,
-            timer: 3000
-          });
+        this.$swal({
+          icon: "error",
+          title: "Please Select Title",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
-      return true
+      return true;
     },
     submit() {
       if (!this.validateInputs()) return;
-      console.log("called");
       const promises = [];
       if (this.images) {
         this.images.map((image) => {
@@ -967,6 +965,13 @@ export default {
             .create(this.finalData)
             .then(() => {
               console.log("Created new item successfully!");
+              this.$swal({
+                icon: "success",
+                title: "Created new item successfully!",
+                showConfirmButton: false,
+                timer: 3000,
+              });
+              this.$router.push("/");
             })
             .catch((e) => {
               console.log(e);
@@ -982,13 +987,13 @@ export default {
     openDropdownSociety() {
       if (!this.finalData.city) {
         // alert("please select city before");
-         this.$swal({
-            icon: "error",
-            title: "Please Select City before",
-            showConfirmButton: false,
-            timer: 3000
-          });
-        
+        this.$swal({
+          icon: "error",
+          title: "Please Select City before",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+
         return;
       }
       if (this.society.society.length) {
@@ -1160,11 +1165,11 @@ export default {
 /* toggle option */
 
 /* features-section start */
- .features-head h6 {
+.features-head h6 {
   color: #000;
   font-size: 16px;
 }
- .features-head {
+.features-head {
   padding: 14px 0 18px 0;
 }
 .features-list {
@@ -1227,11 +1232,11 @@ export default {
   position: relative;
   width: 36%;
 }
-#input-society{
-  width: 100%!important;
+#input-society {
+  width: 100% !important;
 }
 #input-society .dropdown {
-    width: 72%!important;
+  width: 72% !important;
 }
 .area-input .dropdown {
   position: absolute;
