@@ -10,7 +10,7 @@
       </div>
     </div> -->
     <section class="container">
-      <BlueHead />
+      <BlueHead :title="'Filters'" />
       <section class="filter-search">
         <section>
           <div class="toggle-buttons">

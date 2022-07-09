@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <BlueHead />
+    <BlueHead :title="'Add Properties'" />
     <section class="filter-search">
       <section>
         <div class="toggle-buttons">
