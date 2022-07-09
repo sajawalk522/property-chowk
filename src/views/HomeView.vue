@@ -18,7 +18,6 @@ import NewProjects from "@/components/home/newProjects.vue";
 import PropertyExpert from "@/components/home/propertyExpert.vue";
 import NewProperty from "@/components/home/newProperty.vue";
 import GetTouch from "@/components/home/getTouch.vue";
-// import PropertiesDataService from "../services/PropertiesServices";
 export default {
   name: "HomeView",
   components: {
