@@ -4,7 +4,11 @@
       <div :class="[{ active: transparent }, 'header disktop']">
         <section class="logo">
           <router-link to="/">
-            <img v-if="transparent" src="../../assets/images/logo-transparent.svg" alt="Logo" />
+            <img
+              v-if="transparent"
+              src="../../assets/images/logo-transparent.svg"
+              alt="Logo"
+            />
             <img v-else src="../../assets/images/logo.svg" alt="Logo" />
           </router-link>
         </section>
@@ -12,35 +16,23 @@
           <div class="nav">
             <div>
               <ul>
-                <li>
-                  <router-link to="/">Home</router-link>
-                </li>
-                <li>
-                  <router-link to="/#">Properties</router-link>
-                </li>
-                <li>
-                  <router-link to="/#">Realtors</router-link>
-                </li>
-                <li>
-                  <router-link to="/#">Gallery</router-link>
-                </li>
-                <li>
-                  <router-link to="/#">Blog</router-link>
-                </li>
-                <li>
-                  <router-link to="/#">Contact</router-link>
-                </li>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/#">Properties</router-link></li>
+                <li><router-link to="/#">Realtors</router-link></li>
+                <li><router-link to="/#">Gallery</router-link></li>
+                <li><router-link to="/#">Blog</router-link></li>
+                <li><router-link to="/#">Contact</router-link></li>
                 <li>
                   <!-- <div class="add">
                   <button class="btn" @click="goTo">add property</button>
-                  </div>-->
+                </div> -->
                   <!-- <div class="profile-pic shadowActive" @click="login('login')">
                     <img src="../../assets/images/profile.svg" alt="profile" />
-                  </div>-->
+                  </div> -->
                 </li>
               </ul>
             </div>
-            <div class="login-container">
+          <div class="login-container">
               <div class="profile-pic shadowActive" @click="login('login')">
                 <img src="../../assets/images/profile.svg" alt="profile" />
               </div>
@@ -72,12 +64,12 @@ export default {
   props: ["transparent"],
   components: {
     LoginModel,
-    SignupModel
+    SignupModel,
   },
   data() {
     return {
       showModel: "",
-      loginState: false
+      loginState: false,
     };
   },
   methods: {
@@ -88,13 +80,13 @@ export default {
         .then(() => {
           this.$store.dispatch("setUser", false);
           this.$store.dispatch("userDetail", {});
-          this.$swal({
-            icon: "success",
-            title: "Login Out success!!",
-            showConfirmButton: false,
-            timer: 3000
-          });
           this.showModel = "";
+           this.$swal({
+                icon: "success",
+                title: "Logout Success",
+                showConfirmButton: false,
+                timer: 3000
+              });
         });
     },
     goTo() {
@@ -107,8 +99,8 @@ export default {
       } else {
         this.loginState = !this.loginState;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -106,6 +106,7 @@ export default {
             });
         })
         .catch(err => {
+          console.log(err.message);
           this.$swal({
             icon: "error",
             title: err.message,

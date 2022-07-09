@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  props: ["title", "types"],
+  props: ["title", "types", "propertyType"],
   data() {
     return {
       selected: "",
@@ -34,7 +34,18 @@ export default {
   methods: {
     clickedOn(val, index) {
       this.selected = index;
+      var selectVal = {
+        id: index,
+        value: val,
+        propertyType: this.propertyType,
+      };
+      this.$emit("selected", selectVal);
     },
+  },
+  mounted() {
+    if (this.propertyType == "property") {
+      this.selected = 0;
+    }
   },
 };
 </script>
@@ -67,7 +78,7 @@ export default {
   text-align: center;
   text-align: center;
   margin-top: 8px;
-  font-size:12px;
+  font-size: 12px;
 }
 .primary-type {
   margin-top: 20px;

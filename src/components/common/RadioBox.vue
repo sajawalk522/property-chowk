@@ -11,12 +11,11 @@
       <span class="checkmark"></span>
     </label>
   </div>
-  
 </template>
 
 <script>
 export default {
-  props: ["name", "inputfor"],
+  props: ["name", "inputfor", "value"],
   data() {
     return {
       activeCategories: false,
@@ -24,7 +23,11 @@ export default {
   },
   methods: {
     filterMedia() {
-      // console.log("wokring");
+      var selected = {
+        name: this.name,
+        value: this.value
+      };
+      this.$emit("selected", selected);
     },
   },
 };
@@ -43,7 +46,7 @@ export default {
 .input-feild {
   display: block;
   position: relative;
-  top:1px;
+  top: 1px;
   padding-left: 35px;
   cursor: pointer;
   color: #000;
@@ -62,7 +65,7 @@ export default {
   height: 0;
   width: 0;
   position: relative;
-  top:-1px;
+  top: -1px;
 }
 
 /* Create a custom checkbox */

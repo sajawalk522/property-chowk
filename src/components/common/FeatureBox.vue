@@ -7,14 +7,14 @@
         v-model="activeCategories"
         v-on:change="filterMedia()"
       />
-      <label :for="`'${name}'`">{{name}}</label>
+      <label :for="`'${name}'`">{{ name }}</label>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props:['name'],
+  props: ["name", "type"],
   data() {
     return {
       activeCategories: false,
@@ -22,9 +22,11 @@ export default {
   },
   methods: {
     filterMedia() {
-      if (this.activeCategories) {
-        console.log(this.activeCategories);
-      }
+      this.$emit("selected", {
+        isAdd: this.activeCategories,
+        status: this.name,
+        type: this.type,
+      });
     },
   },
 };

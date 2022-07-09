@@ -9,12 +9,13 @@
       :wrap-around="true"
       :breakpoints="breakpoints"
       class="carousel-container"
+      v-if="$store.state.properties.length"
     >
-      <slide v-for="slide in 6" :key="slide">
+      <slide v-for="(property ,index) in $store.state.properties" :key="index" >
         <div>
           <div class="new-property-container">
-            <img src="../../assets/images/karachi.png" />
-
+            <img src="../../assets/images/karachi.png" v-if="!property.val().images"/>
+            <img :src="property.val().images[0]" v-else/>
             <div class="layout">
               <div class="properties-card">
                 <div class="card-top">
@@ -41,7 +42,7 @@
                 </div>
                 <div class="card-bottom">
                   <button>Call us For Price</button>
-                  <p>1 Kanal house for sale EME Society-Block J House</p>
+                  <p>{{property.val().property_title}}</p>
                 </div>
               </div>
             </div>
@@ -49,17 +50,17 @@
           <div class="card-items">
             <div>
               <p>Area</p>
-              <p>20-Marla</p>
+              <p>{{property.val().area}}-{{property.val().area_type}}</p>
             </div>
-            <div>
+            <div v-if="property.val().bedrooms">
               <p>Beds</p>
-              <p>5</p>
+              <p>{{property.val().bedrooms}}</p>
             </div>
-            <div>
+            <div v-if="property.val().bathrooms">
               <p>Baths</p>
-              <p>6</p>
+              <p>{{property.val().bathrooms}}</p>
             </div>
-            <div>
+            <div v-if="property.val().garage">
               <p>Garage</p>
               <p>1</p>
             </div>

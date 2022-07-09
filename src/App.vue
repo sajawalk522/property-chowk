@@ -3,14 +3,18 @@
 </template>
 <script>
 import firebase from "./firebase";
+import PropertiesDataService from "./services/PropertiesServices";
 const db = firebase.firestore();
 export default {
-  beforeMount() {
+  mounted(){
+    // setTimeout(() => {
+    //   PropertiesDataService.getAll().on("value", this.onDataChange);
+    // }, 3000);
+  },
+  created() {
+    PropertiesDataService.getAll().limitToFirst(100).on("value", this.onDataChange);
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
-        if (this.$route.path == "/add-property") {
-          this.$router.replace("/");
-        }
         this.$store.dispatch("setUser", false);
       } else {
         db.collection("users")
@@ -22,6 +26,18 @@ export default {
         this.$store.dispatch("setUser", true);
       }
     });
+  },
+  methods: {
+    onDataChange(items) {
+      let _properties = [];
+      items.forEach((item) => {
+        // let key = item.key;
+        // let data = item.val();
+        // console.log(item.val().baths)
+        _properties.push(item);
+      });
+      this.$store.dispatch("setProperties", _properties);
+    },
   },
   watch: {
     $route: {

@@ -1,11 +1,6 @@
 <template>
   <default-layout>
-    <section class="container">
-      <div class="add-property">
-        <h1>ADD PROPERTY</h1>
-      </div>
        <AddForm/>
-    </section>
   </default-layout>
 </template>
 

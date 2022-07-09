@@ -1,5 +1,14 @@
 <template>
   <default-layout>
+    <div id="root">
+      <div>
+        <input type="file" name="images[]" @change="imagesAdd" multiple />
+      </div>
+      <div v-for="(img, key) in image" :key="key">
+        <img class="img-pre" :src="img" />
+        <button v-show="image" @click="removeImage(key)">Remover</button>
+      </div>
+    </div>
     <section class="container">
       <BlueHead />
       <section class="filter-search">
@@ -242,6 +251,8 @@ export default {
   },
   data() {
     return {
+      images: {},
+      image: [],
       category: "buy",
       dropdownCities: false,
       city: "",
@@ -284,6 +295,31 @@ export default {
     };
   },
   methods: {
+    imagesAdd(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      this.images = [];
+      Array.prototype.push.apply(this.images, files);
+      if (!this.images.length) return;
+      this.createImage(this.images);
+    },
+    createImage(file) {
+      for (var i = 0; i < file.length; i++) {
+        var reader = new FileReader();
+        var vm = this;
+        reader.onload = (e) => {
+          vm.image.push(e.target.result);
+          console.log(vm.image);
+        };
+        reader.readAsDataURL(file[i]);
+      }
+    },
+    removeImage(key) {
+      this.image.splice(key, 1);
+      this.images.splice(key, 1);
+      if (!this.image.length) {
+        this.$refs.im.value = "";
+      }
+    },
     openDropdown() {
       this.dropdownCities = true;
     },

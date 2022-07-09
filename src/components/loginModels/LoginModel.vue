@@ -4,10 +4,10 @@
       <div class="main-login">
         <div class="logo-close">
           <div class="logo">
-            <img src="../../assets/images/logo.svg" alt />
+            <img src="../../assets/images/logo.svg" alt="" />
           </div>
           <div class="close-icon" @click="closeModel">
-            <img src="../../assets/images/close-icon.svg" alt />
+            <img src="../../assets/images/close-icon.svg" alt="" />
           </div>
         </div>
         <div class="headings">
@@ -18,10 +18,20 @@
           <div class="form-container">
             <form autocomplete="off" @submit.prevent="Login">
               <div class="input-div">
-                <input type="email" placeholder="Email" v-model="email" required />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  v-model="email"
+                  required
+                />
               </div>
               <div class="input-div">
-                <input type="password" placeholder="Password" v-model="password" required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  v-model="password"
+                  required
+                />
               </div>
               <div class="error" v-if="!isExist">Password is Incorrect!</div>
               <div class="input-div">
@@ -30,10 +40,8 @@
             </form>
           </div>
           <div class="buttom-text">
-            Don’t Have an Account?
-            <span @click="signUp">Sign Up</span>
-            or
-            <span @click="showForget">forgot</span>
+            Don’t Have an Account? <span @click="signUp">Sign Up </span>
+            or <span @click="showForget">forgot</span>
           </div>
         </div>
       </div>
@@ -43,10 +51,10 @@
       <div class="main-login">
         <div class="logo-close">
           <div class="logo">
-            <img src="../../assets/images/logo.svg" alt />
+            <img src="../../assets/images/logo.svg" alt="" />
           </div>
           <div class="close-icon" @click="closeModel">
-            <img src="../../assets/images/close-icon.svg" alt />
+            <img src="../../assets/images/close-icon.svg" alt="" />
           </div>
         </div>
         <div class="headings">
@@ -57,7 +65,12 @@
           <div class="form-container">
             <form autocomplete="off" @submit.prevent="forgot">
               <div class="input-div">
-                <input type="email" placeholder="Email" v-model="email" required />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  v-model="email"
+                  required
+                />
               </div>
               <div class="error" v-if="!isExist">Password is Incorrect!</div>
               <div class="input-div">
@@ -66,8 +79,7 @@
             </form>
           </div>
           <div class="buttom-text">
-            Don’t Have an Account?
-            <span @click="signUp">Sign Up</span>
+            Don’t Have an Account? <span @click="signUp">Sign Up </span>
           </div>
         </div>
       </div>
@@ -84,7 +96,7 @@ export default {
       email: "",
       password: "",
       isExist: true,
-      forget: false
+      forget: false,
     };
   },
   methods: {
@@ -124,15 +136,16 @@ export default {
     },
     signUp() {
       this.$parent.showModel = "signup";
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
 .error{
-  padding: 0 15px 15px 15px;
-  color: red;
+  padding: 10px 0;
   text-align: center;
+  font-size: 14px;
+  color: red;
 }
 .login-signup {
   position: fixed;

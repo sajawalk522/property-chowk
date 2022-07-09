@@ -23,8 +23,10 @@
           </form>
         </div>
         <div class="right">
+          <h1 @click="clicked">Map</h1>
           <div class="map" style="width: 100%">
             <iframe
+            id="theiframe"
               width="100%"
               height="400"
               frameborder="0"
@@ -44,7 +46,16 @@
 
 <script>
 export default {
-  name: "GetInTouch"
+  name: "GetInTouch",
+  methods:{
+    clicked(){
+      var iframe = parent.document.getElementById("theiframe");
+var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+var currentFrame = innerDoc.location.href;
+console.log(currentFrame)
+    }
+  }
 };
 </script>
 

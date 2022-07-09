@@ -4,14 +4,17 @@ export default createStore({
   state: {
     user: false,
     userInfo: {},
+    properties: [],
   },
-  getters: {},
   mutations: {
     setUser(state, payload) {
       state.user = payload;
     },
     userDetail(state, payload) {
       state.userInfo = payload;
+    },
+    properties(state, payload) {
+      state.properties = payload;
     },
   },
   actions: {
@@ -20,6 +23,9 @@ export default createStore({
     },
     userDetail({ commit }, payload) {
       commit("userDetail", payload);
+    },
+    setProperties({ commit }, payload) {
+      commit("properties", payload);
     },
   },
 });
