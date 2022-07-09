@@ -1,9 +1,9 @@
 <template>
   <default-layout>
     <div id="root">
-      <div>
+      <!-- <div>
         <input type="file" name="images[]" @change="imagesAdd" multiple />
-      </div>
+      </div> -->
       <div v-for="(img, key) in image" :key="key">
         <img class="img-pre" :src="img" />
         <button v-show="image" @click="removeImage(key)">Remover</button>
