@@ -974,6 +974,13 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fawmi/vue-google-maps@^0.9.72":
+  version "0.9.72"
+  resolved "https://registry.yarnpkg.com/@fawmi/vue-google-maps/-/vue-google-maps-0.9.72.tgz#697822856d94d51942b090cc61962f01502686cd"
+  integrity sha512-/eoaV6rvE+eCn0g+OaP9VV2KL19vi2M9I2HL62gDnFdQJ7PYFJliOG6gCeojmX1dYpRWQzEzjhcT5ZzMBkd3Qw==
+  dependencies:
+    "@googlemaps/markerclustererplus" "^1.2.10"
+
 "@firebase/analytics-types@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@firebase/analytics-types/-/analytics-types-0.4.0.tgz#d6716f9fa36a6e340bc0ecfe68af325aa6f60508"
@@ -1197,6 +1204,11 @@
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.4.1.tgz#600f2275ff54739ad5ac0102f1467b8963cd5f71"
   integrity sha512-0yPjzuzGMkW1GkrC8yWsiN7vt1OzkMIi9HgxRmKREZl2wnNPOKo/yScTjXf/O57HM8dltqxPF6jlNLFVtc2qdw==
+
+"@googlemaps/markerclustererplus@^1.2.10":
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerclustererplus/-/markerclustererplus-1.2.10.tgz#e1a97ea7ae137e00d633367be1d49f0a008fa8b3"
+  integrity sha512-HY4ev+D3kO1+9oQjtKTojxVtJIS/kSWJfry6cpKoXC97kBQc5Vguqu5x6pLnh+70N0Au+16Yl7iu4LZaIOTstw==
 
 "@grpc/grpc-js@^1.0.0":
   version "1.6.7"
@@ -6222,6 +6234,11 @@ vue3-carousel@^0.1.40:
   version "0.1.40"
   resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.1.40.tgz#46f5a903703febddbf47ad155916a0a9c0f720f7"
   integrity sha512-rPIfBxFhsY6W6qKNGsjgzPJdngt07ov06/Ql1lKsTr8gBx73gUxCIIQo/7M3QCx3KU94CDGBbLugF5YGdEPefg==
+
+vue3-geolocation@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue3-geolocation/-/vue3-geolocation-1.0.0.tgz#fc1c758e8d5fa84e4bdc8cc631fd8ea636faf6ae"
+  integrity sha512-6zZkFH0aRVwmY7z7YkaA4riLy5sI6dRW1NiMZMI8NtjcFxC39UF4c9huxVnpN3yQSJYAsHAWzqIc75RdNBujnQ==
 
 vue@^3.2.13:
   version "3.2.37"
