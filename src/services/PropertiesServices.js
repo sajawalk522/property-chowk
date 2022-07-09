@@ -1,5 +1,5 @@
 import firebase from "../firebase";
-const ref = firebase.database().ref("/Properties");
+const ref = firebase.database().ref("/properties");
 class PropertiesDataService {
   getAll() {
     

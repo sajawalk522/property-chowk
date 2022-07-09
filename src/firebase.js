@@ -2,13 +2,14 @@ import firebase from "firebase";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyAvVoJJfFGxx2f_JLIgLGZF0UTx9tZl2qk",
-  authDomain: "testing-app-cd3e0.firebaseapp.com",
-  databaseURL: "https://testing-app-cd3e0-default-rtdb.firebaseio.com",
-  projectId: "testing-app-cd3e0",
-  storageBucket: "testing-app-cd3e0.appspot.com",
-  messagingSenderId: "761785791814",
-  appId: "1:761785791814:web:50325d72f3c9ad71c72147"
+  apiKey: "AIzaSyCNDKXxeI0liiJnf4UxP9Cpps__8ughsR8",
+  authDomain: "propertychowk-f6128.firebaseapp.com",
+  databaseURL: "https://propertychowk-f6128.firebaseio.com",
+  projectId: "propertychowk-f6128",
+  storageBucket: "propertychowk-f6128.appspot.com",
+  messagingSenderId: "304925921546",
+  appId: "1:304925921546:web:abdbcb83cff4fcbf216af3",
+  measurementId: "G-J51VXXCN97"
 };
 
 // Initialize Firebase
