@@ -48,7 +48,7 @@
       </div>
     </section> -->
     <div class="main-title">
-      <h1>Top PROPERTY EXPERTS IN CITY</h1>
+      <h1>50 Top Property Expert in City</h1>
     </div>
     <carousel :settings="settings" :autoplay="5000" :wrap-around="true" :pauseAutoplayOnHover="true"
       :breakpoints="breakpoints" class="carousel-container custom-div">

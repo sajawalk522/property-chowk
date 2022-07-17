@@ -21,12 +21,8 @@
           <div>Lahore</div>
         </li>
         <li>
-          <div>Area</div>
+          <div>Area expertise</div>
           <div>10 Marla</div>
-        </li>
-        <li>
-          <div>Property Type</div>
-          <div>Residential</div>
         </li>
         <li>
           <div>Office Timing</div>

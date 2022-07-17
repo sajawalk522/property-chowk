@@ -6,7 +6,7 @@
     <div class="type-list">
       <ul>
         <li
-          :class="{ active: selected == n }"
+          :class="{ active: !selected ? metaData == key: selected == n }"
           v-for="(key, n) in data"
           :key="n"
           @click="clickedOn(key, n)"
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  props: ["title", "data"],
+  props: ["title", "data", "metaData"],
   data() {
     return {
       selected: null,
@@ -29,6 +29,11 @@ export default {
   methods: {
     clickedOn(val, index) {
       this.selected = index;
+      var detail = {
+        type: this.title,
+        value: val
+      }
+      this.$emit('propertyDetail', detail)
     },
   },
 };

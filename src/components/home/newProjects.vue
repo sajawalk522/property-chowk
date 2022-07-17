@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-title">
-      <h1>Top & Trending Projects 2022</h1>
+      <h1>Trending Projects 2022-2023</h1>
     </div>
     <carousel
       :settings="settings"

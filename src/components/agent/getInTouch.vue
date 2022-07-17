@@ -19,6 +19,9 @@
             </div>
             <div class="get-button">
               <input type="submit" value="Get in Touch" />
+              <a class="call" href="tel:(+92) 4512145789">Call</a>
+              <a class="whatsapp" href="https://wa.me/" target="_blank">WhatsApp</a>
+              
             </div>
           </form>
         </div>
@@ -26,7 +29,7 @@
           <h1 @click="clicked">Map</h1>
           <div class="map" style="width: 100%">
             <iframe
-            id="theiframe"
+              id="theiframe"
               width="100%"
               height="400"
               frameborder="0"
@@ -47,13 +50,13 @@
 <script>
 export default {
   name: "GetInTouch",
-  methods:{
-    clicked(){
+  methods: {
+    clicked() {
       var iframe = parent.document.getElementById("theiframe");
-var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-var currentFrame = innerDoc.location.href;
-console.log(currentFrame)
+      var currentFrame = innerDoc.location.href;
+      console.log(currentFrame);
     }
   }
 };
@@ -122,11 +125,36 @@ console.log(currentFrame)
   border: 1px solid #eee;
   padding: 10px;
 }
+.get-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.whatsapp {
+  background: #2fb842;
+  color: #fff;
+}
+.call {
+  background-color: #f8f8f8;
+  color: #394b57;
+  border: 1px solid #f8f8f8;
+}
 .get-button input {
   background-color: #1783b4;
   color: #fff;
-  font-size: 18px;
-  width: 100%;
+  font-size: 14px;
+  width: 30%;
+  white-space: nowrap;
+}
+.get-button a {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  padding: 16px 30px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
 }
 @media (max-width: 479px) and (min-width: 320px) {
   .get-content .right {

@@ -1041,9 +1041,12 @@ export default {
       return this.$store.state.userInfo;
     },
   },
-  watch: {
-    info() {
-      this.addBasicData();
+ watch: {
+    info: {
+      handler: function () {
+        this.addBasicData();
+      },
+      immediate: true,
     },
   },
 };

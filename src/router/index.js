@@ -87,7 +87,8 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.path === '/search') return
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ behavior: 'smooth', left: 0, top: 0 })

@@ -10,7 +10,7 @@
       </div>
     </div> -->
     <section class="container">
-      <BlueHead :title="'Filters'" />
+      <BlueHead :title="'Filters'"/>
       <section class="filter-search">
         <section>
           <div class="toggle-buttons">
@@ -28,8 +28,25 @@
             </button>
           </div>
         </section>
-        <TypeAndSubtype title="Property type" :types="typeData" />
-        <TypeAndSubtype title="Property Sub type" :types="subTypeData" />
+        <!-- toggle button  end -->
+        <TypeAndSubtype
+          title="Property type"
+          :types="typeData"
+          @selected="propertyTypeSelected"
+          propertyType="property"
+          :metaQuery="$route.query.property_type"
+        />
+        <TypeAndSubtype
+          v-if="subTypecat >= 0"
+          title="Property Sub type"
+          :types="
+            subTypeData[subTypecat] && subTypeData[subTypecat].propertySubType
+          "
+          @selected="propertyTypeSelected"
+          propertyType="subtype"
+          :metaQuery="$route.query.sub_type"
+        />
+        <!-- area detail -->
         <div class="main-inputs">
           <div class="range-section">
             <!-- input block -->
@@ -39,11 +56,21 @@
               </div>
               <div>
                 <div>
-                  <input type="number" placeholder="0" />
+                  <input
+                    type="number"
+                    placeholder="0"
+                    v-model="filter.price"
+                    @change="priceSelect($event)"
+                  />
                 </div>
                 <div class="mid-to">to</div>
                 <div>
-                  <input type="number" placeholder="any" />
+                  <input
+                    type="number"
+                    placeholder="any"
+                    v-model="filter.priceto"
+                    @change="priceTo($event)"
+                  />
                 </div>
               </div>
             </div>
@@ -55,15 +82,19 @@
               </div>
               <div>
                 <div>
-                  <input type="number" name="" id="" />
+                  <input
+                    type="number"
+                    v-model="filter.area"
+                    @change="onChange($event)"
+                  />
                 </div>
                 <div>
-                  <select class="area">
-                    <option value="" selected>Marla</option>
-                    <option value="">Kanal</option>
-                    <option value="">Acre</option>
-                    <option value="">Yard</option>
-                    <option value="">sq.ft</option>
+                  <select class="area" v-model="filter.area_type">
+                    <option selected>Marla</option>
+                    <option>Kanal</option>
+                    <option>Acre</option>
+                    <option>Yard</option>
+                    <option>Sq.ft</option>
                   </select>
                 </div>
               </div>
@@ -71,46 +102,62 @@
             <!-- input block -->
           </div>
           <!-- area detail -->
+          <!-- area detail -->
           <section class="area-detail">
             <!-- block of code -->
             <div class="city-block">
               <div class="title">
                 <h1>City</h1>
               </div>
-              <div class="area-input">
+              <div class="area-input" id="input">
                 <div>
-                  <input type="text" v-model="city" @focus="openDropdown" />
+                  <input
+                    type="text"
+                    v-model="filter.city"
+                    @focus="openDropdown"
+                  />
                 </div>
-                <div
-                  class="dropdown"
-                  v-if="dropdownCities"
-                  @blur="closeDropdown"
-                >
+                <div class="dropdown" v-if="dropdownCities">
                   <div class="city-search">
-                    <input type="search" placeholder="Search Location" />
+                    <input
+                      type="text"
+                      v-model="search"
+                      placeholder="Search Location"
+                    />
                   </div>
-                  <div class="city-list" @click="selectedCity('islamabad')">
+                  <div class="city-list" v-if="!search">
                     <ul>
                       <li>Popular Cities</li>
-                      <li>Islamabad</li>
-                      <li>Karachi</li>
-                      <li>Lahore</li>
-                      <li>Peshawar</li>
+                      <li
+                        v-for="(popular, p) in cities"
+                        @click="selectedCity(popular)"
+                        :key="p"
+                        v-show="popular.isPop"
+                      >
+                        {{ popular.name }}
+                      </li>
                     </ul>
                     <ul>
                       <li>Other Cities</li>
-                      <li>Abbottabad</li>
-                      <li>Abdul Hakim</li>
-                      <li>Alipur</li>
-                      <li>Bagh</li>
-                      <li>Bannu</li>
-                      <li>Chakwal</li>
-                      <li>Daska</li>
-                      <li>Daur</li>
-                      <li>FATA</li>
-                      <li>Gilgit</li>
-                      <li>Mansehra</li>
-                      <li>Okara</li>
+                      <li
+                        v-for="(other, index) in cities"
+                        @click="selectedCity(other)"
+                        :key="index"
+                        v-show="!other.isPop"
+                      >
+                        {{ other.name }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="city-list" v-else>
+                    <ul>
+                      <li
+                        v-for="(search, s) in searchCities"
+                        @click="selectedCity(search)"
+                        :key="s"
+                      >
+                        {{ search.name }}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -120,16 +167,53 @@
           </section>
           <section class="address-block">
             <!-- input block -->
-            <div class="check-buttons">
-              <div class="title">
-                <h1>Society</h1>
-              </div>
-              <div>
-                <div>
-                  <input type="text" />
+            <section class="area-detail">
+              <!-- block of code -->
+              <div class="city-block">
+                <div class="title">
+                  <h1>Society</h1>
+                </div>
+                <div class="area-input" id="input-society">
+                  <div>
+                    <div class="dropdown-menu" @click="openDropdownSociety">
+                      {{ filter.society }}
+                    </div>
+                  </div>
+                  <div class="dropdown" v-if="dropdownSociety">
+                    <div class="city-search">
+                      <input
+                        type="text"
+                        v-model="searchSociety"
+                        placeholder="Search Society"
+                      />
+                    </div>
+                    <div class="city-list" v-if="!searchSociety">
+                      <ul>
+                        <li
+                          v-for="(society, p) in society.society"
+                          @click="selectedSociety(society)"
+                          :key="p"
+                        >
+                          {{ society }}
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="city-list" v-else>
+                      <ul>
+                        <li
+                          v-for="(search, s) in searchSocietyFilter"
+                          @click="selectedSociety(search)"
+                          :key="s"
+                        >
+                          {{ search }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+              <!-- block of code -->
+            </section>
             <!-- input block -->
             <!-- input block -->
             <div class="check-buttons">
@@ -138,7 +222,7 @@
               </div>
               <div>
                 <div>
-                  <input type="text" />
+                  <input type="text" v-model="filter.phase" />
                 </div>
               </div>
             </div>
@@ -150,7 +234,7 @@
               </div>
               <div>
                 <div>
-                  <input type="text" />
+                  <input type="text" v-model="filter.block" />
                 </div>
               </div>
             </div>
@@ -162,7 +246,7 @@
               </div>
               <div>
                 <div>
-                  <input type="text" />
+                  <input type="text" v-model="filter.sector" />
                 </div>
               </div>
             </div>
@@ -174,7 +258,7 @@
               </div>
               <div>
                 <div>
-                  <input type="text" />
+                  <input type="text" v-model="filter.road" />
                 </div>
               </div>
             </div>
@@ -186,7 +270,7 @@
               </div>
               <div>
                 <div>
-                  <input type="text" />
+                  <input type="text" v-model="filter.street" />
                 </div>
               </div>
             </div>
@@ -195,9 +279,24 @@
         </div>
         <!-- area detail -->
         <div class="main-inputs">
-          <DetailNumbers :title="'Floor'" :data="floorData" />
-          <DetailNumbers :title="'Bedrooms'" :data="bedRooms" />
-          <DetailNumbers :title="'Bathrooms'" :data="bathRooms" />
+          <DetailNumbers
+            :title="'Floor'"
+            :data="floorData"
+            @propertyDetail="propertyDetail"
+            :metaData="$route.query.floor"
+          />
+          <DetailNumbers
+            :title="'Bedrooms'"
+            :data="bedRooms"
+            @propertyDetail="propertyDetail"
+            :metaData="$route.query.bedrooms"
+          />
+          <DetailNumbers
+            :title="'Bathrooms'"
+            :data="bathRooms"
+            @propertyDetail="propertyDetail"
+            :metaData="$route.query.bathrooms"
+          />
         </div>
         <!-- input block -->
         <div class="check-buttons property-number">
@@ -206,7 +305,7 @@
           </div>
           <div>
             <div>
-              <input type="number" />
+              <input type="number" @change="onPnumber($event)" />
             </div>
           </div>
         </div>
@@ -228,9 +327,27 @@
           </div>
         </div>
         <section class="btn-section">
-          <button class="btn">Search</button>
+          <button class="btn" @click="searchQuery">Search</button>
         </section>
       </section>
+      <div ref="goDiv">
+        <PropertyList
+          :filteredItems="filteredItems"
+          v-if="filteredItems.length"
+        />
+      </div>
+      <paginate
+        v-if="totalPages && filteredItems.length"
+        :page-count="totalPages"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="clickCallback"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination'"
+        :page-class="'page-item'"
+      >
+      </paginate>
     </section>
   </default-layout>
 </template>
@@ -240,22 +357,62 @@ import FeatureBox from "@/components/common/FeatureBox.vue";
 import TypeAndSubtype from "@/components/common/TypeAndSubtype.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
 import DetailNumbers from "@/components/common/DetailNumbers.vue";
+import PropertyList from "@/components/PropertyList.vue";
+import Paginate from "vuejs-paginate-next";
 export default {
   name: "SearchView",
   components: {
+    Paginate,
     DefaultLayout,
     FeatureBox,
     TypeAndSubtype,
     BlueHead,
     DetailNumbers,
+    PropertyList,
   },
   data() {
     return {
+      // pagination
+      totalPages: 0,
+      // pagination
+      filteredItems: [],
       images: {},
       image: [],
       category: "buy",
       dropdownCities: false,
-      city: "",
+      dropdownSociety: false,
+      subTypecat: 0,
+      society: {},
+      // cities
+      search: "",
+      searchSociety: "",
+      cities: [
+        {
+          name: "Islamabad",
+          isPop: true,
+          society: ["7th Avenue", "9th Avenue ", "D-12"],
+        },
+        {
+          name: "Karachi",
+          isPop: true,
+          society: ["Bahria Town Karachi", "DHA"],
+        },
+        {
+          name: "Lahore",
+          isPop: true,
+          society: [],
+        },
+        {
+          name: "Abbotabad",
+          isPop: false,
+          society: [],
+        },
+        {
+          name: "Abdu Hakim",
+          isPop: false,
+          society: [],
+        },
+      ],
       typeData: [
         { type: "Plot", icon: "bath.png" },
         { type: "Home", icon: "bed.png" },
@@ -263,15 +420,36 @@ export default {
         { type: "Farm House", icon: "bath.png" },
       ],
       subTypeData: [
-        { type: "Residential", icon: "bath.png" },
-        { type: "Commercial", icon: "bed.png" },
-        { type: "Agricultural", icon: "bed.png" },
-        { type: "Plot", icon: "bath.png" },
-        { type: "Plot", icon: "bath.png" },
-        { type: "Plot", icon: "bed.png" },
-        { type: "Plot", icon: "bath.png" },
-        { type: "Plot", icon: "bath.png" },
-        { type: "Plot", icon: "bath.png" },
+        {
+          propertySubType: [
+            { type: "Residential", icon: "bath.png" },
+            { type: "Commercial", icon: "bed.png" },
+            { type: "Agricultural", icon: "bed.png" },
+            { type: "Industrial", icon: "bath.png" },
+            { type: "File", icon: "bath.png" },
+            { type: "Plot Form", icon: "bed.png" },
+          ],
+        },
+        {
+          propertySubType: [
+            { type: "House", icon: "bath.png" },
+            { type: "Flat", icon: "bed.png" },
+            { type: "Room", icon: "bed.png" },
+            { type: "Penthouse", icon: "bath.png" },
+          ],
+        },
+        {
+          propertySubType: [
+            { type: "Office", icon: "bath.png" },
+            { type: "Shop", icon: "bed.png" },
+            { type: "Warehouse", icon: "bed.png" },
+            { type: "Factory", icon: "bath.png" },
+            { type: "Building", icon: "bath.png" },
+          ],
+        },
+        {
+          propertySubType: [{ type: "Farm House", icon: "bath.png" }],
+        },
       ],
       floorData: [
         "1",
@@ -292,46 +470,209 @@ export default {
       ],
       bedRooms: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
       bathRooms: ["1", "2", "3", "4", "5", "6", "7", "8"],
+      filter: {},
     };
   },
-  methods: {
-    imagesAdd(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      this.images = [];
-      Array.prototype.push.apply(this.images, files);
-      if (!this.images.length) return;
-      this.createImage(this.images);
+  computed: {
+    searchCities() {
+      var search = this.cities;
+      return search.filter((city) =>
+        city.name.toLowerCase().startsWith(this.search.toLowerCase())
+      );
     },
-    createImage(file) {
-      for (var i = 0; i < file.length; i++) {
-        var reader = new FileReader();
-        var vm = this;
-        reader.onload = (e) => {
-          vm.image.push(e.target.result);
-          console.log(vm.image);
-        };
-        reader.readAsDataURL(file[i]);
+    searchSocietyFilter() {
+      var search = this.society.society;
+      return search.filter((city) =>
+        city.toLowerCase().startsWith(this.searchSociety.toLowerCase())
+      );
+    },
+    properties() {
+      return this.$store.state.properties;
+    },
+  },
+  created() {
+    this.filter = this.$route.query;
+  },
+  mounted() {
+    const clickAway = () => {
+      this.dropdownCities = false;
+    };
+    const clickAwaySociety = () => {
+      this.dropdownSociety = false;
+    };
+    var el = document.getElementById("input");
+    var ele = document.getElementById("input-society");
+    document.addEventListener("click", function (event) {
+      var isClickInsideElement = el.contains(event.target);
+      var society = ele.contains(event.target);
+      if (!isClickInsideElement) {
+        clickAway();
+      }
+      if (!society) {
+        clickAwaySociety();
+      }
+    });
+  },
+  methods: {
+    priceSelect(e) {
+      this.filter.price = e.target.value;
+    },
+    priceTo(e) {
+      this.filter.priceto = e.target.value;
+    },
+    onPnumber(e) {
+      this.filter.property_number = e.target.value;
+    },
+    onChange(e) {
+      this.filter.area = e.target.value;
+    },
+    clickCallback(pageNum) {
+      this.constructURL(pageNum);
+    },
+    searchQuery() {
+      this.constructURL();
+    },
+    constructURL(page) {
+      var url = "";
+      var fl = "";
+      if (!page) {
+        fl = this.filter;
+      } else {
+        fl = this.$route.query;
+      }
+      Object.keys(fl).forEach((e) => {
+        if (fl[e] && fl[e] !== "undefined" && fl[e].length > 0)
+          url += `${e}=${fl[e]}&`;
+      });
+      this.$router.push(`/search?${url}page=${page ? page : "1"}`);
+      this.scrollToElement();
+    },
+    propertyDetail(detail) {
+      var { type, value } = detail;
+      if (type == "Floor") {
+        return (this.filter.floor = value);
+      } else if (type == "Bedrooms") {
+        return (this.filter.bedrooms = value);
+      } else if (type == "Bathrooms") {
+        return (this.filter.bathrooms = value);
       }
     },
-    removeImage(key) {
-      this.image.splice(key, 1);
-      this.images.splice(key, 1);
-      if (!this.image.length) {
-        this.$refs.im.value = "";
+    propertyTypeSelected(v) {
+      if (v.propertyType == "property") {
+        this.subTypecat = v.id;
+        if (v.value) {
+          this.filter.property_type = v.value;
+          delete this.filter.sub_type;
+        }
+      } else {
+        this.filter.sub_type = v.value;
+      }
+    },
+    openDropdownSociety() {
+      if (!this.filter.city) {
+        this.$swal({
+          icon: "error",
+          title: "Please Select City before",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+        return;
+      }
+      if (this.society.society.length) {
+        this.dropdownSociety = true;
+      }
+    },
+    selectedSociety(society) {
+      this.filter.society = society;
+      this.dropdownSociety = false;
+    },
+    scrollToElement() {
+      const el = this.$refs.goDiv;
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
       }
     },
     openDropdown() {
       this.dropdownCities = true;
     },
-    closeDropdown() {
-      this.dropdownCities = false;
-    },
     selectedCity(city) {
-      this.city = city;
+      this.society = city;
+      this.filter.city = city.name;
       this.dropdownCities = false;
     },
     typeSelect(type) {
       this.category = type;
+    },
+    filterProperty() {
+      var query = this.$route.query;
+      var v = { ...query };
+      var { page, price, priceto } = query;
+
+      delete v.price;
+      delete v.priceto;
+      delete v.page;
+      delete query.page;
+      if (v.property_type == "Residential/commercial") {
+        delete v.property_type;
+      }
+
+      var filtered = this.$store.state.properties.filter(function (item) {
+        var x = item.val();
+        for (var key in v) {
+          if (x[key] === undefined || x[key] != v[key]) return false;
+        }
+        return true;
+      });
+
+      if (price && !priceto) {
+        filtered = filtered.filter((item) => {
+          return item.val().price == parseInt(price);
+        });
+      }
+      if (!price && priceto) {
+        filtered = filtered.filter((item) => {
+          return item.val().price <= parseInt(priceto);
+        });
+      }
+      if (price && priceto) {
+        filtered = filtered.filter((item) => {
+          return (
+            item.val().price >= parseInt(price) &&
+            item.val().price <= parseInt(priceto)
+          );
+        });
+      }
+      if (v.property_type == "Residential/commercial") {
+        filtered = filtered.filter((item) => {
+          return (
+            item.val().property_type == "Residential" ||
+            item.val().property_type == "Commercial"
+          );
+        });
+      }
+
+      // pagination
+      this.totalPages = Math.round(filtered.length / 12);
+      // pagination
+      var copyFrom = (page - 1) * 12;
+      var copyTo = page * 12;
+      this.filteredItems = filtered.slice(copyFrom, copyTo);
+    },
+  },
+  watch: {
+    properties: {
+      handler: function () {
+        this.filterProperty();
+      },
+      // immediate: true,
+    },
+    "$route.query": {
+      handler() {
+        if (this.properties.length) {
+          this.filterProperty();
+        }
+      },
+      immediate: true,
     },
   },
 };
@@ -511,5 +852,15 @@ export default {
   background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
   font-size: 14px;
   min-width: 331px;
+}
+.dropdown-menu {
+  min-width: 190px;
+  border: 1px solid gray;
+  height: 36px;
+  border-radius: 6px;
+  margin-right: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
 }
 </style>

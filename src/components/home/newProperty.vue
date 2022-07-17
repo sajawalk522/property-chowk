@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-title">
-      <h1>New Properties</h1>
+      <h1>Featured Properties</h1>
     </div>
     <carousel
       :settings="settings"
@@ -11,11 +11,11 @@
       class="carousel-container"
       v-if="$store.state.properties.length"
     >
-      <slide v-for="(property ,index) in $store.state.properties" :key="index" >
+      <slide v-for="(property, index) in featured" :key="index">
         <div>
           <div class="new-property-container">
-            <img src="../../assets/images/karachi.png" v-if="!property.val().images"/>
-            <img :src="property.val().images[0]" v-else/>
+            <img src="../../assets/images/karachi.png" v-if="!property.val().images" />
+            <img :src="property.val().images[0]" v-else />
             <div class="layout">
               <div class="properties-card">
                 <div class="card-top">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-bottom">
                   <button>Call us For Price</button>
-                  <p>{{property.val().property_title}}</p>
+                  <p>{{ property.val().property_title }}</p>
                 </div>
               </div>
             </div>
@@ -50,15 +50,15 @@
           <div class="card-items">
             <div>
               <p>Area</p>
-              <p>{{property.val().area}}-{{property.val().area_type}}</p>
+              <p>{{ property.val().area }}-{{ property.val().area_type }}</p>
             </div>
             <div v-if="property.val().bedrooms">
               <p>Beds</p>
-              <p>{{property.val().bedrooms}}</p>
+              <p>{{ property.val().bedrooms }}</p>
             </div>
             <div v-if="property.val().bathrooms">
               <p>Baths</p>
-              <p>{{property.val().bathrooms}}</p>
+              <p>{{ property.val().bathrooms }}</p>
             </div>
             <div v-if="property.val().garage">
               <p>Garage</p>
@@ -78,6 +78,26 @@
         <!-- <pagination /> -->
       </template>
     </carousel>
+    <div class="container" v-else>
+      <div class="skeleton-conatiner">
+        <div class="card-skeleton">
+          <div class="image-skeleton"></div>
+          <p></p>
+          <p></p>
+        </div>
+        <div class="card-skeleton">
+          <div class="image-skeleton"></div>
+          <p></p>
+          <p></p>
+        </div>
+        <div class="card-skeleton">
+          <div class="image-skeleton"></div>
+          <p></p>
+          <p></p>
+        </div>
+        
+      </div>
+    </div>
   </section>
 </template>
 
@@ -90,6 +110,14 @@ export default {
     Carousel,
     Slide,
     Navigation
+  },
+  computed: {
+    featured() {
+      var filteredFeatrued = this.$store.state.properties.filter(f => {
+        return f.val().featured;
+      });
+      return filteredFeatrued.slice(0, 20);
+    }
   },
   data: () => ({
     // carousel settings
@@ -116,6 +144,27 @@ export default {
 </script>
 
 <style scoped>
+.skeleton-conatiner{
+  display: flex;
+  justify-content: space-between;
+}
+.card-skeleton {
+  width: 350px;
+  height: 390px;
+}
+.card-skeleton .image-skeleton {
+  background: #eee;
+  height: 250px;
+}
+.card-skeleton p {
+  height: 30px;
+  background: #eee;
+  margin-top: 20px;
+   width: 90%;
+}
+.card-skeleton p:last-child{
+  width: 60%;
+}
 .new-property-container {
   position: relative;
 }

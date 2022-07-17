@@ -4,11 +4,7 @@
       <div :class="[{ active: transparent }, 'header disktop']">
         <section class="logo">
           <router-link to="/">
-            <img
-              v-if="transparent"
-              src="../../assets/images/logo-transparent.svg"
-              alt="Logo"
-            />
+            <img v-if="transparent" src="../../assets/images/logo-transparent.svg" alt="Logo" />
             <img v-else src="../../assets/images/logo.svg" alt="Logo" />
           </router-link>
         </section>
@@ -16,33 +12,39 @@
           <div class="nav">
             <div>
               <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/#">Properties</router-link></li>
-                <li><router-link to="/#">Realtors</router-link></li>
-                <li><router-link to="/#">Gallery</router-link></li>
-                <li><router-link to="/#">Blog</router-link></li>
-                <li><router-link to="/#">Contact</router-link></li>
                 <li>
-                  <!-- <div class="add">
-                  <button class="btn" @click="goTo">add property</button>
-                </div> -->
+                  <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                  <router-link to="/#">Properties</router-link>
+                </li>
+                <li>
+                  <router-link to="/#">Realtors</router-link>
+                </li>
+                <li>
+                  <router-link to="/#">Gallery</router-link>
+                </li>
+                <li>
+                  <router-link to="/#">Blog</router-link>
+                </li>
+                <li>
+                  <router-link to="/#">Contact</router-link>
+                </li>
+                <li>
+                  <div class="add">
+                    <button class="btn" @click="goTo">Add Property</button>
+                  </div>
                   <!-- <div class="profile-pic shadowActive" @click="login('login')">
                     <img src="../../assets/images/profile.svg" alt="profile" />
-                  </div> -->
+                  </div>-->
                 </li>
               </ul>
             </div>
-          <div class="login-container">
+            <div class="login-container">
               <div class="profile-pic shadowActive" @click="login('login')">
                 <img src="../../assets/images/profile.svg" alt="profile" />
               </div>
-              <div class="logout-container" v-if="$store.state.user && loginState">
-                <ul>
-                  <li class="hi"><p>Hi</p></li>
-                  <li>{{ $store.state.userInfo.name }}</li>
-                  <li @click="logOut">Logout</li>
-                </ul>
-              </div>
+              <LogoutModel v-if="$store.state.user && loginState" />
             </div>
           </div>
         </section>
@@ -58,39 +60,29 @@
 <script>
 import LoginModel from "../loginModels/LoginModel.vue";
 import SignupModel from "../loginModels/SignupModel.vue";
-import firebase from "../../firebase";
+import LogoutModel from "../loginModels/logoutModel.vue";
+
 export default {
   name: "AppHeader",
   props: ["transparent"],
   components: {
     LoginModel,
     SignupModel,
+    LogoutModel
   },
   data() {
     return {
       showModel: "",
-      loginState: false,
+      loginState: false
     };
   },
   methods: {
-    logOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$store.dispatch("setUser", false);
-          this.$store.dispatch("userDetail", {});
-          this.showModel = "";
-           this.$swal({
-                icon: "success",
-                title: "Logout Success",
-                showConfirmButton: false,
-                timer: 3000
-              });
-        });
-    },
-    goTo() {
-      this.$router.push("/add-property");
+   goTo() {
+      if (!this.$store.state.user) {
+        this.showModel = "login";
+      }else{
+        this.$router.push("/add-property");
+      }
     },
     login(val) {
       if (!this.$store.state.user) {
@@ -99,23 +91,18 @@ export default {
       } else {
         this.loginState = !this.loginState;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
-.hi p{
-  width: 25px!important;
-  height: 25px!important;
-  border-radius: 50%;
-  background: #333;
-  color: #fff!important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  text-transform: capitalize;
+.add {
+  margin-right: 15px;
+}
+.add .btn {
+  white-space: nowrap;
+  background-color: #07abd3;
 }
 .nav {
   display: flex;
@@ -140,7 +127,6 @@ export default {
 }
 .navigation-profile {
   display: flex;
-  width: 60%;
 }
 .navigation-profile .nav ul {
   display: flex;
@@ -184,14 +170,32 @@ export default {
 }
 .logout-container {
   display: block;
-  position: absolute;
-  top: 40px;
+  background: rgba(0, 0, 0, 0.32941);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999999;
+  height: 100%;
+}
+.logout-inner {
   background: #fff;
-  padding: 5px;
-  width: 130px;
-  z-index: 9;
-  left: -50px;
-  border: 1px solid #eee;
+  width: 25%;
+  position: fixed;
+  right: -600px;
+  animation: slide 0.5s forwards;
+  height: 100%;
+}
+@-webkit-keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+@keyframes slide {
+  100% {
+    right: 0;
+  }
 }
 .logout-container ul {
   display: flex;
@@ -208,8 +212,8 @@ export default {
   width: 85%;
   border-bottom: 1px solid #eee;
 }
-.logout-container ul li:last-child{
-  border: none!important;
+.logout-container ul li:last-child {
+  border: none !important;
 }
 .profile-pic img {
   width: 100%;

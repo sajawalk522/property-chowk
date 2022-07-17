@@ -2,26 +2,23 @@
   <div class="property-list">
     <div class="property-main">
       <div class="card-list">
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
-        <CardProperty />
+        <CardProperty
+          v-for="(item, index) in filteredItems"
+          :key="index"
+          :dataList="item"
+        />
       </div>
-      <div class="pagination">
+      <!-- <div class="pagination">
         <div class="pagination-primary">
-          <div class="block-pagination active">1</div>
-          <div class="block-pagination">2</div>
-          <div class="block-pagination">3</div>
-          <div class="block-pagination">4</div>
-          <div class="block-pagination">5</div>
-          <div class="block-pagination">6</div>
+          <div
+            class="block-pagination active"
+            v-for="(page, p) in page"
+            :key="p"
+          >
+            {{page}}
+          </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="rite-side">
       <div class="banner">Get the latest update about properties</div>
@@ -44,6 +41,7 @@
 <script>
 import CardProperty from "./common/CardProperty.vue";
 export default {
+  props: ["filteredItems"],
   components: {
     CardProperty,
   },
@@ -129,10 +127,10 @@ export default {
   .property-list .card-container {
     width: 160px;
   }
-  .pagination .pagination-primary{
+  .pagination .pagination-primary {
     width: 80%;
   }
-  .block-pagination{
+  .block-pagination {
     margin: 0 5px;
   }
 }

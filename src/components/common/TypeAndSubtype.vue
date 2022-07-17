@@ -11,7 +11,19 @@
           :key="index"
           @click="clickedOn(item.type, index)"
         >
-          <div :class="['img', { active: index === selected }]">
+          <div
+            :class="[
+              'img',
+              {
+                active: !selected
+                  ? metaQuery == item.type
+                  : selected == item.type,
+              },
+              {
+                active: !metaQuery ? item.type == 'Plot': '',
+              },
+            ]"
+          >
             <img :src="require(`../../assets/images/${item.icon}`)" alt="" />
           </div>
           <div>
@@ -25,7 +37,7 @@
 
 <script>
 export default {
-  props: ["title", "types", "propertyType"],
+  props: ["title", "types", "propertyType", "metaQuery"],
   data() {
     return {
       selected: "",
@@ -33,7 +45,7 @@ export default {
   },
   methods: {
     clickedOn(val, index) {
-      this.selected = index;
+      this.selected = val;
       var selectVal = {
         id: index,
         value: val,
@@ -42,9 +54,12 @@ export default {
       this.$emit("selected", selectVal);
     },
   },
-  mounted() {
+  created() {
     if (this.propertyType == "property") {
-      this.selected = 0;
+      var index = this.types.findIndex((e) => {
+        return e.type == this.metaQuery;
+      });
+      this.clickedOn("", this.metaQuery ? index : 0);
     }
   },
 };

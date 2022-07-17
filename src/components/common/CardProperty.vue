@@ -2,13 +2,14 @@
   <section class="card-container">
     <div class="card-top">
       <div class="image-card">
-        <img src="../../assets/images/placeholder.png" />
+        <img :src="dataList.val().images[0]" v-if="dataList.val().images && dataList.val().images.length"/>
+        <img  src="../../assets/images/placeholder.png"  v-else />
       </div>
       <div class="super-hot">
         <button class="btn btn-hot">SUPER HOT</button>
       </div>
       <div class="camera">
-        <p>20</p>
+        <p>{{ dataList.val().views }}</p>
         <div class="cam-img"><img src="../../assets/images/camera.png" /></div>
       </div>
       <div class="wishlist">
@@ -17,27 +18,33 @@
         </div>
       </div>
     </div>
-
     <div class="card-content">
       <div class="location-button">
-        <button class="btn btn-blue">Prime Location</button>
+        <button class="btn btn-blue">{{ dataList.val().property_type }}</button>
       </div>
       <div class="location">
-        <h3>Rs. 2.50 Crore</h3>
-        <p>I-8 Islamabad</p>
+        <h3>Rs. {{dataList.val().price }}</h3>
+        <p>{{dataList.val().society}} {{ dataList.val().city }}</p>
       </div>
       <div class="icons-wrapper">
-        <div class="icon">
+        <div class="icon" v-if="dataList.val().bedrooms">
           <div class="i-img"><img src="../../assets/images/bed.png" /></div>
-          <div><p>4</p></div>
+          <div>
+            <p>{{ dataList.val().bedrooms }}</p>
+          </div>
         </div>
-        <div class="icon">
+        <div class="icon" v-if="dataList.val().bathrooms">
           <div class="i-img"><img src="../../assets/images/bath.png" /></div>
-          <div><p>3</p></div>
+          <div>
+            <p>{{ dataList.val().bathrooms }}</p>
+          </div>
         </div>
         <div class="icon">
           <div class="i-img"><img src="../../assets/images/ft.png" /></div>
-          <div><p>5987 sqft</p></div>
+          <div>
+            <p>{{ dataList.val().area }} {{ dataList.val().area_type }}</p>
+          </div>
+          <!-- <h1>{{dataList.val().city}}</h1> -->
         </div>
       </div>
       <div class="bottom-buttons">
@@ -51,6 +58,7 @@
 <script>
 export default {
   name: "CardView",
+  props: ["dataList"],
 };
 </script>
 
