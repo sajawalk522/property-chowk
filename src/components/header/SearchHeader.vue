@@ -2338,6 +2338,9 @@ export default {
     }
   },
   mounted() {
+    if(this.filteredItems.length){
+      this.scrollToElement()
+    }
     const clickAway = () => {
       this.dropdownCities = false;
     };
