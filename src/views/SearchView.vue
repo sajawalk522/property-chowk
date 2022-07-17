@@ -494,6 +494,9 @@ export default {
     this.filter = this.$route.query;
   },
   mounted() {
+    if(this.filteredItems.length){
+      this.scrollToElement()
+    }
     const clickAway = () => {
       this.dropdownCities = false;
     };

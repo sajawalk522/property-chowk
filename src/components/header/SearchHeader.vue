@@ -2338,9 +2338,6 @@ export default {
     }
   },
   mounted() {
-    if(this.filteredItems.length){
-      this.scrollToElement()
-    }
     const clickAway = () => {
       this.dropdownCities = false;
     };
@@ -2405,7 +2402,7 @@ a {
   background-color: #1783b4;
 }
 .quick-main {
-  width: 80%;
+  width: 90%;
 }
 .quick-search {
   display: flex;
