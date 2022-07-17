@@ -84,6 +84,7 @@ export default {
             showConfirmButton: false,
             timer: 3000
           });
+          this.$router.push('/')
         });
     },
     closeSlide() {

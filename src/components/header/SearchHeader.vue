@@ -2439,7 +2439,7 @@ a {
   width: 100%;
   height: 100%;
   outline: none;
-  border: none;
+  border: 1px solid gray;
   padding: 10px 10px;
   color: #000;
   position: relative;
@@ -2498,7 +2498,7 @@ h2 {
 }
 .search-main {
   display: flex;
-  width: 66%;
+  width: 67%;
 }
 .area-input {
   position: relative;
