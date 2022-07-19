@@ -1,6 +1,9 @@
 <template>
   <div class="property-list">
     <div class="property-main">
+      <div class="add-banner">
+        <img src="../assets/images/970x250.png" alt="" />
+      </div>
       <div class="card-list">
         <CardProperty
           v-for="(item, index) in filteredItems"
@@ -22,17 +25,17 @@
     </div>
     <div class="rite-side">
       <div class="banner">Get the latest update about properties</div>
+      <!-- <div class="add-section">
+        <img src="../assets/images/160x600.png" alt="" />
+      </div> -->
       <div class="add-section">
-        <img src="../assets/images/adds.png" alt="" />
+        <img src="../assets/images/250x250.png" alt="" />
       </div>
       <div class="add-section">
-        <img src="../assets/images/adds.png" alt="" />
+        <img src="../assets/images/300x600.png" alt="" />
       </div>
       <div class="add-section">
-        <img src="../assets/images/adds.png" alt="" />
-      </div>
-      <div class="add-section">
-        <img src="../assets/images/adds.png" alt="" />
+        <img src="../assets/images/250x250.png" alt="" />
       </div>
     </div>
   </div>
@@ -77,7 +80,14 @@ export default {
   font-size: 14px;
 }
 .add-section {
-  margin-top: 5px;
+  margin-top: 10px;
+}
+.add-banner{
+  margin: 5px 0 15px 0;
+}
+.add-banner img{
+  width: 100%;
+  height: 100%;
 }
 .add-section img {
   width: 100%;

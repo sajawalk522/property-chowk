@@ -537,6 +537,7 @@ export default {
   cursor: pointer;
 }
 .agent-info .agent-hover {
+  /* transition: 500ms linear; */
   background: #fff;
   height: 300px;
   width: 250px;
@@ -548,10 +549,12 @@ export default {
   border: 2px solid #eee;
   flex-direction: column;
   align-items: center;
+  transition: all 0.7s ease-out;
   /* justify-content: center; */
 }
 .agent-info:hover .agent-hover {
   display: flex;
+  transition: all 0.7s ease-in-out;
 }
 .agent-hover h1{
   font-size: 20px;

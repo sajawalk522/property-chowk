@@ -14,7 +14,7 @@
       <slide v-for="(property, index) in featured" :key="index">
         <div>
           <div class="new-property-container">
-            <img src="../../assets/images/karachi.png" v-if="!property.val().images" />
+            <img src="../../assets/images/rawalpndi.jpg" v-if="!property.val().images" />
             <img :src="property.val().images[0]" v-else />
             <div class="layout">
               <div class="properties-card">
