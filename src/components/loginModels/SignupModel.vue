@@ -18,10 +18,20 @@
           <div class="form-container">
             <form autocomplete="off" @submit.prevent="signUp">
               <div class="input-div">
-                <input type="text" placeholder="Name" v-model="insertData.name" required />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  v-model="insertData.name"
+                  required
+                />
               </div>
               <div class="input-div">
-                <input type="email" placeholder="Email" v-model="insertData.email" required />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  v-model="insertData.email"
+                  required
+                />
               </div>
               <div class="input-div">
                 <input
@@ -32,7 +42,12 @@
                 />
               </div>
               <div class="input-div">
-                <input type="password" placeholder="Password" v-model="password" required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  v-model="password"
+                  required
+                />
               </div>
               <div class="input-div">
                 <input
@@ -81,8 +96,8 @@ export default {
         phone_code: null,
         phone_number: "",
         superhot_ads: 0,
-        verified: false
-      }
+        verified: false,
+      },
     };
   },
   methods: {
@@ -90,7 +105,7 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.insertData.email, this.password)
-        .then(u => {
+        .then((u) => {
           this.insertData.id = u.user.uid;
           db.collection("users")
             .doc(this.insertData.id)
@@ -101,17 +116,17 @@ export default {
                 icon: "success",
                 title: "Login Success",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 3000,
               });
             });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.message);
           this.$swal({
             icon: "error",
             title: err.message,
             showConfirmButton: false,
-            timer: 3000
+            timer: 3000,
           });
           // alert(err.message);
         });
@@ -121,8 +136,8 @@ export default {
     },
     Login() {
       this.$parent.showModel = "login";
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

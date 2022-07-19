@@ -558,6 +558,7 @@ export default {
   color: #000;
   padding: 0px 10px 10px 10px;
   text-align: center;
+   transition: 0.3s;
 }
 .agent-hover .info-btn{
   font-size: 16px;
