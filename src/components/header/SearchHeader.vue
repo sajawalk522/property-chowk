@@ -12,7 +12,10 @@
           </div>
           <section class="search" v-if="$route.path == '/'">
             <div class="heade-btns">
-              <router-link to="add-property" v-if="$store.state.userInfo.verified">
+              <router-link
+                to="add-property"
+                v-if="$store.state.userInfo.verified"
+              >
                 <button class="btns">Add Property</button>
               </router-link>
               <router-link to="#">
@@ -49,7 +52,11 @@
                             </div>
                             <div class="dropdown" v-if="dropdownCities">
                               <div class="city-search">
-                                <input type="text" v-model="search" placeholder="Search Location" />
+                                <input
+                                  type="text"
+                                  v-model="search"
+                                  placeholder="Search Location"
+                                />
                               </div>
                               <div class="city-list" v-if="!search">
                                 <ul>
@@ -59,7 +66,9 @@
                                     @click="selectedCity(popular)"
                                     :key="p"
                                     v-show="popular.isPop"
-                                  >{{ popular.name }}</li>
+                                  >
+                                    {{ popular.name }}
+                                  </li>
                                 </ul>
                                 <ul>
                                   <li>Other Cities</li>
@@ -68,7 +77,9 @@
                                     @click="selectedCity(other)"
                                     v-show="!other.isPop"
                                     :key="index"
-                                  >{{ other.name }}</li>
+                                  >
+                                    {{ other.name }}
+                                  </li>
                                 </ul>
                               </div>
                               <div class="city-list" v-else>
@@ -77,7 +88,9 @@
                                     v-for="(search, s) in searchCities"
                                     @click="selectedCity(search)"
                                     :key="s"
-                                  >{{ search.name }}</li>
+                                  >
+                                    {{ search.name }}
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -120,7 +133,9 @@
                                     v-for="(society, p) in society.society"
                                     @click="selectedSociety(society)"
                                     :key="p"
-                                  >{{ society }}</li>
+                                  >
+                                    {{ society }}
+                                  </li>
                                 </ul>
                               </div>
                               <div class="city-list" v-else>
@@ -129,7 +144,9 @@
                                     v-for="(search, s) in searchSocietyFilter"
                                     @click="selectedSociety(search)"
                                     :key="s"
-                                  >{{ search }}</li>
+                                  >
+                                    {{ search }}
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -144,7 +161,9 @@
                         <option value disabled>All Types</option>
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
-                        <option value="Residential/commercial">Residential/commercial</option>
+                        <option value="Residential/commercial">
+                          Residential/commercial
+                        </option>
                       </select>
                       <div class="search-icon" @click="quickSearch">
                         <svg class="svg-icon" viewBox="0 0 20 20">
@@ -173,7 +192,7 @@ export default {
       dropdownCities: false,
       dropdownSociety: false,
       finalData: {
-        property_type: ""
+        property_type: "",
       },
       society: {},
       searchSociety: "",
@@ -427,8 +446,8 @@ export default {
             "Writer Colony",
             "Zaid Town",
             "Zakariya Town",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: "Bahawalpur",
@@ -501,8 +520,8 @@ export default {
             "CRITICAL HOMES",
             "JAMIA MASJID CANAL COLONY",
             "DEPARTMENT OFF ANTHOMY",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: "Rawalpindi",
@@ -767,8 +786,8 @@ export default {
             "Yousaf Colony",
             "Zafar ul Haq Road",
             "Zeeshan Colony",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: "Islamabad",
@@ -971,8 +990,8 @@ export default {
             "Spring Valley",
             "Swan Garden",
             "Taramrri",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: " Gujranwala",
@@ -1086,8 +1105,8 @@ export default {
             "Wahdat Colony",
             "Wapda Town",
             "Zahid Colony",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: "Lahore",
@@ -1842,8 +1861,8 @@ export default {
             "NAZIR GARDEN",
             "HAJVERY HOUSING SCHEME",
             "AL GHANI GARDEN",
-            "Others"
-          ]
+            "Others",
+          ],
         },
         {
           name: "Karachi",
@@ -2051,8 +2070,8 @@ export default {
             "Yousaf Goth",
             "Gulshan e Amin",
             "Abdullah Haroon Road",
-            "Dhabeji"
-          ]
+            "Dhabeji",
+          ],
         },
         {
           name: "Peshawar",
@@ -2200,63 +2219,63 @@ export default {
             "Anam Sanam Chowk",
             "Abdara",
             "Industrial Estate",
-            "Sikandar Town"
-          ]
+            "Sikandar Town",
+          ],
         },
         {
           name: "Abbottabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Abdul Hakim",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Ahmedpur East",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Alipur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Arifwala",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Astore",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Attock",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Awaran",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Badin",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bagh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bahawalnagar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bahawalpur",
@@ -2266,7 +2285,7 @@ export default {
         {
           name: "Balakot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bannu",
@@ -2311,7 +2330,7 @@ export default {
         {
           name: "Chaghi",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chakwal",
@@ -2321,7 +2340,7 @@ export default {
         {
           name: "Charsadda",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chichawatni",
@@ -2358,7 +2377,7 @@ export default {
         {
           name: "Dadu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Daharki",
@@ -3236,22 +3255,22 @@ export default {
   computed: {
     searchCities() {
       var search = this.cities;
-      return search.filter(city =>
+      return search.filter((city) =>
         city.name.toLowerCase().startsWith(this.search.toLowerCase())
       );
     },
     searchSocietyFilter() {
       var search = this.society.society;
-      return search.filter(city =>
+      return search.filter((city) =>
         city.toLowerCase().startsWith(this.searchSociety.toLowerCase())
       );
-    }
+    },
   },
   methods: {
     quickSearch() {
       var url = "";
       var fl = this.finalData;
-      Object.keys(fl).forEach(e => {
+      Object.keys(fl).forEach((e) => {
         if (fl[e] && fl[e] !== "undefined" && fl[e].length > 0)
           url += `${e}=${fl[e]}&`;
       });
@@ -3275,14 +3294,14 @@ export default {
           icon: "error",
           title: "Please Select City before",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
       if (this.society.society.length) {
         this.dropdownSociety = true;
       }
-    }
+    },
   },
   mounted() {
     const clickAway = () => {
@@ -3293,17 +3312,21 @@ export default {
     };
     var el = document.getElementById("input");
     var ele = document.getElementById("input-society");
-    document.addEventListener("click", function(event) {
-      var isClickInsideElement = el.contains(event.target);
-      var society = ele.contains(event.target);
-      if (!isClickInsideElement) {
-        clickAway();
+    document.addEventListener("click", function (event) {
+      if (el) {
+        var isClickInsideElement = el.contains(event.target);
+        if (!isClickInsideElement) {
+          clickAway();
+        }
       }
-      if (!society) {
-        clickAwaySociety();
+      if (ele) {
+        var society = ele.contains(event.target);
+        if (!society) {
+          clickAwaySociety();
+        }
       }
     });
-  }
+  },
 };
 </script>
 <style scoped>

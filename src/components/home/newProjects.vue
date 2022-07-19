@@ -10,7 +10,20 @@
       :breakpoints="breakpoints"
       class="carousel-container"
     >
-      <slide :key="1">
+      <slide v-for="(trend, index) in $store.state.trendings" :key="index">
+        <router-link :to="trend.slug">
+          <img :src="require(`../../assets/images/${trend.img}`)" />
+
+          <div class="layout">
+            <div>
+              <h2>{{ trend.title }}</h2>
+              <p>{{ trend.description }}</p>
+            </div>
+          </div>
+        </router-link>
+      </slide>
+
+      <!-- <slide :key="1">
         <router-link to="/trending">
           <img src="../../assets/images/gujranwala.jpg" />
 
@@ -98,7 +111,7 @@
             </div>
           </div>
         </router-link>
-      </slide>
+      </slide> -->
 
       <template #addons>
         <navigation />
