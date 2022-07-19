@@ -10,6 +10,9 @@
       </div>
     </div> -->
     <section class="container">
+      <div class="add-banner">
+      <img src="../assets/images/970x90.png" alt />
+    </div>
       <BlueHead :title="'Filters'"/>
       <section class="filter-search">
         <section>
@@ -681,6 +684,13 @@ export default {
 };
 </script>
 <style scoped>
+.add-banner {
+  margin: 5px 0 15px 0;
+}
+.add-banner img {
+  width: 100%;
+  height: 100%;
+}
 .toggle-buttons {
   margin-top: 30px;
   width: max-content;
