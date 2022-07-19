@@ -46,20 +46,27 @@
         </div>
 
       </div>
-    </section> -->
-    <div class="main-title">
+    </section>-->
+    <div class="main-title expert-title">
       <h1>50 Top Property Expert in City</h1>
     </div>
-    <carousel :settings="settings" :autoplay="5000" :wrap-around="true" :pauseAutoplayOnHover="true"
-      :breakpoints="breakpoints" class="carousel-container custom-div">
+    <carousel
+      :settings="settings"
+      :autoplay="5000"
+      :wrap-around="true"
+      :pauseAutoplayOnHover="true"
+      :breakpoints="breakpoints"
+      class="carousel-container custom-div explert-carousel"
+    >
       <!--  -->
-      <slide v-for="(agent, index) in titanium" :key="index">
+      <slide v-for="(agent, index) in titanium" :key="index" class="agent-info">
         <div :id="`slide-${index}`" class="experts-main">
           <div class="carousel__item">
-           <router-link to="/agent">
-             <img src="../../assets/images/expert.svg" />
-           </router-link>
+            <router-link to="/agent" >
+              <img src="../../assets/images/expert.svg" />
+            </router-link>
           </div>
+
           <!-- <div class="experts-tilte">
             <h1 @click="showModel(index)">{{ agent.name }}</h1>
             <div class="explert-content">
@@ -71,7 +78,14 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>-->
+        </div>
+        <div class="agent-hover">
+          <div class="agent-image">
+              <img src="../../assets/images/expert.svg" />
+          </div>
+          <h1>Malik Ali</h1>
+         <router-link to="/agent" class="info-btn">More Info</router-link>
         </div>
       </slide>
       <!-- <slide :key="slide">
@@ -241,7 +255,7 @@
             </div>
           </div>
         </div>
-      </slide> -->
+      </slide>-->
       <!-- <slide :key="slide">
         <div class="carousel__item">
           <img src="../assets/images/expert.svg" />
@@ -276,7 +290,7 @@
         <div class="carousel__item">
           <img src="../assets/images/expert.svg" />
         </div>
-      </slide> -->
+      </slide>-->
       <template #addons>
         <navigation />
         <!-- <pagination /> -->
@@ -293,7 +307,7 @@ export default {
   components: {
     Carousel,
     Slide,
-    Navigation,
+    Navigation
   },
   data: () => ({
     agentDetail: {},
@@ -313,8 +327,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
+          officeTiming: ""
+        }
       },
       {
         name: "Malik Zartab Ali",
@@ -331,8 +345,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
+          officeTiming: ""
+        }
       },
       {
         name: "George Miller",
@@ -349,8 +363,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
+          officeTiming: ""
+        }
       },
       {
         name: "Malik Zartab Ali",
@@ -367,8 +381,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
+          officeTiming: ""
+        }
       },
       {
         name: "George Miller",
@@ -385,8 +399,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
+          officeTiming: ""
+        }
       },
       {
         name: "Malik Zartab Ali",
@@ -403,15 +417,15 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: "",
-        },
-      },
+          officeTiming: ""
+        }
+      }
     ],
     // carousel settings
     settings: {
       itemsToShow: 3,
       snapAlign: "center",
-      loop: true,
+      loop: true
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -420,15 +434,15 @@ export default {
       700: {
         itemsToShow: 3.5,
         snapAlign: "center",
-        loop: true,
+        loop: true
       },
       // 1024 and up
       1024: {
         itemsToShow: 5,
         snapAlign: "center",
-        loop: true,
-      },
-    },
+        loop: true
+      }
+    }
   }),
   methods: {
     mouseOver(id) {
@@ -443,11 +457,14 @@ export default {
     close() {
       this.agentDetail = {};
     }
-  },
+  }
 };
 </script>
 
 <style scoped>
+.expert-title{
+  padding-bottom: 0!important;
+}
 .experts-tilte {
   margin: 40px 0;
   visibility: hidden;
@@ -511,9 +528,54 @@ export default {
 
 .experts-main {
   transition: height 2s;
-  height: 200px;
+  /* height: 200px; */
+  position: relative;
+  cursor: pointer;
 }
+.agent-info {
+  position: relative;
+  cursor: pointer;
+}
+.agent-info .agent-hover {
+  background: #fff;
+  height: 300px;
+  width: 250px;
+  position: absolute;
+  top: -53px;
+  z-index: 99;
+  display: none;
+  padding-bottom: 10px;
+  border: 2px solid #eee;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.agent-info:hover .agent-hover {
+  display: flex;
+}
+.agent-hover h1{
+  font-size: 20px;
+  color: #000;
+  padding: 0px 10px 10px 10px;
+  text-align: center;
+}
+.agent-hover .info-btn{
+  font-size: 16px;
+  color: #fff;
+  background-color: #0cb2da;
+  padding: 8px 30px;
+  text-decoration: none;
+  text-align: center;
+}
+/* .agent-image {
+  width: 200px;
+  height: 200px;
+} */
 
+ .agent-image img {
+  width: 220px;
+  height: 220px;
+}
 .carousel__slide--active .experts-main.active {
   height: 400px;
   transition-delay: 2s;
@@ -613,32 +675,23 @@ export default {
   color: #000 !important;
 }
 
-.model-main .agent-image {
-  border-radius: 5px;
-  width: 125px;
-  height: 125px;
-  box-shadow: 0px 0px 10px #0000001a;
-}
-
-.model-main .agent-image img {
-  width: 100%;
-}
+ 
 
 /* ageent details popup  */
 @media (max-width: 479px) and (min-width: 320px) {
   .agent-details {
     flex-wrap: wrap-reverse;
   }
-.agent-model .model-main{
-  width: 90%;
-}
-.model-main .agent-details .details-list li div:nth-child(2) {
+  .agent-model .model-main {
+    width: 90%;
+  }
+  .model-main .agent-details .details-list li div:nth-child(2) {
     white-space: pre-wrap;
-}
+  }
   .agent-image {
     margin: 10px 0;
   }
-  .model-main .agent-details .details-list{
+  .model-main .agent-details .details-list {
     width: 100%;
   }
 }
@@ -655,7 +708,7 @@ export default {
   /* .explert-content .expert-inner{
     width: 100%;
   } */
-  .experts-main{
+  .experts-main {
     height: unset;
   }
   .experts-tilte {

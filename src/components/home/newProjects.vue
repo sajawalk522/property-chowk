@@ -12,11 +12,11 @@
     >
       <slide :key="1">
         <router-link to="/trending">
-          <img src="../../assets/images/karachi.png" />
+          <img src="../../assets/images/gujranwala.jpg" />
 
           <div class="layout">
             <div>
-              <h2>Karachi</h2>
+              <h2>Gujranwala</h2>
               <p>Lorem Ipsum Project</p>
             </div>
           </div>
@@ -24,7 +24,7 @@
       </slide>
       <slide :key="2">
         <router-link to="/trending">
-          <img src="../../assets/images/lahore.png" />
+          <img src="../../assets/images/lahore.jpg" />
           <div class="layout">
             <div>
               <h2>Lahore</h2>
@@ -35,7 +35,7 @@
       </slide>
       <slide :key="3">
         <router-link to="/trending">
-          <img src="../../assets/images/islamabad.png" />
+          <img src="../../assets/images/isl.jpg" />
           <div class="layout">
             <div>
               <h2>Islamabad</h2>
@@ -46,7 +46,7 @@
       </slide>
       <slide :key="4">
         <router-link to="/trending">
-          <img src="../../assets/images/peshawar.png" />
+          <img src="../../assets/images/peshwr.jpg" />
           <div class="layout">
             <div>
               <h2>Peshawar</h2>
@@ -55,9 +55,9 @@
           </div>
         </router-link>
       </slide>
-      <slide :key="1">
+      <slide :key="5">
         <router-link to="/trending">
-          <img src="../../assets/images/karachi.png" />
+          <img src="../../assets/images/karachii.jpg" />
           <div class="layout">
             <div>
               <h2>Karachi</h2>
@@ -66,23 +66,23 @@
           </div>
         </router-link>
       </slide>
-      <slide :key="2">
+      <slide :key="6">
         <router-link to="/trending">
-          <img src="../../assets/images/lahore.png" />
+          <img src="../../assets/images/multan.jpg" />
           <div class="layout">
             <div>
-              <h2>Lahore</h2>
+              <h2>Multan</h2>
               <p>Lorem Ipsum Project</p>
             </div>
           </div>
         </router-link>
       </slide>
-      <slide :key="3">
+      <slide :key="7">
         <router-link to="/trending">
-          <img src="../../assets/images/islamabad.png" />
+          <img src="../../assets/images/queta.jpg" />
           <div class="layout">
             <div>
-              <h2>Islamabad</h2>
+              <h2>Queta</h2>
               <p>Lorem Ipsum Project</p>
             </div>
           </div>
@@ -90,10 +90,10 @@
       </slide>
       <slide :key="4">
         <router-link to="/trending">
-          <img src="../../assets/images/peshawar.png" />
+          <img src="../../assets/images/rawalpndi.jpg" />
           <div class="layout">
             <div>
-              <h2>Peshawar</h2>
+              <h2>Rawalpndi</h2>
               <p>Lorem Ipsum Project</p>
             </div>
           </div>

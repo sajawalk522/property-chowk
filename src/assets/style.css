@@ -313,6 +313,10 @@ label {
   background-color: #07abd3;
   color: #fff!important;
 }
+.explert-carousel .carousel__track{
+  height: 300px!important;
+  align-items: center!important;
+}
 @media (max-width: 479px) and (min-width: 320px) {
   .content-container {
     margin: 40px 10px 50px 10px;
