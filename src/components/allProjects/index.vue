@@ -1,65 +1,11 @@
 <template>
   <section class="container">
     <div class="tending-project">
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro1.png" />
+      <router-link :to="`${project.slug}&project=${project.id}`" class="trend-card" v-for="(project ,index) in pageData[0].project" :key="index">
+        <div class="trend-image" >
+          <img :src="require(`../../assets/images/${project.img}`)" />
         </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro2.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro3.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro4.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro1.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro2.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro3.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro4.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro1.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro2.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro3.png" />
-        </div>
-      </router-link>
-      <router-link to="/detail" class="trend-card">
-        <div class="trend-image">
-          <img src="../../assets/images/pro4.png" />
-        </div>
+        <h6>{{project.title}}</h6>
       </router-link>
     </div>
   </section>
@@ -67,7 +13,8 @@
 
 <script>
 export default {
-  name: "AllPage"
+  props:['pageData'],
+  name: "AllPage",
 };
 </script>
 
