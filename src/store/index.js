@@ -16,19 +16,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Gujranwala&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -36,19 +36,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Gujranwala&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -56,19 +56,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Gujranwala&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -76,19 +76,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Gujranwala&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -96,19 +96,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Gujranwala&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -125,19 +125,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Lahore&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Lahore&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Lahore&type=residential",
               },
             ],
@@ -145,19 +145,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Lahore&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -165,19 +165,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Lahore&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -185,19 +185,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Lahore&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -205,19 +205,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Lahore&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -233,19 +233,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Islamabad&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Islamabad&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Islamabad&type=residential",
               },
             ],
@@ -253,19 +253,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Islamabad&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -273,19 +273,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multant.jpg",
             slug: "projects?city=Islamabad&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -293,19 +293,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Islamabad&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -313,19 +313,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Islamabad&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -341,19 +341,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Peshawer&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Peshawer&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Peshawer&type=residential",
               },
             ],
@@ -361,19 +361,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Peshawer&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -381,19 +381,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Peshawer&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -401,19 +401,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Peshawer&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -421,19 +421,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Peshawer&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -449,25 +449,25 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Karachi&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Karachi&type=residential",
                 project: [
                   {
                     id: "1",
                     title: "project 1",
-                    img: "residential.png",
+                    img: "isl.jpg",
                     slug: "detail?city=Gujranwala&type=residential",
                   },
                   {
                     id: "2",
                     title: "project 2",
-                    img: "commercial.png",
+                    img: "rawalpndi.jpg",
                     slug: "detail?city=Gujranwala&type=residential",
                   },
                 ],
@@ -475,19 +475,19 @@ export default createStore({
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Karachi&type=residential",
                 project: [
                   {
                     id: "1",
                     title: "project 1",
-                    img: "residential.png",
+                    img: "isl.jpg",
                     slug: "detail?city=Gujranwala&type=residential",
                   },
                   {
                     id: "2",
                     title: "project 2",
-                    img: "commercial.png",
+                    img: "rawalpndi.jpg",
                     slug: "detail?city=Gujranwala&type=residential",
                   },
                 ],
@@ -497,19 +497,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Karachi&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -517,19 +517,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Karachi&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -537,19 +537,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Karachi&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -557,19 +557,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Karachi&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -585,19 +585,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Multan&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Multan&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Multan&type=residential",
               },
             ],
@@ -605,19 +605,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Multan&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -625,19 +625,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Multan&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -645,19 +645,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Multan&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -665,19 +665,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Multan&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -693,19 +693,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Queta&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Queta&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Queta&type=residential",
               },
             ],
@@ -713,19 +713,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Queta&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -733,19 +733,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Queta&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -753,19 +753,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Queta&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -773,19 +773,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Queta&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -801,19 +801,19 @@ export default createStore({
           {
             type: "residential",
             title: "RESIDENTIAL BUILDINGS",
-            img: "residential.png",
+            img: "isl.jpg",
             slug: "projects?city=Queta&type=residential",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Queta&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Queta&type=residential",
               },
             ],
@@ -821,19 +821,19 @@ export default createStore({
           {
             type: "commercial",
             title: "COMMERCIAL BUILDING",
-            img: "commercial.png",
+            img: "rawalpndi.jpg",
             slug: "projects?city=Queta&type=commercial",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -841,19 +841,19 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "re-co.png",
+            img: "multan.jpg",
             slug: "projects?city=Queta&type=commercial&residentials",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -861,19 +861,19 @@ export default createStore({
           {
             type: "housingschemes",
             title: "HOUSING SCHEMES",
-            img: "housing.png",
+            img: "lahore.jpg",
             slug: "projects?city=Queta&type=housingschemes",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],
@@ -881,19 +881,19 @@ export default createStore({
           {
             type: "farmhouseschems",
             title: "FARM HOUSES SCHEMES ",
-            img: "farm.png",
+            img: "karachii.jpg",
             slug: "projects?city=Queta&type=farmhouseschems",
             project: [
               {
                 id: "1",
                 title: "project 1",
-                img: "residential.png",
+                img: "isl.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
               {
                 id: "2",
                 title: "project 2",
-                img: "commercial.png",
+                img: "rawalpndi.jpg",
                 slug: "detail?city=Gujranwala&type=residential",
               },
             ],

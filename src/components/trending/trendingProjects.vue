@@ -5,7 +5,9 @@
         <div class="trend-image">
           <img :src="require(`../../assets/images/${p.img}`)" />
         </div>
-        <h2>{{p.title}} (20)</h2>
+        <div >
+          <h2>{{p.title}} (20)</h2>
+        </div>
       </router-link>
     </div>
   </section>
@@ -34,7 +36,13 @@ export default {
   margin: 12px 20px 15px 20px;
   width: calc(30% - 9px);
   text-decoration: none;
+  position: relative;
 }
+/* .project-title h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+} */
 .tending-project .trend-image img {
   width: 100%;
 }
