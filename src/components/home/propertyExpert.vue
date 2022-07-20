@@ -544,27 +544,26 @@ export default {
   height: 0px;
   width: 250px;
   position: absolute;
-  top: -16px;
   z-index: 99;
-  opacity: 0;
+  visibility: hidden;
   padding-bottom: 10px;
-  /* border: 2px solid #eee; */
+  border: 2px solid #eee;
   flex-direction: column;
   align-items: center;
-  transition:  .3s ease-in;
+  top:0;
+  /* transition:  .3s ease-in; */
   /* justify-content: center; */
 }
 .agent-info:hover .agent-hover {
   display: flex;
-   height: 300px;
-   opacity:1
+   height: 290px;
+   visibility: visible;
 }
 .agent-hover h1{
   font-size: 20px;
   color: #000;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 5px 10px;
   text-align: center;
-   transition: 0.3s;
 }
 .agent-hover .info-btn{
   font-size: 16px;
