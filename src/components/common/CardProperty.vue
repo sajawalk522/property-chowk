@@ -3,9 +3,9 @@
     <div class="card-top">
       <div class="image-card">
         <img :src="dataList.val().images[0]" v-if="dataList.val().images && dataList.val().images.length"/>
-        <img  src="../../assets/images/placeholder.png"  v-else />
+        <img  src="../../assets/images/logo.svg"  v-else />
       </div>
-      <div class="super-hot">
+      <div class="super-hot" v-if="dataList.val().featured">
         <button class="btn btn-hot">SUPER HOT</button>
       </div>
       <div class="camera">
