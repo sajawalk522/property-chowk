@@ -503,7 +503,7 @@
         <div class="add-section">
           <img src="../assets/images/160x600.png" alt />
         </div>
-        <div class="add-section">
+        <!-- <div class="add-section">
           <img src="../assets/images/250x250.png" alt />
         </div>
         <div class="add-section">
@@ -511,7 +511,7 @@
         </div>
         <div class="add-section">
           <img src="../assets/images/250x250.png" alt />
-        </div>
+        </div> -->
       </section>
     </div>
   </section>

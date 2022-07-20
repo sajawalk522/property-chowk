@@ -12,6 +12,7 @@ import RentView from '../views/RentView.vue';
 import AgentView from '../views/AgentView.vue';
 import TrendingView from '../views/TrendingView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
+import Properties from '../views/PropertyView.vue';
 const routes = [
   {
     path: '/',
@@ -81,6 +82,11 @@ const routes = [
     path: '/term-conditions',
     name: 'term conditions',
     component: ConditionsView,
+  },
+  {
+    path: '/properties',
+    name: 'properties',
+    component: Properties,
   }
 ]
 
