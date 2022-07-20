@@ -56,6 +56,7 @@
       :wrap-around="true"
       :pauseAutoplayOnHover="true"
       :breakpoints="breakpoints"
+      :class="{expendSlider: expand}"
       class="carousel-container custom-div explert-carousel"
     >
       <!--  -->
@@ -78,7 +79,7 @@
                 </div>
               </div>
             </div>
-          </div>-->
+          </div> -->
         </div>
         <div class="agent-hover">
           <div class="agent-image">
@@ -310,6 +311,7 @@ export default {
     Navigation
   },
   data: () => ({
+    expand:false,
     agentDetail: {},
     titanium: [
       {
@@ -445,18 +447,18 @@ export default {
     }
   }),
   methods: {
-    mouseOver(id) {
-      document.getElementById(`slide-${id}`).classList.add("active");
-    },
-    mouseOut(id) {
-      document.getElementById(`slide-${id}`).classList.remove("active");
-    },
-    showModel(index) {
-      this.agentDetail = this.titanium[index].detail;
-    },
-    close() {
-      this.agentDetail = {};
-    }
+    // mouseOver() {
+    //   document.getElementById(`slide-${id}`).classList.add("active");
+    // },
+    // mouseOut() {
+    //   document.getElementById(`slide-${id}`).classList.remove("active");
+    // },
+    // showModel(index) {
+    //   this.agentDetail = this.titanium[index].detail;
+    // },
+    // close() {
+    //   this.agentDetail = {};
+    // }
   }
 };
 </script>
@@ -539,22 +541,23 @@ export default {
 .agent-info .agent-hover {
   /* transition: 500ms linear; */
   background: #fff;
-  height: 300px;
+  height: 0px;
   width: 250px;
   position: absolute;
-  top: -53px;
+  top: -16px;
   z-index: 99;
-  display: none;
+  opacity: 0;
   padding-bottom: 10px;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
   flex-direction: column;
   align-items: center;
-  transition: all 0.7s ease-out;
+  transition:  .3s ease-in;
   /* justify-content: center; */
 }
 .agent-info:hover .agent-hover {
   display: flex;
-  transition: all 0.7s ease-in-out;
+   height: 300px;
+   opacity:1
 }
 .agent-hover h1{
   font-size: 20px;
