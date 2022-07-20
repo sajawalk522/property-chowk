@@ -1,9 +1,6 @@
 <template>
   <div class="property-list">
     <div class="property-main">
-      <div class="add-banner">
-        <img src="../assets/images/970x250.png" alt="" />
-      </div>
       <div class="card-list">
         <CardProperty
           v-for="(item, index) in filteredItems"
@@ -31,12 +28,12 @@
       <div class="add-section">
         <img src="../assets/images/250x250.png" alt="" />
       </div>
-      <div class="add-section">
+      <!-- <div class="add-section">
         <img src="../assets/images/300x600.png" alt="" />
       </div>
       <div class="add-section">
         <img src="../assets/images/250x250.png" alt="" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

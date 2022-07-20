@@ -4,25 +4,28 @@
       <div class="add-banner">
         <img src="../assets/images/970x90.png" alt />
       </div>
-      <BlueHead :title="'Filters'" />
-      <div ref="goDiv">
-        <PropertyList
-          :filteredItems="filteredItems"
-          v-if="filteredItems.length"
-        />
+      <BlueHead :title="'Properties'" />
+      <div v-if="filteredItems.length">
+        <div ref="goDiv">
+          <PropertyList
+            :filteredItems="filteredItems"
+            v-if="filteredItems.length"
+          />
+        </div>
+        <paginate
+          v-if="totalPages && filteredItems.length"
+          :page-count="totalPages"
+          :page-range="3"
+          :margin-pages="2"
+          :click-handler="clickCallback"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :page-class="'page-item'"
+        >
+        </paginate>
       </div>
-      <!-- <paginate
-        v-if="totalPages && filteredItems.length"
-        :page-count="totalPages"
-        :page-range="3"
-        :margin-pages="2"
-        :click-handler="clickCallback"
-        :prev-text="'Prev'"
-        :next-text="'Next'"
-        :container-class="'pagination'"
-        :page-class="'page-item'"
-      >
-      </paginate> -->
+      <div v-else>Loading...</div>
     </section>
   </default-layout>
 </template>
@@ -30,13 +33,14 @@
 import DefaultLayout from "@/components/layouts/DefaultLayout.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
 import PropertyList from "@/components/PropertyList.vue";
-// import Paginate from "vuejs-paginate-next";
+import Paginate from "vuejs-paginate-next";
 export default {
   name: "SearchView",
   components: {
     DefaultLayout,
     BlueHead,
     PropertyList,
+    Paginate,
   },
   data() {
     return {
@@ -52,11 +56,20 @@ export default {
     },
   },
   methods: {
+    clickCallback(pageNum) {
+      this.$router.push(`/properties?page=${pageNum}`);
+      this.scrollToElement();
+    },
+    scrollToElement() {
+      const el = this.$refs.goDiv;
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
     filterProperty() {
       var filtered = this.$store.state.properties.filter(function (item) {
         return item.val();
       });
-      console.log(filtered);
       var page = this.$route.query.page;
       // pagination
       this.totalPages = Math.round(filtered.length / 12);

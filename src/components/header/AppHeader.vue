@@ -16,7 +16,7 @@
                   <router-link to="/">Home</router-link>
                 </li>
                 <li>
-                  <router-link to="/#">Properties</router-link>
+                  <router-link to="/properties?page=1">Properties</router-link>
                 </li>
                 <li>
                   <router-link to="/#">Realtors</router-link>
