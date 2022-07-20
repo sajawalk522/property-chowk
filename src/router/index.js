@@ -13,6 +13,7 @@ import AgentView from '../views/AgentView.vue';
 import TrendingView from '../views/TrendingView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
 import Properties from '../views/PropertyView.vue';
+import Gallery from '../views/GalleryView.vue';
 const routes = [
   {
     path: '/',
@@ -87,6 +88,11 @@ const routes = [
     path: '/properties',
     name: 'properties',
     component: Properties,
+  },
+  {
+    path: '/gallery',
+    name: 'gallery',
+    component: Gallery,
   }
 ]
 

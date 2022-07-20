@@ -22,7 +22,7 @@
                   <router-link to="/#">Realtors</router-link>
                 </li>
                 <li>
-                  <router-link to="/#">Gallery</router-link>
+                  <router-link to="/gallery">Gallery</router-link>
                 </li>
                 <li>
                   <router-link to="/#">Blog</router-link>
