@@ -533,6 +533,7 @@ export default {
   /* height: 200px; */
   position: relative;
   cursor: pointer;
+  padding-top:30px;
 }
 .agent-info {
   position: relative;
