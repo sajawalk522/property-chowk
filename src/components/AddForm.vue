@@ -39,7 +39,7 @@
                   :disabled="!info.hot_ads"
                   :class="{ active: hotAds == 'h' }"
                   @click="hotAdd('h')"
-                >Super Hot</button>
+                >Hot</button>
               </div>
               <div>
                 <h2>{{ info.superhot_ads ? info.superhot_ads : 0 }} left</h2>
@@ -47,7 +47,7 @@
                   :disabled="!info.superhot_ads"
                   :class="{ active: hotAds == 'sh' }"
                   @click="hotAdd('sh')"
-                >Hot</button>
+                >Super Hot</button>
               </div>
             </div>
           </div>
@@ -496,7 +496,7 @@
           <GoogleMap @latlng="latLng" />
         </div>
         <section class="btn-section">
-          <button class="btn" @click="submit()">Submit</button>
+          <button class="btn" :disabled="loading" @click="submit()">{{!loading ? 'Submit': 'Loading...'}} </button>
         </section>
       </section>
       <section class="add-right">
@@ -536,6 +536,7 @@ export default {
   },
   data() {
     return {
+      loading:false,
       hotAds: null,
       search: "",
       searchSociety: "",
@@ -654,8 +655,10 @@ export default {
       this.hotAds = v;
       if (v == "h") {
         this.finalData.hot_ads = true;
+        delete this.finalData.superhot_ads;
       } else {
         this.finalData.superhot_ads = true;
+        delete this.finalData.hot_ads;
       }
     },
     propertyStatus(v) {
@@ -874,8 +877,9 @@ export default {
           }
         );
       }
+      this.loading = true;
       Promise.all(promises)
-        .then(() => {
+        .then(() => { 
           propertyServices
             .create(this.finalData)
             .then(() => {
@@ -889,10 +893,12 @@ export default {
               this.$router.push("/");
             })
             .catch(e => {
+               this.loading = false;
               console.log(e);
             });
         })
         .catch(error => {
+          this.loading = false;
           console.log(error);
         });
     },

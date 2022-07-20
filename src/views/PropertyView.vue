@@ -2,9 +2,9 @@
   <default-layout>
     <section class="container">
       <div class="add-banner">
-      <img src="../assets/images/970x90.png" alt />
-    </div>
-      <BlueHead :title="'Filters'"/>
+        <img src="../assets/images/970x90.png" alt />
+      </div>
+      <BlueHead :title="'Filters'" />
       <div ref="goDiv">
         <PropertyList
           :filteredItems="filteredItems"
@@ -53,12 +53,14 @@ export default {
   },
   methods: {
     filterProperty() {
-        var filtered = this.properties;
-        console.log(filtered)
-        var page = this.$route.query.page;
+      var filtered = this.$store.state.properties.filter(function (item) {
+        return item.val();
+      });
+      console.log(filtered);
+      var page = this.$route.query.page;
       // pagination
       this.totalPages = Math.round(filtered.length / 12);
-    //   pagination
+      //   pagination
       var copyFrom = (page - 1) * 12;
       var copyTo = page * 12;
       this.filteredItems = filtered.slice(copyFrom, copyTo);

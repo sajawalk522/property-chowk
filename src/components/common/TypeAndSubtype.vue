@@ -20,7 +20,7 @@
                   : selected == item.type,
               },
               {
-                active: !metaQuery ? item.type == 'Plot': '',
+                active: !metaQuery && !selected ? item.type == 'Plot': '',
               },
             ]"
           >
