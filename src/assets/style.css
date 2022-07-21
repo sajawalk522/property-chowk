@@ -316,9 +316,9 @@ label {
 .explert-carousel{
   padding: 40px 0 40px 0px;
 }
-.explert-carousel, .explert-carousel .carousel__track{
+/* .explert-carousel, .explert-carousel .carousel__track{
   height: 315px;
-}
+} */
 /* .expendSlider .carousel__track{
   height: 347px;
   animation-name: example;

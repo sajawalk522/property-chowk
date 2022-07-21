@@ -1,5 +1,23 @@
 <template>
-  <section>
+  <section style="position: relative">
+    <section
+      :class="['model', { modelshow: model }]"
+      @mouseleave="model = false"
+    >
+      <div class="primary-model">
+        <div class="close" @click="model = false">✖</div>
+        <div class="agent-hover">
+          <div class="agent-image">
+            <img src="../../assets/images/expert.svg" />
+          </div>
+          <h1>{{agentDetail.name}}</h1>
+          <h1>{{agentDetail.eState}}</h1>
+        </div>
+        <div class="button-more">
+          <router-link to="/agent" class="info-btn">More Info</router-link>
+        </div>
+      </div>
+    </section>
     <!-- <section class="agent-model" v-if="Object.keys(agentDetail).length">
       <div class="model-main">
         <div class="headmodel" @click="close">
@@ -51,267 +69,68 @@
       <h1>50 Top Property Expert in City</h1>
     </div>
     <carousel
+      id="mySlider"
       :settings="settings"
       :autoplay="5000"
       :wrap-around="true"
       :pauseAutoplayOnHover="true"
       :breakpoints="breakpoints"
-      :class="{expendSlider: expand}"
+      ref="slider"
       class="carousel-container custom-div explert-carousel"
     >
       <!--  -->
-      <slide v-for="(agent, index) in titanium" :key="index" class="agent-info">
+      <slide
+        v-for="(agent, index) in titanium"
+        :key="index"
+        class="agent-info"
+        :data-type="index + 1"
+        @mouseover="mouseOver(index)"
+      >
         <div :id="`slide-${index}`" class="experts-main">
           <div class="carousel__item">
-            <router-link to="/agent" >
+            <router-link to="/agent">
               <img src="../../assets/images/expert.svg" />
             </router-link>
           </div>
-
-          <!-- <div class="experts-tilte">
-            <h1 @click="showModel(index)">{{ agent.name }}</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>{{ agent.eState }}</p>
-                  <p>{{ agent.contact }}</p>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-        <div class="agent-hover">
-          <div class="agent-image">
-              <img src="../../assets/images/expert.svg" />
-          </div>
-          <h1>Malik Ali</h1>
-         <router-link to="/agent" class="info-btn">More Info</router-link>
         </div>
       </slide>
-      <!-- <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-2"
-          @mouseover="mouseOver('slide-2')"
-          @mouseleave="mouseOut('slide-2')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller2</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-3"
-          @mouseover="mouseOver('slide-3')"
-          @mouseleave="mouseOut('slide-3')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller3</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-4"
-          @mouseover="mouseOver('slide-4')"
-          @mouseleave="mouseOut('slide-4')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller4</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-5"
-          @mouseover="mouseOver('slide-5')"
-          @mouseleave="mouseOut('slide-5')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller5</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-6"
-          @mouseover="mouseOver('slide-6')"
-          @mouseleave="mouseOut('slide-6')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller6</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-7"
-          @mouseover="mouseOver('slide-7')"
-          @mouseleave="mouseOut('slide-7')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller7</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div
-          class="experts-main"
-          id="slide-8"
-          @mouseover="mouseOver('slide-8')"
-          @mouseleave="mouseOut('slide-8')"
-        >
-          <div class="carousel__item">
-            <img src="../../assets/images/expert.svg" />
-          </div>
-          <div class="experts-tilte">
-            <h1>George Miller8</h1>
-            <div class="explert-content">
-              <div class="expert-inner">
-                <div><img src="../../assets/images/remark.png" /></div>
-                <div class="explert-contact">
-                  <p>Miler Real Estate</p>
-                  <p>0312-3456789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </slide>-->
-      <!-- <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>
-      <slide :key="slide">
-        <div class="carousel__item">
-          <img src="../assets/images/expert.svg" />
-        </div>
-      </slide>-->
       <template #addons>
         <navigation />
         <!-- <pagination /> -->
       </template>
     </carousel>
+    <section class="section-pagination">
+      <paginate
+        v-if="titanium"
+        ref="paginate"
+        :page-count="titanium.length"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="clickCallback"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination'"
+        :page-class="'page-item'"
+      ></paginate>
+    </section>
   </section>
 </template>
 
 <script>
 import "vue3-carousel/dist/carousel.css";
+import Paginate from "vuejs-paginate-next";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 export default {
   name: "PropertyExpert",
   components: {
     Carousel,
     Slide,
-    Navigation
+    Navigation,
+    Paginate,
   },
   data: () => ({
-    expand:false,
+    model: false,
+    isSliderChange: 1,
     agentDetail: {},
     titanium: [
       {
@@ -329,8 +148,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
+          officeTiming: "",
+        },
       },
       {
         name: "Malik Zartab Ali",
@@ -347,8 +166,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
+          officeTiming: "",
+        },
       },
       {
         name: "George Miller",
@@ -365,8 +184,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
+          officeTiming: "",
+        },
       },
       {
         name: "Malik Zartab Ali",
@@ -383,8 +202,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
+          officeTiming: "",
+        },
       },
       {
         name: "George Miller",
@@ -401,8 +220,8 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
+          officeTiming: "",
+        },
       },
       {
         name: "Malik Zartab Ali",
@@ -419,15 +238,15 @@ export default {
           eState: "Miler Real Estate",
           img: "../../assets/images/avatar.svg",
           contact: "0312-3456789",
-          officeTiming: ""
-        }
-      }
+          officeTiming: "",
+        },
+      },
     ],
     // carousel settings
     settings: {
       itemsToShow: 3,
       snapAlign: "center",
-      loop: true
+      loop: true,
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -436,20 +255,53 @@ export default {
       700: {
         itemsToShow: 3.5,
         snapAlign: "center",
-        loop: true
+        loop: true,
       },
       // 1024 and up
       1024: {
         itemsToShow: 5,
         snapAlign: "center",
-        loop: true
-      }
-    }
+        loop: true,
+      },
+    },
+    clearNow: null,
   }),
+  mounted() {
+    this.initPagination();
+  },
+  beforeUnmount() {
+    clearInterval(this.clearNow);
+  },
   methods: {
-    // mouseOver() {
-    //   document.getElementById(`slide-${id}`).classList.add("active");
-    // },
+    initPagination() {
+      var changePaginate = (index) => {
+        this.isSliderChange = index;
+      };
+      this.clearNow = setInterval(() => {
+        const slider = document.querySelector("#mySlider");
+        var getActiveIndex = slider.getElementsByClassName(
+          "carousel__slide--active"
+        )[0];
+        if (getActiveIndex) {
+          var val = getActiveIndex.dataset.type;
+          changePaginate(val);
+        }
+      }, 400);
+    },
+    paginationChanged(val) {
+      this.$refs.paginate.handlePageSelected(parseInt(val));
+    },
+    clickCallback(num) {
+      var dec = num - 1;
+      this.$refs.slider.slideTo(dec);
+    },
+    mouseOver(index) {
+      this.agentDetail = this.titanium[index].detail;
+      setTimeout(() => {
+        this.model = true;
+      }, 2000);
+      // document.getElementById(`slide-${id}`).classList.add("active");
+    },
     // mouseOut() {
     //   document.getElementById(`slide-${id}`).classList.remove("active");
     // },
@@ -459,13 +311,60 @@ export default {
     // close() {
     //   this.agentDetail = {};
     // }
-  }
+  },
+  watch: {
+    isSliderChange: {
+      handler: function (nv) {
+        this.paginationChanged(nv);
+      },
+    },
+  },
 };
 </script>
 
 <style scoped>
-.expert-title{
-  padding-bottom: 0!important;
+.model .close {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  cursor: pointer;
+  color: gray;
+}
+.model {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  background: #00000099;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  opacity: 0;
+}
+.modelshow {
+  visibility: visible;
+  opacity: 1;
+}
+.model .primary-model {
+  position: relative;
+  background: skyblue;
+  width: 50%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.section-pagination {
+  display: flex;
+  justify-content: center;
+}
+.expert-title {
+  padding-bottom: 0 !important;
 }
 .experts-tilte {
   margin: 40px 0;
@@ -533,40 +432,41 @@ export default {
   /* height: 200px; */
   position: relative;
   cursor: pointer;
-  padding-top:30px;
+  padding-top: 30px;
 }
 .agent-info {
   position: relative;
   cursor: pointer;
 }
-.agent-info .agent-hover {
-  /* transition: 500ms linear; */
+.button-more {
+  display: flex;
+}
+.agent-hover .agent-image {
+  display: flex;
+  justify-content: center;
+}
+.agent-hover {
   background: #fff;
-  height: 0px;
   width: 250px;
-  position: absolute;
-  z-index: 99;
-  visibility: hidden;
-  padding-bottom: 10px;
+  padding: 10px;
   border: 2px solid #eee;
   flex-direction: column;
   align-items: center;
-  top:0;
-  /* transition:  .3s ease-in; */
-  /* justify-content: center; */
+  margin-bottom: 20px;
 }
-.agent-info:hover .agent-hover {
+/* .agent-info:hover .agent-hover {
   display: flex;
-   height: 290px;
-   visibility: visible;
-}
-.agent-hover h1{
+  height: 290px;
+  visibility: visible;
+} */
+.agent-hover h1 {
   font-size: 20px;
   color: #000;
   padding: 0px 10px 5px 10px;
   text-align: center;
+  text-transform: uppercase;
 }
-.agent-hover .info-btn{
+.info-btn {
   font-size: 16px;
   color: #fff;
   background-color: #0cb2da;
@@ -579,7 +479,7 @@ export default {
   height: 200px;
 } */
 
- .agent-image img {
+.agent-image img {
   width: 220px;
   height: 220px;
 }
@@ -681,8 +581,6 @@ export default {
 .model-main .agent-details .details-list li div:nth-child(2) {
   color: #000 !important;
 }
-
- 
 
 /* ageent details popup  */
 @media (max-width: 479px) and (min-width: 320px) {
