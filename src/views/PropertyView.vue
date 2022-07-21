@@ -7,10 +7,7 @@
       <BlueHead :title="'Properties'" />
       <div v-if="filteredItems.length">
         <div ref="goDiv">
-          <PropertyList
-            :filteredItems="filteredItems"
-            v-if="filteredItems.length"
-          />
+          <PropertyList :filteredItems="filteredItems" v-if="filteredItems.length" />
         </div>
         <paginate
           v-if="totalPages && filteredItems.length"
@@ -22,10 +19,16 @@
           :next-text="'Next'"
           :container-class="'pagination'"
           :page-class="'page-item'"
-        >
-        </paginate>
+        ></paginate>
       </div>
-      <div v-else>Loading...</div>
+      <div class="card-skeleton" v-else>
+        <div class="pro-skeleton">
+          <CardSkeleton v-for="(skeleton, index) in skeleton" :key="index" />
+        </div>
+        <div class="ads-skeleton">
+          <img src="../assets/images/250x250.png" alt />
+        </div>
+      </div>
     </section>
   </default-layout>
 </template>
@@ -34,6 +37,7 @@ import DefaultLayout from "@/components/layouts/DefaultLayout.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
 import PropertyList from "@/components/PropertyList.vue";
 import Paginate from "vuejs-paginate-next";
+import CardSkeleton from "@/components/common/cardSkeleton.vue";
 export default {
   name: "SearchView",
   components: {
@@ -41,6 +45,7 @@ export default {
     BlueHead,
     PropertyList,
     Paginate,
+    CardSkeleton
   },
   data() {
     return {
@@ -48,12 +53,13 @@ export default {
       totalPages: 0,
       // pagination
       filteredItems: [],
+      skeleton: 9
     };
   },
   computed: {
     properties() {
       return this.$store.state.properties;
-    },
+    }
   },
   methods: {
     clickCallback(pageNum) {
@@ -67,7 +73,7 @@ export default {
       }
     },
     filterProperty() {
-      var filtered = this.$store.state.properties.filter(function (item) {
+      var filtered = this.$store.state.properties.filter(function(item) {
         return item.val();
       });
       var page = this.$route.query.page;
@@ -77,13 +83,13 @@ export default {
       var copyFrom = (page - 1) * 12;
       var copyTo = page * 12;
       this.filteredItems = filtered.slice(copyFrom, copyTo);
-    },
+    }
   },
   watch: {
     properties: {
-      handler: function () {
+      handler: function() {
         this.filterProperty();
-      },
+      }
       // immediate: true,
     },
     "$route.query": {
@@ -92,12 +98,32 @@ export default {
           this.filterProperty();
         }
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 <style scoped>
+.card-skeleton {
+  display: flex;
+  height: 100%;
+}
+
+.pro-skeleton {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 75%;
+   height: 100%;
+}
+.ads-skeleton {
+  width: 25%;
+  margin-top: 25px;
+}
+.ads-skeleton img {
+  width: 100%;
+}
 .add-banner {
   margin: 5px 0 15px 0;
 }

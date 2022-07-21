@@ -79,23 +79,8 @@
       </template>
     </carousel>
     <div class="container" v-else>
-      <div class="skeleton-conatiner">
-        <div class="card-skeleton">
-          <div class="image-skeleton"></div>
-          <p></p>
-          <p></p>
-        </div>
-        <div class="card-skeleton">
-          <div class="image-skeleton"></div>
-          <p></p>
-          <p></p>
-        </div>
-        <div class="card-skeleton">
-          <div class="image-skeleton"></div>
-          <p></p>
-          <p></p>
-        </div>
-        
+      <div class="cards-skeleton">
+        <CardSkeleton v-for="(skeleton, index) in skeleton" :key="index" />
       </div>
     </div>
   </section>
@@ -104,11 +89,13 @@
 <script>
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
+import CardSkeleton from "../common/cardSkeleton.vue";
 export default {
   name: "NewProperty",
   components: {
     Carousel,
     Slide,
+    CardSkeleton,
     Navigation
   },
   computed: {
@@ -120,6 +107,7 @@ export default {
     }
   },
   data: () => ({
+    skeleton: 3,
     // carousel settings
     settings: {
       itemsToShow: 1,
@@ -144,26 +132,9 @@ export default {
 </script>
 
 <style scoped>
-.skeleton-conatiner{
+.cards-skeleton {
   display: flex;
   justify-content: space-between;
-}
-.card-skeleton {
-  width: 350px;
-  height: 390px;
-}
-.card-skeleton .image-skeleton {
-  background: #eee;
-  height: 250px;
-}
-.card-skeleton p {
-  height: 30px;
-  background: #eee;
-  margin-top: 20px;
-   width: 90%;
-}
-.card-skeleton p:last-child{
-  width: 60%;
 }
 .new-property-container {
   position: relative;
