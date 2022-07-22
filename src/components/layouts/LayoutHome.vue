@@ -1,7 +1,7 @@
 <template>
   <section>
-    <AppHeader :transparent="false" />
     <section class="container-main">
+      <AppHeader :transparent="true" />
       <div class="primary">
         <div>
           <div class="slide-imges" v-for="(img, index) in images" :key="index">
@@ -85,5 +85,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: #06758f7a;
+  position:absolute;
+  top:0;
 }
 </style>

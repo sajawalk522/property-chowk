@@ -110,6 +110,11 @@
         :page-class="'page-item'"
       ></paginate>
     </section>
+    <section>
+      <div class="button-more">
+        <router-link to="/agent" class="info-btn">Veiw All</router-link>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -436,6 +441,7 @@ export default {
 }
 .button-more {
   display: flex;
+  justify-content: center;
 }
 .agent-hover .agent-image {
   display: flex;
@@ -464,7 +470,8 @@ export default {
 }
 .info-btn {
   font-size: 16px;
-  color: #fff;
+  color: #000;
+  font-weight: normal;
   background-color: #0cb2da;
   padding: 8px 30px;
   text-decoration: none;

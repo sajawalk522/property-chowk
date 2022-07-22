@@ -4,7 +4,11 @@
       <div :class="[{ active: transparent }, 'header disktop']">
         <section class="logo">
           <router-link to="/">
-            <img v-if="transparent" src="../../assets/images/logo-transparent.svg" alt="Logo" />
+            <img
+              v-if="transparent"
+              src="../../assets/images/logo-transparent.svg"
+              alt="Logo"
+            />
             <img v-else src="../../assets/images/logo.svg" alt="Logo" />
           </router-link>
         </section>
@@ -68,19 +72,19 @@ export default {
   components: {
     LoginModel,
     SignupModel,
-    LogoutModel
+    LogoutModel,
   },
   data() {
     return {
       showModel: "",
-      loginState: false
+      loginState: false,
     };
   },
   methods: {
-   goTo() {
+    goTo() {
       if (!this.$store.state.user) {
         this.showModel = "login";
-      }else{
+      } else {
         this.$router.push("/add-property");
       }
     },
@@ -91,12 +95,16 @@ export default {
       } else {
         this.loginState = !this.loginState;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+header {
+  z-index: 3;
+  position: relative;
+}
 .add {
   margin-right: 15px;
 }

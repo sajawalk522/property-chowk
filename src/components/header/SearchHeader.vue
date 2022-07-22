@@ -11,7 +11,7 @@
             </h2>
           </div>
           <section class="search" v-if="$route.path == '/'">
-            <div class="heade-btns">
+            <!-- <div class="heade-btns">
               <router-link
                 to="add-property"
                 v-if="$store.state.userInfo.verified"
@@ -24,7 +24,7 @@
               <router-link to="#">
                 <button class="btns">Societies</button>
               </router-link>
-            </div>
+            </div> -->
             <section class="quick-search">
               <div class="quick-main">
                 <div class="heading">
@@ -3444,6 +3444,8 @@ h2 {
   line-height: 1.5;
   margin-top: 40px;
   text-align: center;
+  position: relative;
+  top:30px;
 }
 .main-container .search {
   padding: 18px 24px 28px 24px;
