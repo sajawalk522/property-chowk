@@ -1,17 +1,14 @@
 <template>
-  <section style="position: relative">
-    <section
-      :class="['model', { modelshow: model }]"
-      @mouseleave="model = false"
-    >
+  <section style="position: relative" id="slide" @mouseleave="mouseOut">
+    <section :class="['model']" @mouseover="mouseOver" @mouseleave="mouseOut">
       <div class="primary-model">
-        <div class="close" @click="model = false">✖</div>
+        <div class="close" @click="mouseOut">✖</div>
         <div class="agent-hover">
           <div class="agent-image">
             <img src="../../assets/images/expert.svg" />
           </div>
-          <h1>{{agentDetail.name}}</h1>
-          <h1>{{agentDetail.eState}}</h1>
+          <h1>{{ agentDetail.name }}</h1>
+          <h1>{{ agentDetail.eState }}</h1>
         </div>
         <div class="button-more">
           <router-link to="/agent" class="info-btn">More Info</router-link>
@@ -129,7 +126,6 @@ export default {
     Paginate,
   },
   data: () => ({
-    model: false,
     isSliderChange: 1,
     agentDetail: {},
     titanium: [
@@ -296,15 +292,14 @@ export default {
       this.$refs.slider.slideTo(dec);
     },
     mouseOver(index) {
-      this.agentDetail = this.titanium[index].detail;
-      setTimeout(() => {
-        this.model = true;
-      }, 2000);
-      // document.getElementById(`slide-${id}`).classList.add("active");
+      if (index >= 0) {
+        this.agentDetail = this.titanium[index].detail;
+      }
+      document.getElementById(`slide`).classList.add("activeS");
     },
-    // mouseOut() {
-    //   document.getElementById(`slide-${id}`).classList.remove("active");
-    // },
+    mouseOut() {
+      document.getElementById(`slide`).classList.remove("activeS");
+    },
     // showModel(index) {
     //   this.agentDetail = this.titanium[index].detail;
     // },
@@ -345,9 +340,10 @@ export default {
   transition: 0.3s;
   opacity: 0;
 }
-.modelshow {
+.activeS .model {
   visibility: visible;
   opacity: 1;
+  transition-delay: 2s;
 }
 .model .primary-model {
   position: relative;
