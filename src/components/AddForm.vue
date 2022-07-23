@@ -8,11 +8,18 @@
       <section class="filter-search">
         <section>
           <div class="toggle-buttons">
-            <button :class="['btn', { active: category == 'buy' }]" @click="typeSelect('buy')">Buy</button>
+            <button
+              :class="['btn', { active: category == 'buy' }]"
+              @click="typeSelect('buy')"
+            >
+              Buy
+            </button>
             <button
               :class="['btn', { active: category == 'rent' }]"
               @click="typeSelect('rent')"
-            >Rent</button>
+            >
+              Rent
+            </button>
           </div>
         </section>
         <!-- toggle button  start -->
@@ -39,7 +46,9 @@
                   :disabled="!info.hot_ads"
                   :class="{ active: hotAds == 'h' }"
                   @click="hotAdd('h')"
-                >Hot</button>
+                >
+                  Hot
+                </button>
               </div>
               <div>
                 <h2>{{ info.superhot_ads ? info.superhot_ads : 0 }} left</h2>
@@ -47,7 +56,9 @@
                   :disabled="!info.superhot_ads"
                   :class="{ active: hotAds == 'sh' }"
                   @click="hotAdd('sh')"
-                >Super Hot</button>
+                >
+                  Super Hot
+                </button>
               </div>
             </div>
           </div>
@@ -74,11 +85,19 @@
             </div>
             <div class="area-input" id="input">
               <div>
-                <input type="text" v-model="finalData.city" @focus="openDropdown" />
+                <input
+                  type="text"
+                  v-model="finalData.city"
+                  @focus="openDropdown"
+                />
               </div>
               <div class="dropdown" v-if="dropdownCities">
                 <div class="city-search">
-                  <input type="text" v-model="search" placeholder="Search Location" />
+                  <input
+                    type="text"
+                    v-model="search"
+                    placeholder="Search Location"
+                  />
                 </div>
                 <div class="city-list" v-if="!search">
                   <ul>
@@ -88,7 +107,9 @@
                       @click="selectedCity(popular)"
                       :key="p"
                       v-show="popular.isPop"
-                    >{{ popular.name }}</li>
+                    >
+                      {{ popular.name }}
+                    </li>
                   </ul>
                   <ul>
                     <li>Other Cities</li>
@@ -97,7 +118,9 @@
                       @click="selectedCity(other)"
                       :key="index"
                       v-show="!other.isPop"
-                    >{{ other.name }}</li>
+                    >
+                      {{ other.name }}
+                    </li>
                   </ul>
                 </div>
                 <div class="city-list" v-else>
@@ -106,7 +129,9 @@
                       v-for="(search, s) in searchCities"
                       @click="selectedCity(search)"
                       :key="s"
-                    >{{ search.name }}</li>
+                    >
+                      {{ search.name }}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -124,11 +149,17 @@
                 </div>
                 <div class="area-input" id="input-society">
                   <div>
-                    <div class="dropdown-menu" @click="openDropdownSociety">{{ finalData.society }}</div>
+                    <div class="dropdown-menu" @click="openDropdownSociety">
+                      {{ finalData.society }}
+                    </div>
                   </div>
                   <div class="dropdown" v-if="dropdownSociety">
                     <div class="city-search">
-                      <input type="text" v-model="searchSociety" placeholder="Search Society" />
+                      <input
+                        type="text"
+                        v-model="searchSociety"
+                        placeholder="Search Society"
+                      />
                     </div>
                     <div class="city-list" v-if="!searchSociety">
                       <ul>
@@ -136,7 +167,9 @@
                           v-for="(society, p) in society.society"
                           @click="selectedSociety(society)"
                           :key="p"
-                        >{{ society }}</li>
+                        >
+                          {{ society }}
+                        </li>
                       </ul>
                     </div>
                     <div class="city-list" v-else>
@@ -145,7 +178,9 @@
                           v-for="(search, s) in searchSocietyFilter"
                           @click="selectedSociety(search)"
                           :key="s"
-                        >{{ search }}</li>
+                        >
+                          {{ search }}
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -243,7 +278,11 @@
           </div>
           <div>
             <div>
-              <input type="number" v-model="finalData.area" @change="onChangeSize($event)" />
+              <input
+                type="number"
+                v-model="finalData.area"
+                @change="onChangeSize($event)"
+              />
             </div>
             <div>
               <select class="area" @change="onChange($event)">
@@ -298,15 +337,51 @@
             <h6>Property Status</h6>
           </div>
           <div class="features-list">
-            <FeatureBox :name="'Direct to Owner'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Bayana'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Ndc applied'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Possession'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Non-Possession'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Army update'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'All Paid'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'File'" @selected="propertyStatus" :type="'status'" />
-            <FeatureBox :name="'Others'" @selected="propertyStatus" :type="'status'" />
+            <FeatureBox
+              :name="'Direct to Owner'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Bayana'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Ndc applied'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Possession'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Non-Possession'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Army update'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'All Paid'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'File'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
+            <FeatureBox
+              :name="'Others'"
+              @selected="propertyStatus"
+              :type="'status'"
+            />
           </div>
         </div>
         <!-- add featured -->
@@ -315,8 +390,16 @@
             <h6>Add Features</h6>
           </div>
           <div class="features-list">
-            <FeatureBox :name="'Gas'" @selected="propertyStatus" :type="'property_features'" />
-            <FeatureBox :name="'Corner'" @selected="propertyStatus" :type="'property_features'" />
+            <FeatureBox
+              :name="'Gas'"
+              @selected="propertyStatus"
+              :type="'property_features'"
+            />
+            <FeatureBox
+              :name="'Corner'"
+              @selected="propertyStatus"
+              :type="'property_features'"
+            />
             <FeatureBox
               :name="'Facing Park'"
               @selected="propertyStatus"
@@ -332,8 +415,16 @@
               @selected="propertyStatus"
               :type="'property_features'"
             />
-            <FeatureBox :name="'Main Road'" @selected="propertyStatus" :type="'property_features'" />
-            <FeatureBox :name="'Sewerage'" @selected="propertyStatus" :type="'property_features'" />
+            <FeatureBox
+              :name="'Main Road'"
+              @selected="propertyStatus"
+              :type="'property_features'"
+            />
+            <FeatureBox
+              :name="'Sewerage'"
+              @selected="propertyStatus"
+              :type="'property_features'"
+            />
             <FeatureBox
               :name="'Boundary Wall'"
               @selected="propertyStatus"
@@ -349,7 +440,11 @@
               @selected="propertyStatus"
               :type="'property_features'"
             />
-            <FeatureBox :name="'Near Park'" @selected="propertyStatus" :type="'property_features'" />
+            <FeatureBox
+              :name="'Near Park'"
+              @selected="propertyStatus"
+              :type="'property_features'"
+            />
             <FeatureBox
               :name="'Near Masjid'"
               @selected="propertyStatus"
@@ -384,9 +479,15 @@
             </div>
 
             <div class="media-img">
-              <div class="primary-img" v-for="(img, key) in previewImage" :key="key">
+              <div
+                class="primary-img"
+                v-for="(img, key) in previewImage"
+                :key="key"
+              >
                 <img class="img-pre" :src="img" />
-                <button v-show="previewImage" @click="removeImage(key)">X</button>
+                <button v-show="previewImage" @click="removeImage(key)">
+                  X
+                </button>
               </div>
             </div>
           </div>
@@ -421,7 +522,12 @@
                   :key="vd"
                   :style="`background-image: url(${v})`"
                 ></div>
-                <button v-show="previewVideo.length" @click="removeImage(key, 'vi')">X</button>
+                <button
+                  v-show="previewVideo.length"
+                  @click="removeImage(key, 'vi')"
+                >
+                  X
+                </button>
               </div>
             </div>
             <!-- img-bock end -->
@@ -496,7 +602,9 @@
           <GoogleMap @latlng="latLng" />
         </div>
         <section class="btn-section">
-          <button class="btn" :disabled="loading" @click="submit()">{{!loading ? 'Submit': 'Loading...'}} </button>
+          <button class="btn" :disabled="loading" @click="submit()">
+            {{ !loading ? "Submit" : "Loading..." }}
+          </button>
         </section>
       </section>
       <section class="add-right">
@@ -524,6 +632,7 @@ import TypeAndSubtype from "@/components/common/TypeAndSubtype.vue";
 import BlueHead from "@/components/common/BlueHeader.vue";
 import GoogleMap from "./googleMap.vue";
 import propertyServices from "../services/PropertiesServices";
+import moment from "moment";
 const ref = firebase.storage();
 export default {
   name: "SearchView",
@@ -532,15 +641,17 @@ export default {
     TypeAndSubtype,
     BlueHead,
     RadioBox,
-    GoogleMap
+    GoogleMap,
   },
   data() {
     return {
-      loading:false,
+      loading: false,
       hotAds: null,
       search: "",
       searchSociety: "",
-      finalData: {},
+      finalData: {
+        calculating_area: 4500,
+      },
       showInputs: 1,
       toggelButton: false,
       previewImage: [],
@@ -559,34 +670,34 @@ export default {
         {
           name: "Islamabad",
           isPop: true,
-          society: ["7th Avenue", "9th Avenue ", "D-12"]
+          society: ["7th Avenue", "9th Avenue ", "D-12"],
         },
         {
           name: "Karachi",
           isPop: true,
-          society: ["Bahria Town Karachi", "DHA"]
+          society: ["Bahria Town Karachi", "DHA"],
         },
         {
           name: "Lahore",
           isPop: true,
-          society: []
+          society: [],
         },
         {
           name: "Abbotabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Abdu Hakim",
           isPop: false,
-          society: []
-        }
+          society: [],
+        },
       ],
       typeData: [
         { type: "Plot", icon: "bath.png" },
         { type: "Home", icon: "bed.png" },
         { type: "Commercial", icon: "bath.png" },
-        { type: "Farm House", icon: "bath.png" }
+        { type: "Farm House", icon: "bath.png" },
       ],
       subTypeData: [
         {
@@ -596,16 +707,16 @@ export default {
             { type: "Agricultural", icon: "bed.png" },
             { type: "Industrial", icon: "bath.png" },
             { type: "File", icon: "bath.png" },
-            { type: "Plot Form", icon: "bed.png" }
-          ]
+            { type: "Plot Form", icon: "bed.png" },
+          ],
         },
         {
           propertySubType: [
             { type: "House", icon: "bath.png" },
             { type: "Flat", icon: "bed.png" },
             { type: "Room", icon: "bed.png" },
-            { type: "Penthouse", icon: "bath.png" }
-          ]
+            { type: "Penthouse", icon: "bath.png" },
+          ],
         },
         {
           propertySubType: [
@@ -613,14 +724,14 @@ export default {
             { type: "Shop", icon: "bed.png" },
             { type: "Warehouse", icon: "bed.png" },
             { type: "Factory", icon: "bath.png" },
-            { type: "Building", icon: "bath.png" }
-          ]
+            { type: "Building", icon: "bath.png" },
+          ],
         },
         {
-          propertySubType: [{ type: "Farm House", icon: "bath.png" }]
-        }
+          propertySubType: [{ type: "Farm House", icon: "bath.png" }],
+        },
       ],
-      basicData: {}
+      basicData: {},
     };
   },
   mounted() {
@@ -632,7 +743,7 @@ export default {
     };
     var el = document.getElementById("input");
     var ele = document.getElementById("input-society");
-    document.addEventListener("click", function(event) {
+    document.addEventListener("click", function (event) {
       var isClickInsideElement = el.contains(event.target);
       var society = ele.contains(event.target);
       if (!isClickInsideElement) {
@@ -646,9 +757,8 @@ export default {
   methods: {
     // map location
     latLng(loc) {
-      this.finalData.latitude = loc.lat;
-      this.finalData.longitude = loc.lng;
-      console.log(loc);
+      this.finalData.latitude = parseFloat(loc.lat);
+      this.finalData.longitude = parseFloat(loc.lng);
     },
     // map location
     hotAdd(v) {
@@ -666,7 +776,7 @@ export default {
         this.finalData[v.type] = [];
       }
       if (!v.isAdd) {
-        this.finalData[v.type] = this.finalData[v.type].filter(val => {
+        this.finalData[v.type] = this.finalData[v.type].filter((val) => {
           return val != v.status;
         });
       } else {
@@ -700,7 +810,7 @@ export default {
         this.images = [...this.images, newImage];
         // selected file read
         var reader = new FileReader();
-        reader.onload = e => {
+        reader.onload = (e) => {
           this.previewImage.push(e.target.result);
         };
         reader.readAsDataURL(e.target.files[i]);
@@ -728,7 +838,7 @@ export default {
         const videoPlayer = document.createElement("video");
         videoPlayer.setAttribute("src", URL.createObjectURL(file));
         videoPlayer.load();
-        videoPlayer.addEventListener("error", ex => {
+        videoPlayer.addEventListener("error", (ex) => {
           reject("error when loading video file", ex);
         });
         videoPlayer.addEventListener("loadedmetadata", () => {
@@ -766,7 +876,7 @@ export default {
           icon: "error",
           title: "Please Select Sub Type",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
@@ -776,7 +886,7 @@ export default {
           icon: "error",
           title: "Please Select City",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
@@ -787,7 +897,7 @@ export default {
             icon: "error",
             title: "Please Select Society",
             showConfirmButton: false,
-            timer: 3000
+            timer: 3000,
           });
           return;
         }
@@ -798,7 +908,7 @@ export default {
           icon: "error",
           title: "Please Select Area",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
@@ -808,7 +918,7 @@ export default {
           icon: "error",
           title: "Please Select Price",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
@@ -818,7 +928,7 @@ export default {
           icon: "error",
           title: "Please Select Title",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
@@ -828,22 +938,22 @@ export default {
       if (!this.validateInputs()) return;
       const promises = [];
       if (this.images) {
-        this.images.map(image => {
+        this.images.map((image) => {
           const refTask = ref.ref(`${image.name}`).put(image);
           promises.push(refTask);
           refTask.on(
             `state-change`,
-            snapshot => {
+            (snapshot) => {
               const progress = Math.round(
                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100
               );
               this.progress = progress;
             },
-            error => {
+            (error) => {
               console.log(error);
             },
             async () => {
-              await refTask.snapshot.ref.getDownloadURL().then(url => {
+              await refTask.snapshot.ref.getDownloadURL().then((url) => {
                 if (!this.finalData.images) {
                   this.finalData.images = [];
                 }
@@ -858,17 +968,17 @@ export default {
         promises.push(refTask);
         refTask.on(
           `state-change`,
-          snapshot => {
+          (snapshot) => {
             const progress = Math.round(
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
             );
             this.progress = progress;
           },
-          error => {
+          (error) => {
             console.log(error);
           },
           async () => {
-            await refTask.snapshot.ref.getDownloadURL().then(url => {
+            await refTask.snapshot.ref.getDownloadURL().then((url) => {
               if (!this.finalData.video) {
                 this.finalData.video = "";
               }
@@ -879,7 +989,13 @@ export default {
       }
       this.loading = true;
       Promise.all(promises)
-        .then(() => { 
+        .then(() => {
+          if (this.finalData.price) {
+            this.finalData.price = this.finalData.price.toString();
+          }
+          let stemp = moment();
+          this.finalData.date = stemp.format('YYYY-MM-DDTHH:mm:ss');
+          console.log(this.finalData);
           propertyServices
             .create(this.finalData)
             .then(() => {
@@ -888,16 +1004,15 @@ export default {
                 icon: "success",
                 title: "Created new item successfully!",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 3000,
               });
               this.$router.push("/");
             })
-            .catch(e => {
-               this.loading = false;
-              console.log(e);
+            .catch(() => {
+              this.loading = false;
             });
         })
-        .catch(error => {
+        .catch((error) => {
           this.loading = false;
           console.log(error);
         });
@@ -912,7 +1027,7 @@ export default {
           icon: "error",
           title: "Please Select City before",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
 
         return;
@@ -943,37 +1058,37 @@ export default {
       this.basicData.eState = estate_name;
       this.basicData.number = phone_number;
       this.finalData.seller_id = id;
-    }
+    },
   },
   computed: {
     searchCities() {
       var search = this.cities;
-      return search.filter(city =>
+      return search.filter((city) =>
         city.name.toLowerCase().startsWith(this.search.toLowerCase())
       );
     },
     searchSocietyFilter() {
       var search = this.society.society;
-      return search.filter(city =>
+      return search.filter((city) =>
         city.toLowerCase().startsWith(this.searchSociety.toLowerCase())
       );
     },
     info() {
       return this.$store.state.userInfo;
-    }
+    },
   },
   watch: {
     info: {
-      handler: function() {
+      handler: function () {
         this.addBasicData();
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 <style scoped>
-.filter-main{
+.filter-main {
   display: flex;
   flex-wrap: wrap;
 }

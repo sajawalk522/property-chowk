@@ -2,8 +2,11 @@
   <section class="card-container">
     <div class="card-top">
       <div class="image-card">
-        <img :src="dataList.val().images[0]" v-if="dataList.val().images && dataList.val().images.length"/>
-        <img  src="../../assets/images/logo.svg"  v-else />
+        <img
+          :src="dataList.val().images[0]"
+          v-if="dataList.val().images && dataList.val().images.length"
+        />
+        <img src="../../assets/images/logo.svg" v-else />
       </div>
       <div class="super-hot" v-if="dataList.val().featured">
         <button class="btn btn-hot">SUPER HOT</button>
@@ -23,8 +26,8 @@
         <button class="btn btn-blue">{{ dataList.val().property_type }}</button>
       </div>
       <div class="location">
-        <h3>Rs. {{dataList.val().price }}</h3>
-        <p>{{dataList.val().society}} {{ dataList.val().city }}</p>
+        <h3>Rs. {{ converter(dataList.val().price) }}</h3>
+        <p>{{ dataList.val().society }} {{ dataList.val().city }}</p>
       </div>
       <div class="icons-wrapper">
         <div class="icon" v-if="dataList.val().bedrooms">
@@ -59,6 +62,19 @@
 export default {
   name: "CardView",
   props: ["dataList"],
+  methods: {
+    converter: (amount) => {
+      if (!amount) return "";
+      var val = Math.abs(amount);
+      if (val >= 10000000) {
+        val = (val / 10000000).toFixed(2) + " Crore";
+      } 
+      if (val >= 100000) {
+        val = (val / 100000).toFixed(2) + " Lakh";
+      }
+      return val;
+    },
+  },
 };
 </script>
 
