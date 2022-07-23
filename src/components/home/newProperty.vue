@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section >
     <div class="main-title">
       <h1>{{ title }}</h1>
     </div>
@@ -66,6 +66,7 @@
             </div>
           </div>
           <div class="date-card">
+            <p>{{property.val().city}}</p>
             <div>
               <img src="../../assets/images/calender.png" />
             </div>
