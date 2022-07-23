@@ -6,7 +6,8 @@
     </h1> -->
     <PropertyExpert />
     <NewProjects />
-    <NewProperty />
+    <NewProperty :data="superHot" title="Featured Properties" />
+    <NewProperty :data="Hot" title="Recent Properties" />
     <GetTouch />
     <GetApp />
   </layout-home>
@@ -33,11 +34,46 @@ export default {
       tutorials: [],
     };
   },
+  computed: {
+    superHot() {
+      var filteredFeatrued = this.$store.state.properties.filter((f) => {
+        return f.val().featured;
+      });
+      return filteredFeatrued.slice(0, 20);
+    },
+    Hot() {
+      var filteredFeatrued = this.$store.state.properties.filter((f) => {
+        return f.val().feature_type;
+      });
+      return filteredFeatrued.slice(0, 20);
+    },
+  },
   mounted() {
+    this.$getLocation()
+      .then((coordinates) => {
+        console.log(coordinates);
+      this.fetchLocationName(coordinates.lat,coordinates.lag)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     // PropertiesDataService.getAll().on("value", this.onDataChange);
     // PropertiesDataService.getAll().off("value", this.onDataChange);
   },
   methods: {
+    async  fetchLocationName (lat,lng) {
+    await fetch(
+      'https://www.mapquestapi.com/geocoding/v1/reverse?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&location='+lat+'%2C'+lng+'&outFormat=json&thumbMaps=false',
+    )
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(
+          'ADDRESS GEOCODE is BACK!! => ' + JSON.stringify(responseJson),
+        );
+      });
+  },
+    // desable islent
     // deleteItem() {
     //   PropertiesDataService.delete("-N6F38WjtW9LGvKyFyNA");
     // },

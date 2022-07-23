@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="main-title">
-      <h1>Featured Properties</h1>
+      <h1>{{ title }}</h1>
     </div>
     <carousel
       :settings="settings"
@@ -11,7 +11,7 @@
       class="carousel-container"
       v-if="$store.state.properties.length"
     >
-      <slide v-for="(property, index) in featured" :key="index">
+      <slide v-for="(property, index) in data" :key="index">
         <div>
           <div class="new-property-container">
             <img src="../../assets/images/rawalpndi.jpg" v-if="!property.val().images" />
@@ -106,18 +106,11 @@ import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 export default {
   name: "NewProperty",
+  props:['data', 'title'],
   components: {
     Carousel,
     Slide,
     Navigation
-  },
-  computed: {
-    featured() {
-      var filteredFeatrued = this.$store.state.properties.filter(f => {
-        return f.val().featured;
-      });
-      return filteredFeatrued.slice(0, 20);
-    }
   },
   data: () => ({
     // carousel settings
