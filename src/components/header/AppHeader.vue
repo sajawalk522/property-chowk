@@ -19,16 +19,16 @@
                   <router-link to="/properties?page=1">Properties</router-link>
                 </li>
                 <li>
-                  <router-link to="/#">Realtors</router-link>
+                  <router-link to="/realtors">Realtors</router-link>
                 </li>
                 <li>
                   <router-link to="/gallery">Gallery</router-link>
                 </li>
                 <li>
-                  <router-link to="/#">Blog</router-link>
+                  <router-link to="/blog">Blog</router-link>
                 </li>
                 <li>
-                  <router-link to="/#">Contact</router-link>
+                  <router-link to="/contact">Contact</router-link>
                 </li>
                 <li>
                   <div class="add">

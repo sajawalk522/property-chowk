@@ -989,6 +989,7 @@ export default {
 .add-section img {
   width: 100%;
   height: 100%;
+  border: 1px solid #808080;
 }
 .add-banner {
   margin: 5px 0 15px 0;
@@ -996,6 +997,7 @@ export default {
 .add-banner img {
   width: 100%;
   height: 100%;
+  border: 1px solid #808080;
 }
 .toggle-buttons {
   margin-top: 30px;

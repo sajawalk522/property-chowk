@@ -2,15 +2,23 @@
   <section class="card-container">
     <div class="card-top">
       <div class="image-card">
-        <img :src="dataList.val().images[0]" v-if="dataList.val().images && dataList.val().images.length"/>
-        <img  src="../../assets/images/logo.svg"  v-else />
+        <div class="water-mark">
+          <img src="../../assets/images/Propertylogowatermark.png"  v-if="dataList.val().images && dataList.val().images.length" />
+        </div>
+        <img
+          :src="dataList.val().images[0]"
+          v-if="dataList.val().images && dataList.val().images.length"
+        />
+        <img src="../../assets/images/chowkLogo.jpg" v-else />
       </div>
       <div class="super-hot" v-if="dataList.val().featured">
         <button class="btn btn-hot">SUPER HOT</button>
       </div>
       <div class="camera">
         <p>{{ dataList.val().views }}</p>
-        <div class="cam-img"><img src="../../assets/images/camera.png" /></div>
+        <div class="cam-img">
+          <img src="../../assets/images/camera.png" />
+        </div>
       </div>
       <div class="wishlist">
         <div class="wish-img">
@@ -28,19 +36,25 @@
       </div>
       <div class="icons-wrapper">
         <div class="icon" v-if="dataList.val().bedrooms">
-          <div class="i-img"><img src="../../assets/images/bed.png" /></div>
+          <div class="i-img">
+            <img src="../../assets/images/bed.png" />
+          </div>
           <div>
             <p>{{ dataList.val().bedrooms }}</p>
           </div>
         </div>
         <div class="icon" v-if="dataList.val().bathrooms">
-          <div class="i-img"><img src="../../assets/images/bath.png" /></div>
+          <div class="i-img">
+            <img src="../../assets/images/bath.png" />
+          </div>
           <div>
             <p>{{ dataList.val().bathrooms }}</p>
           </div>
         </div>
         <div class="icon">
-          <div class="i-img"><img src="../../assets/images/ft.png" /></div>
+          <div class="i-img">
+            <img src="../../assets/images/ft.png" />
+          </div>
           <div>
             <p>{{ dataList.val().area }} {{ dataList.val().area_type }}</p>
           </div>
@@ -58,11 +72,24 @@
 <script>
 export default {
   name: "CardView",
-  props: ["dataList"],
+  props: ["dataList"]
 };
 </script>
 
 <style scoped>
+.water-mark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark img {
+  width: 85px !important;
+  height: 70px !important;
+  opacity: 0.5;
+}
 .card-container {
   width: 276px;
   margin-bottom: 30px;

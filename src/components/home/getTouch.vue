@@ -7,7 +7,10 @@
         </div>
       </div>
       <div class="app-right">
-        <div>
+        <a href="#" class="about-banner">
+          <img src="../../assets/images/about-banner.png" />
+        </a>
+        <!-- <div>
           <h3>Let us know your dream house</h3>
           <h4>and we will build for you</h4>
           <p>
@@ -16,7 +19,7 @@
             vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
           </p>
           <button class="btn">Get in Touch</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -41,7 +44,7 @@ export default {
   padding: 10px 10px 0px 10px;
 }
 .get-app .app-inner .app-left {
-  width: 40%;
+  width: 45%;
   display: flex;
   padding: 0px 10px;
 }
@@ -51,11 +54,15 @@ export default {
   box-shadow: -15px 15px 0px 0px #e28c1f;
 }
 .get-app .app-inner .app-right {
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 20px;
+}
+ .about-banner img{
+  width: 100%;
+  border: 1px solid #808080;
 }
 .get-app .app-inner .app-right h3 {
   font-size: 32px;

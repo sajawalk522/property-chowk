@@ -3,14 +3,11 @@
     <div class="app-inner container">
       <div class="app-left">
         <div>
-          <h3>Get the Property Chowk App</h3>
-          <p>
-            Use our app, you can buy and rent property faster and more
-            efficiently
-          </p>
+          <h3>DOWNLOAD OUR FREE APP</h3>
+          <p>Whether you’re in the real estate market to buy homes, searching for rentals, or looking for investment opportunities, we offer a robust set of tools and easiest navigation throughout the process to help you browse hundreds of home listings and select the one that fits your needs.</p>
         </div>
         <div>
-          <img src="../../assets/images/app.png" />
+          <img src="../../assets/images/app-banner.png" />
         </div>
       </div>
       <div class="app-right">
@@ -18,15 +15,18 @@
           <a href="https://apps.apple.com/pk/app/property-chowk/id1547137259">
             <img src="../../assets/images/ios.jpeg" />
           </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.propertychowk.app&hl=en&gl=US"
-          >
+          <a href="https://play.google.com/store/apps/details?id=com.propertychowk.app&hl=en&gl=US">
             <img src="../../assets/images/andriod.png" />
           </a>
         </div>
         <div class="qr-code">
-          <p>Scan the QR code <br />to get the app</p>
-          <div><img src="../../assets/images/QR.svg" /></div>
+          <p>
+            Scan the QR code
+            <br />to get the app
+          </p>
+          <div>
+            <img src="../../assets/images/QR.svg" />
+          </div>
         </div>
       </div>
     </div>
@@ -44,21 +44,21 @@ export default {};
 .get-app .app-inner {
   display: flex;
   justify-content: space-between;
-  box-shadow: 0px 0px 10px #0000001A;
+  box-shadow: 0px 0px 10px #0000001a;
   margin: 49px auto;
   padding: 10px 10px 0px 10px;
 }
 .get-app .app-inner .app-left {
-  width: 60%;
+  width: 70%;
   display: flex;
   padding: 0px 10px;
 }
 .get-app .app-inner .app-left div:first-child {
   margin-top: 5px;
-  width: 425px;
+  width: 430px;
 }
 .get-app .app-inner .app-left div:nth-child(2) {
-  width: 190px;
+  width: 270px;
 }
 .get-app .app-inner .app-left div:nth-child(2) img {
   width: 100%;
@@ -75,10 +75,10 @@ export default {};
   font-size: 16px;
   text-align: left;
   line-height: 1.5;
-  padding-right: 50px;
+  padding-right: 20px;
 }
 .get-app .app-inner .app-right {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

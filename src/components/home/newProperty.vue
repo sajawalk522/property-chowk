@@ -14,7 +14,10 @@
       <slide v-for="(property, index) in featured" :key="index">
         <div>
           <div class="new-property-container">
-            <img src="../../assets/images/rawalpndi.jpg" v-if="!property.val().images" />
+            <div class="water-mark">
+              <img src="../../assets/images/Propertylogowatermark.png" v-if="property.val().images"/>
+            </div>
+            <img src="../../assets/images/chowkLogo.jpg" v-if="!property.val().images" />
             <img :src="property.val().images[0]" v-else />
             <div class="layout">
               <div class="properties-card">
@@ -132,6 +135,19 @@ export default {
 </script>
 
 <style scoped>
+.water-mark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark img {
+  width: 85px !important;
+  height: 70px !important;
+  opacity: 0.5;
+}
 .cards-skeleton {
   display: flex;
   justify-content: space-between;
@@ -151,7 +167,7 @@ export default {
 
 .carousel__slide img {
   width: 350px;
-  height: 250px;
+  height: 300px;
 }
 .properties-card {
   height: 100%;

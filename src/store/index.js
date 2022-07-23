@@ -273,7 +273,7 @@ export default createStore({
           {
             type: "commercial&residentials",
             title: "COMMERCIAL & RESIDENTIALS",
-            img: "multant.jpg",
+            img: "multan.jpg",
             slug: "projects?city=Islamabad&type=commercial&residentials",
             project: [
               {

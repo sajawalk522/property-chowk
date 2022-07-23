@@ -14,6 +14,10 @@ import TrendingView from '../views/TrendingView.vue';
 import ProjectsView from '../views/ProjectsView.vue';
 import Properties from '../views/PropertyView.vue';
 import Gallery from '../views/GalleryView.vue';
+import Realtors from '../views/realtorsView.vue';
+import Blog from '../views/blogView.vue';
+import Contact from '../views/contactView.vue';
+
 const routes = [
   {
     path: '/',
@@ -66,6 +70,16 @@ const routes = [
     component: ProjectsView
   },
   {
+    path: '/blog',
+    name: 'blog',
+    component: Blog
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
+  },
+  {
     path: '/about',
     name: 'about',
     component: AboutView
@@ -88,6 +102,11 @@ const routes = [
     path: '/properties',
     name: 'properties',
     component: Properties,
+  },
+  {
+    path: '/realtors',
+    name: 'realtors',
+    component: Realtors,
   },
   {
     path: '/gallery',

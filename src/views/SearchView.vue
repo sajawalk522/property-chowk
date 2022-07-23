@@ -684,6 +684,7 @@ export default {
 .add-banner img {
   width: 100%;
   height: 100%;
+   border: 1px solid #808080;
 }
 .toggle-buttons {
   margin-top: 30px;

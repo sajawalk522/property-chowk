@@ -57,9 +57,9 @@
       :pauseAutoplayOnHover="true"
       :breakpoints="breakpoints"
       :class="{expendSlider: expand}"
+      ref="slider"
       class="carousel-container custom-div explert-carousel"
     >
-      <!--  -->
       <slide v-for="(agent, index) in titanium" :key="index" class="agent-info">
         <div :id="`slide-${index}`" class="experts-main">
           <div class="carousel__item">
@@ -297,18 +297,33 @@
         <!-- <pagination /> -->
       </template>
     </carousel>
+    <section class="section-pagination">
+      <paginate
+          v-if="titanium"
+          :page-count="titanium.length"
+          :page-range="3"
+          :margin-pages="2"
+          :click-handler="clickCallback"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :page-class="'page-item'"
+        ></paginate>
+    </section>
   </section>
 </template>
 
 <script>
 import "vue3-carousel/dist/carousel.css";
+import Paginate from "vuejs-paginate-next";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 export default {
   name: "PropertyExpert",
   components: {
     Carousel,
     Slide,
-    Navigation
+    Navigation,
+    Paginate
   },
   data: () => ({
     expand:false,
@@ -447,6 +462,9 @@ export default {
     }
   }),
   methods: {
+    clickCallback(num){
+      this.$refs.slider.slideTo(num)
+    },
     // mouseOver() {
     //   document.getElementById(`slide-${id}`).classList.add("active");
     // },
@@ -464,6 +482,10 @@ export default {
 </script>
 
 <style scoped>
+.section-pagination{
+  display:flex;
+  justify-content: center;
+}
 .expert-title{
   padding-bottom: 0!important;
 }

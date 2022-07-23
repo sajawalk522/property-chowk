@@ -1,12 +1,12 @@
 <template>
-<footer>
+  <footer>
     <div class="footer">
-    <div class="footer-container">
-      <section class="footer-row">
-        <div class="col">
-          <h3 class="contact">CONTACT US</h3>
-          <ul class="contact-list">
-            <li class="fist-list">
+      <div class="footer-container">
+        <section class="footer-row">
+          <div class="col">
+            <h3 class="contact">CONTACT US</h3>
+            <ul class="contact-list contact">
+              <!-- <li class="fist-list">
               <div><img src="../../assets/images/location.svg" /></div>
               <div>
                 <router-link to="#"
@@ -14,95 +14,120 @@
                   Tower Al Abraj Street.</router-link
                 >
               </div>
-            </li>
-            <li>
-              <div><img src="../../assets/images/phone.svg" /></div>
-              <div>
-                <router-link to="#">(+92) 4512145789</router-link><br />
-                <router-link to="#">(+92) 4512145789</router-link>
+              </li>-->
+              <li>
+                <div>
+                  <label>Mobile</label>
+                  <img src="../../assets/images/phone.svg" />
+                </div>
+                <div>
+                  <router-link to="#">(+92) 307 8949292</router-link>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label>Office</label>
+                  <img src="../../assets/images/briefcase.png" />
+                </div>
+                <div>
+                  <router-link to="#">(042) 111-777-111</router-link>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label>Whatsapp</label>
+                  <img src="../../assets/images/user.png" />
+                </div>
+                <div>
+                  <router-link to="#">(+92) 307 8949292</router-link>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label>Email</label>
+                  <img src="../../assets/images/email.svg" />
+                </div>
+                <div>
+                  <router-link to="#">info@propertychowk.com</router-link>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>QUICK LINKS</h3>
+            <ul class="contact-list">
+              <li class="fist-list">
+                <router-link to="/about">About Us</router-link>
+              </li>
+              <li class="fist-list">
+                <router-link to="contact">Contact Us</router-link>
+              </li>
+              <li class="fist-list">
+                <router-link to="/privacy">Privacy Policy</router-link>
+              </li>
+              <li class="fist-list">
+                <router-link to="#">Support</router-link>
+              </li>
+              <li class="fist-list">
+                <router-link to="/term-conditions">Term & Conditions</router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>CITIES</h3>
+            <div class="contact-list">
+              <div class="city-list">
+                <router-link to="/search?city=Lahore&page=1">Lahore</router-link>
+                <router-link to="/search?city=Rawalpindi&page=1">Rawalpindi</router-link>
+                <router-link to="/search?city=Bahawalpur&page=1">Bahawalpur</router-link>
+                <router-link to="/search?city=Multan&page=1">Multan</router-link>
+                <router-link to="/search?city=Gujranwala&page=1">Gujranwala</router-link>
+                <router-link to="/search?city=Karachi&page=1">Karachi</router-link>
+                <router-link to="/search?city=Quetta&page=1">Quetta</router-link>
+                <router-link to="/search?city=Peshawar&page=1">Peshawar</router-link>
               </div>
-            </li>
-            <li>
-              <div><img src="../../assets/images/email.svg" /></div>
-              <div>
-                <router-link to="#">loremipsum@gmailcom</router-link><br />
-                <router-link to="#">loremipsum@gmailcom</router-link>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>QUICK LINKS</h3>
-          <ul class="contact-list">
-            <li class="fist-list">
-              <router-link to="/about">About Us</router-link>
-            </li>
-            <li class="fist-list">
-              <router-link to="#">Contact Us</router-link>
-            </li>
-            <li class="fist-list">
-              <router-link to="/privacy">Privacy Policy</router-link>
-            </li>
-            <li class="fist-list">
-              <router-link to="#">Support</router-link>
-            </li>
-            <li class="fist-list">
-              <router-link to="/term-conditions">Term & Conditions</router-link>
-            </li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>CITIES</h3>
-          <div class="contact-list">
-            <div class="city-list">
-              <router-link to="#">Karachi</router-link>
-              <router-link to="#">Lahore</router-link>
-              <router-link to="#">Multan</router-link>
-              <router-link to="#">Islamabad</router-link>
-              <router-link to="#">Mainwali</router-link>
-              <router-link to="#">Sibi</router-link>
-              <router-link to="#">Skardu</router-link>
-              <router-link to="#">Gilgit</router-link>
-              <router-link to="#">Quetta</router-link>
-              <router-link to="#">Rawalpindi</router-link>
-              <router-link to="#">RYK</router-link>
-              <router-link to="#">D-I-Khan</router-link>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <h3>FOLLOW US</h3>
-          <div class="contact-list">
-            <div class="follow-list">
-              <router-link to="#"
-                ><img src="../../assets/images/fb.png"
-              /></router-link>
-              <router-link to="#"
-                ><img src="../../assets/images/google.png"
-              /></router-link>
-              <router-link to="#"
-                ><img src="../../assets/images/twiter.png"
-              /></router-link>
+          <div class="col">
+            <h3>FOLLOW US</h3>
+            <div class="contact-list">
+              <div class="follow-list">
+                <a href="https://facebook.com/propertychowkpk">
+                  <img src="../../assets/images/fb.png" />
+                </a>
+
+                <a href="https://twitter.com/propertychowk">
+                  <img src="../../assets/images/twiter.png" />
+                </a>
+                <a class="youtube" href="https://www.youtube.com/channel/UCgzxqMJuzeGjMDcozRK_4bQ">
+                  <img src="../../assets/images/footer-youtube.png" />
+                </a>
+                <a class="whats" href="https://www.instagram.com/propertychowk">
+                  <img src="../../assets/images/insta.png" />
+                </a>
+                <a class="whats" href="https://wa.me/message/CX7RNKRE6TAPE1">
+                  <img src="../../assets/images/footer-whatsapp.png" />
+                </a>
+              </div>
             </div>
           </div>
+        </section>
+        <div class="reserved">
+          <p>@2021 All rights reserved. Created by Property Chowk</p>
         </div>
-      </section>
-      <div class="reserved">
-         <p>@2021 All rights reserved. Created by Lorem Ipsum</p>
       </div>
     </div>
-  </div>
-  <BottomFooter/>
-</footer>
+    <BottomFooter />
+  </footer>
 </template>
 
 <script>
 import BottomFooter from "@/components/footer/bottomFooter.vue";
 export default {
   name: "AppFooter",
-   components: {
-    BottomFooter,
-  },
+  components: {
+    BottomFooter
+  }
 };
 </script>
 
@@ -139,28 +164,34 @@ export default {
   padding: 15px 0;
 }
 .footer .footer-row .col .contact-list li {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   margin: 10px 0;
 }
 .footer .footer-row .col .contact-list li a {
   text-decoration: none;
   color: #8a8a8a;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   line-height: 1.6;
 }
+.footer .footer-row .col .contact li a {
+  font-size: 18px !important;
+  font-weight: 600;
+}
+.footer .footer-row .col .contact li {
+  padding: 5px 0;
+  border-bottom: 1px solid #8a8a8a;
+}
 .footer .footer-row .col .contact-list li div:first-child {
-  margin-right: 15px;
-  width: 22px;
-  height: 22px;
-}
-.footer .footer-row .col .contact-list li div img{
-  width: 100%;
-  height: 100%;
-}
-.footer .footer-row .col .contact-list .fist-list div:nth-child(2) {
   display: flex;
+  justify-content: space-between;
+}
+.footer .footer-row .col .contact-list li div label {
+  font-size: 14px;
+}
+.footer .footer-row .col .contact-list li div img {
+  width: 18px;
 }
 .footer .footer-row .col .contact-list li div:nth-child(2) {
   width: 300px;
@@ -180,28 +211,41 @@ export default {
   padding: 6px 8px;
   min-width: 76px;
   margin: 4px 3px;
-  font-size: 12px;
+  font-size: 14px;
+  text-align: center;
 }
 .follow-list {
   margin-top: 10px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
+}
+
+.follow-list .youtube img {
+  width: 33px !important;
+  margin-right: 7px;
+  height: 30px;
+}
+.follow-list a img {
+  width: 35px;
+  margin-right: 5px;
 }
 .reserved {
- padding: 30px 54px;
+  padding: 30px 54px;
 }
-.reserved p{
+.reserved p {
   color: #fff;
   font-size: 16px;
   text-align: left;
 }
 /* reponsive start */
 @media (max-width: 479px) and (min-width: 320px) {
-  .footer .footer-row .col{
+  .footer .footer-row .col {
     width: 100%;
   }
-  .reserved{
-    padding: 25px!important;
+  .reserved {
+    padding: 25px !important;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
