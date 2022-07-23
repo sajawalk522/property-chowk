@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section >
     <div class="main-title">
-      <h1>Featured Properties</h1>
+      <h1>{{ title }}</h1>
     </div>
     <carousel
       :settings="settings"
@@ -11,7 +11,7 @@
       class="carousel-container"
       v-if="$store.state.properties.length"
     >
-      <slide v-for="(property, index) in featured" :key="index">
+      <slide v-for="(property, index) in data" :key="index">
         <div>
           <div class="new-property-container">
             <div class="water-mark">
@@ -69,6 +69,7 @@
             </div>
           </div>
           <div class="date-card">
+            <p>{{property.val().city}}</p>
             <div>
               <img src="../../assets/images/calender.png" />
             </div>
@@ -95,19 +96,12 @@ import { Carousel, Slide, Navigation } from "vue3-carousel";
 import CardSkeleton from "../common/cardSkeleton.vue";
 export default {
   name: "NewProperty",
+  props:['data', 'title'],
   components: {
     Carousel,
     Slide,
     CardSkeleton,
     Navigation
-  },
-  computed: {
-    featured() {
-      var filteredFeatrued = this.$store.state.properties.filter(f => {
-        return f.val().featured;
-      });
-      return filteredFeatrued.slice(0, 20);
-    }
   },
   data: () => ({
     skeleton: 3,

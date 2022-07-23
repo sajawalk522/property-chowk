@@ -31,8 +31,8 @@
         <button class="btn btn-blue">{{ dataList.val().property_type }}</button>
       </div>
       <div class="location">
-        <h3>Rs. {{dataList.val().price }}</h3>
-        <p>{{dataList.val().society}} {{ dataList.val().city }}</p>
+        <h3>Rs. {{ converter(dataList.val().price) }}</h3>
+        <p>{{ dataList.val().society }} {{ dataList.val().city }}</p>
       </div>
       <div class="icons-wrapper">
         <div class="icon" v-if="dataList.val().bedrooms">
@@ -72,7 +72,20 @@
 <script>
 export default {
   name: "CardView",
-  props: ["dataList"]
+  props: ["dataList"],
+  methods: {
+    converter: (amount) => {
+      if (!amount) return "";
+      var val = Math.abs(amount);
+      if (val >= 10000000) {
+        val = (val / 10000000).toFixed(2) + " Crore";
+      } 
+      if (val >= 100000) {
+        val = (val / 100000).toFixed(2) + " Lakh";
+      }
+      return val;
+    },
+  },
 };
 </script>
 

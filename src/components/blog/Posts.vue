@@ -15,7 +15,7 @@
         </div>
         <div class="post-des">
           <div v-if="i != fullRead">
-            <div v-html="postdata.description.slice(0, 195) + '[...]'"></div>
+            <div v-html="postdata.description.slice(0, 180) + '[...]'"></div>
           </div>
           <div v-if="i == fullRead">
             <div v-html="postdata.description"></div>
