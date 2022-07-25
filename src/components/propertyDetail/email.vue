@@ -1,7 +1,7 @@
 <template>
   <section class="email-container">
     <div class="email-card">
-      <h3>PKR 2.50 Crore</h3>
+      <h3>PKR {{ converter(data.price) }}</h3>
       <button class="btn btn-blue">CALL</button>
       <form class="form">
         <input type="text" name="name" placeholder="Name" />
@@ -17,6 +17,20 @@
 <script>
 export default {
   name: "SendEmail",
+  props:['data'],
+  methods: {
+    converter: (amount) => {
+      if (!amount) return "";
+      var val = Math.abs(amount);
+      if (val >= 10000000) {
+        val = (val / 10000000).toFixed(2) + " Crore";
+      } 
+      if (val >= 100000) {
+        val = (val / 100000).toFixed(2) + " Lakh";
+      }
+      return val;
+    },
+  },
 };
 </script>
 

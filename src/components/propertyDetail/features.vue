@@ -1,13 +1,13 @@
 <template>
   <div class="overview-container">
     <div class="feature-container">
-      <div class="feature">
+      <div class="feature" v-for="(item, index) in data.property_features" :key="index">
         <div>
           <img src="../../assets/images/feature.png" />
         </div>
-        <div><p>Gas</p></div>
+        <div><p>{{item}}</p></div>
       </div>
-      <div class="feature">
+      <!-- <div class="feature">
         <div>
           <img src="../../assets/images/feature.png" />
         </div>
@@ -60,7 +60,7 @@
           <img src="../../assets/images/feature.png" />
         </div>
         <div><p>Tv lounge</p></div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -68,6 +68,7 @@
 <script>
 export default {
   name: "FeaturesView",
+  props:['data']
 };
 </script>
 

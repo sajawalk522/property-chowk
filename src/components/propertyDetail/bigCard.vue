@@ -7,9 +7,9 @@
       :breakpoints="breakpoints"
       class="carousel-container"
     >
-      <slide v-for="(slide, index) in 5" :key="index">
+      <slide v-for="(slide, index) in data.images" :key="index">
         <div class="image-card">
-          <img src="../../assets/images/imgplace.svg" />
+          <img :src="slide" />
         </div>
       </slide>
 
@@ -25,7 +25,7 @@
           <img src="../../assets/images/bed.png" />
         </div>
         <div>
-          <p>4</p>
+          <p>{{data.bedrooms}}</p>
         </div>
       </div>
       <div class="icon">
@@ -33,7 +33,7 @@
           <img src="../../assets/images/bath.png" />
         </div>
         <div>
-          <p>3</p>
+          <p>{{data.bathrooms}}</p>
         </div>
       </div>
       <div class="icon">
@@ -41,7 +41,7 @@
           <img src="../../assets/images/ft.png" />
         </div>
         <div>
-          <p>5987 sqft</p>
+          <p>{{data.area}} {{data.area_type}}</p>
         </div>
       </div>
     </div>
@@ -52,6 +52,7 @@
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination } from "vue3-carousel";
 export default {
+  props:['data'],
   name: "BigCard",
   components: {
     Carousel,

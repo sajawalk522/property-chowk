@@ -74,7 +74,7 @@ export default {
     },
     filterProperty() {
       var filtered = this.$store.state.properties.filter(function(item) {
-        return item.val();
+        return item;
       });
       var page = this.$route.query.page;
       // pagination

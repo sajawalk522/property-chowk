@@ -1,35 +1,44 @@
 <template>
   <section class="container">
     <!-- top header  -->
-    <div class="top-head">
-      <h3>New Upper Portion For Sale DHA2 Islamabad</h3>
-      <button class="btn btn-hot">SUPER HOT</button>
+    <div class="top-head" v-if="Object.keys(myProperty).length !== 0">
+      <!-- New Upper Portion For Sale DHA2 Islamabad -->
+      <h3>
+        {{ myProperty.property_title }} {{ myProperty.society }}
+        {{ myProperty.city }}
+      </h3>
+      <button class="btn btn-hot" v-if="myProperty.featured">SUPER HOT</button>
+      <button class="btn btn-hot" v-if="myProperty.featured_type">HOT</button>
+    </div>
+    <div v-else>
+      <h1>Loading...</h1>
     </div>
     <!-- top header  -->
     <div class="detail-container">
       <!-- left content  -->
       <div class="details-left">
-        <BigCard />
+        <BigCard :data="myProperty" v-if="Object.keys(myProperty).length !== 0"/>
+        <div v-else><h1>Loading...</h1></div>
         <div class="overview">
           <h2>OVERVIEW</h2>
           <content-layout :title="'DESCRIPTION'">
             <DESCRIPTION />
           </content-layout>
           <content-layout :title="'DETAILS'">
-            <PropertyDetails />
+            <PropertyDetails :data="myProperty" />
           </content-layout>
           <content-layout :title="'FEATURES'">
-            <FeaturesView />
+            <FeaturesView :data="myProperty" />
           </content-layout>
           <content-layout :title="'AGENT DETAILS'">
-            <AgentDetails />
+            <AgentDetails  />
           </content-layout>
         </div>
       </div>
       <!-- left content  -->
       <!-- right content  -->
       <div class="details-right">
-        <SendEmail />
+        <SendEmail :data="myProperty"/>
         <QuickLinks />
       </div>
       <!-- right content  -->
@@ -72,6 +81,42 @@ export default {
     FeaturesView,
     AgentDetails,
   },
+  data() {
+    return {
+      myProperty: {},
+    };
+  },
+  computed: {
+    properties() {
+      return this.$store.state.properties;
+    },
+  },
+  methods: {
+    filterProperty() {
+      var { id } = this.$route.query;
+      var filtered = this.$store.state.properties.filter(function (item) {
+        return item.id == id;
+      });
+      // console.log(filtered[0]);
+      this.myProperty = filtered[0];
+    },
+  },
+  watch: {
+    properties: {
+      handler: function () {
+        this.filterProperty();
+      },
+      // immediate: true,
+    },
+    "$route.query": {
+      handler() {
+        if (this.properties.length) {
+          this.filterProperty();
+        }
+      },
+      immediate: true,
+    },
+  },
 };
 </script>
 
@@ -90,6 +135,7 @@ export default {
 .top-head h3 {
   font-size: 18px;
   color: #000000;
+  text-transform: uppercase;
 }
 .top-head .btn-hot {
   background: #f9193a;

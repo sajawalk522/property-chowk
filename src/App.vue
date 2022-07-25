@@ -8,10 +8,12 @@ const db = firebase.firestore();
 export default {
   beforeCreate() {
     // fetch api data
+    var i = 1;
     const onDataChange = (items) => {
       let _properties = [];
       items.forEach((item) => {
-        _properties.push(item);
+        var data = {id: i++ ,...item.val()}
+        _properties.push(data);
       });
       this.$store.dispatch("setProperties", _properties);
     };

@@ -1,6 +1,7 @@
 <template>
   <section class="card-container">
-    <div class="card-top">
+    <router-link :to="`property-detail?id=${dataList.id}`">
+      <div class="card-top">
       <div class="image-card">
         <div class="water-mark" v-if="dataList.val().images && dataList.val().images.length">
           <img src="../../assets/images/Propertylogowatermark.png"   />
@@ -9,16 +10,16 @@
           <img  src="../../assets/images/logo-transparent.svg"/>
         </div>
         <img
-          :src="dataList.val().images[0]"
-          v-if="dataList.val().images && dataList.val().images.length"
+          :src="dataList.images[0]"
+          v-if="dataList.images && dataList.images.length"
         />
         <img src="../../assets/images/about.png" v-else />
       </div>
-      <div class="super-hot" v-if="dataList.val().featured">
+      <div class="super-hot" v-if="dataList.featured">
         <button class="btn btn-hot">SUPER HOT</button>
       </div>
       <div class="camera">
-        <p>{{ dataList.val().views }}</p>
+        <p>{{ dataList.views }}</p>
         <div class="cam-img">
           <img src="../../assets/images/camera.png" />
         </div>
@@ -31,27 +32,27 @@
     </div>
     <div class="card-content">
       <div class="location-button">
-        <button class="btn btn-blue">{{ dataList.val().property_type }}</button>
+        <button class="btn btn-blue">{{ dataList.property_type }}</button>
       </div>
       <div class="location">
-        <h3>Rs. {{ converter(dataList.val().price) }}</h3>
-        <p>{{ dataList.val().society }} {{ dataList.val().city }}</p>
+        <h3>Rs. {{ converter(dataList.price) }}</h3>
+        <p>{{ dataList.society }} {{ dataList.city }}</p>
       </div>
       <div class="icons-wrapper">
-        <div class="icon" v-if="dataList.val().bedrooms">
+        <div class="icon" v-if="dataList.bedrooms">
           <div class="i-img">
             <img src="../../assets/images/bed.png" />
           </div>
           <div>
-            <p>{{ dataList.val().bedrooms }}</p>
+            <p>{{ dataList.bedrooms }}</p>
           </div>
         </div>
-        <div class="icon" v-if="dataList.val().bathrooms">
+        <div class="icon" v-if="dataList.bathrooms">
           <div class="i-img">
             <img src="../../assets/images/bath.png" />
           </div>
           <div>
-            <p>{{ dataList.val().bathrooms }}</p>
+            <p>{{ dataList.bathrooms }}</p>
           </div>
         </div>
         <div class="icon">
@@ -59,9 +60,9 @@
             <img src="../../assets/images/ft.png" />
           </div>
           <div>
-            <p>{{ dataList.val().area }} {{ dataList.val().area_type }}</p>
+            <p>{{ dataList.area }} {{ dataList.area_type }}</p>
           </div>
-          <!-- <h1>{{dataList.val().city}}</h1> -->
+          <!-- <h1>{{dataList.city}}</h1> -->
         </div>
       </div>
       <div class="bottom-buttons">
@@ -69,6 +70,7 @@
         <button class="btn btn-blue">EMAIL</button>
       </div>
     </div>
+    </router-link>
   </section>
 </template>
 
@@ -93,6 +95,9 @@ export default {
 </script>
 
 <style scoped>
+.card-container a{
+  text-decoration: none;
+}
 .water-mark {
   width: 100%;
   height: 100%;
