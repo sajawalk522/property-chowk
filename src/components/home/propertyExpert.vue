@@ -112,7 +112,7 @@
     </section>
     <section>
       <div class="button-more">
-        <router-link to="/agent" class="info-btn">Veiw All</router-link>
+        <router-link to="/realtors" class="info-btn">Veiw All</router-link>
       </div>
     </section>
   </section>
