@@ -1,5 +1,5 @@
 <template>
-  <section >
+  <section>
     <div class="main-title">
       <h1>{{ title }}</h1>
     </div>
@@ -14,10 +14,13 @@
       <slide v-for="(property, index) in data" :key="index">
         <div>
           <div class="new-property-container">
-            <div class="water-mark">
-              <img src="../../assets/images/Propertylogowatermark.png" v-if="property.val().images"/>
+            <div class="water-mark" v-if="property.val().images">
+              <img src="../../assets/images/Propertylogowatermark.png" />
             </div>
-            <img src="../../assets/images/chowkLogo.jpg" v-if="!property.val().images" />
+            <div class="water-mark-logo" v-else>
+              <img src="../../assets/images/logo-transparent.svg" />
+            </div>
+            <img src="../../assets/images/about.png" v-if="!property.val().images" />
             <img :src="property.val().images[0]" v-else />
             <div class="layout">
               <div class="properties-card">
@@ -95,7 +98,7 @@ import { Carousel, Slide, Navigation } from "vue3-carousel";
 import CardSkeleton from "../common/cardSkeleton.vue";
 export default {
   name: "NewProperty",
-  props:['data', 'title'],
+  props: ["data", "title"],
   components: {
     Carousel,
     Slide,
@@ -128,6 +131,17 @@ export default {
 </script>
 
 <style scoped>
+.water-mark-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark-logo img {
+  width: 150px !important;
+}
 .water-mark {
   width: 100%;
   height: 100%;

@@ -2,14 +2,17 @@
   <section class="card-container">
     <div class="card-top">
       <div class="image-card">
-        <div class="water-mark">
-          <img src="../../assets/images/Propertylogowatermark.png"  v-if="dataList.val().images && dataList.val().images.length" />
+        <div class="water-mark" v-if="dataList.val().images && dataList.val().images.length">
+          <img src="../../assets/images/Propertylogowatermark.png"   />
+        </div>
+        <div class="water-mark-logo" v-else>
+          <img  src="../../assets/images/logo-transparent.svg"/>
         </div>
         <img
           :src="dataList.val().images[0]"
           v-if="dataList.val().images && dataList.val().images.length"
         />
-        <img src="../../assets/images/chowkLogo.jpg" v-else />
+        <img src="../../assets/images/about.png" v-else />
       </div>
       <div class="super-hot" v-if="dataList.val().featured">
         <button class="btn btn-hot">SUPER HOT</button>
@@ -102,6 +105,17 @@ export default {
   width: 85px !important;
   height: 70px !important;
   opacity: 0.5;
+}
+.water-mark-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark-logo img {
+  width: 150px !important;
 }
 .card-container {
   width: 276px;
