@@ -18,7 +18,9 @@
       <!-- left content  -->
       <div class="details-left">
         <BigCard :data="myProperty" v-if="Object.keys(myProperty).length !== 0"/>
-        <div v-else><h1>Loading...</h1></div>
+        <div v-else><h1></h1>
+        <div class="image-skeleton"></div>
+        </div>
         <div class="overview">
           <h2>OVERVIEW</h2>
           <content-layout :title="'DESCRIPTION'">
@@ -142,6 +144,17 @@ export default {
 }
 .detail-container .details-left {
   width: 70%;
+}
+.detail-container .details-left h1{
+  height: 30px;
+  background: #eee;
+  width: 80%;
+  margin: 10px 0;
+}
+.image-skeleton{
+  background: #eee;
+  height: 400px;
+  width: 100%;
 }
 .detail-container .details-right {
   width: 30%;
