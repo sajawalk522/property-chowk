@@ -13,6 +13,7 @@ export default {
       let _properties = [];
       items.forEach((item) => {
         var data = {id: i++ ,...item.val()}
+        console.log(data)
         _properties.push(data);
       });
       this.$store.dispatch("setProperties", _properties);
