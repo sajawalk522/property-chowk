@@ -1,16 +1,17 @@
 <template>
   <section class="get-app">
     <div class="app-inner container">
-      <div class="app-left">
+      <a href="#" class="about-banner">
+        <img src="../../assets/images/about-banner.png" />
+      </a>
+      <!-- <div class="app-left">
         <div>
           <img src="../../assets/images/gettouch.jpg" />
         </div>
       </div>
       <div class="app-right">
-        <a href="#" class="about-banner">
-          <img src="../../assets/images/about-banner.png" />
-        </a>
-        <!-- <div>
+        
+        <div>
           <h3>Let us know your dream house</h3>
           <h4>and we will build for you</h4>
           <p>
@@ -19,8 +20,8 @@
             vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
           </p>
           <button class="btn">Get in Touch</button>
-        </div> -->
-      </div>
+        </div>
+      </div>-->
     </div>
   </section>
 </template>
@@ -41,7 +42,7 @@ export default {
   justify-content: space-between;
   /* box-shadow: 0px 0px 10px #0000001a; */
   margin: 30px auto;
-  padding: 10px 10px 0px 10px;
+  /* padding: 10px 10px 0px 10px; */
 }
 .get-app .app-inner .app-left {
   width: 45%;
@@ -60,7 +61,7 @@ export default {
   align-items: flex-start;
   padding-left: 20px;
 }
- .about-banner img{
+.about-banner img {
   width: 100%;
   border: 1px solid #808080;
 }

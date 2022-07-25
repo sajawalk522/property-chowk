@@ -17,6 +17,7 @@ import Gallery from '../views/GalleryView.vue';
 import Realtors from '../views/realtorsView.vue';
 import Blog from '../views/blogView.vue';
 import Contact from '../views/contactView.vue';
+import PropertyDetails from '../views/PropertyDetailsView.vue';
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: '/search',
     name: 'search',
     component: SearchView
+  },
+  {
+    path: '/property-details',
+    name: 'property-details',
+    component: PropertyDetails
   },
   {
     path: '/plots',
