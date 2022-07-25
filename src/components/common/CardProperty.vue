@@ -3,7 +3,7 @@
     <router-link :to="`property-detail?id=${dataList.id}`">
       <div class="card-top">
       <div class="image-card">
-        <div class="water-mark" v-if="dataList.val().images && dataList.val().images.length">
+        <div class="water-mark" v-if="dataList.images && dataList.images.length">
           <img src="../../assets/images/Propertylogowatermark.png"   />
         </div>
         <div class="water-mark-logo" v-else>

@@ -14,14 +14,14 @@
       <slide v-for="(property, index) in data" :key="index">
         <div>
           <div class="new-property-container">
-            <div class="water-mark" v-if="property.val().images">
+            <div class="water-mark" v-if="property.images">
               <img src="../../assets/images/Propertylogowatermark.png" />
             </div>
             <div class="water-mark-logo" v-else>
               <img src="../../assets/images/logo-transparent.svg" />
             </div>
-            <img src="../../assets/images/about.png" v-if="!property.val().images" />
-            <img :src="property.val().images[0]" v-else />
+            <img src="../../assets/images/about.png" v-if="!property.images" />
+            <img :src="property.images[0]" v-else />
             <div class="layout">
               <div class="properties-card">
                 <div class="card-top">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-bottom">
                   <button>Call us For Price</button>
-                  <p>{{ property.val().property_title }}</p>
+                  <p>{{ property.property_title }}</p>
                 </div>
               </div>
             </div>
@@ -56,17 +56,17 @@
           <div class="card-items">
             <div>
               <p>Area</p>
-              <p>{{ property.val().area }}-{{ property.val().area_type }}</p>
+              <p>{{ property.area }}-{{ property.area_type }}</p>
             </div>
-            <div v-if="property.val().bedrooms">
+            <div v-if="property.bedrooms">
               <p>Beds</p>
-              <p>{{ property.val().bedrooms }}</p>
+              <p>{{ property.bedrooms }}</p>
             </div>
-            <div v-if="property.val().bathrooms">
+            <div v-if="property.bathrooms">
               <p>Baths</p>
-              <p>{{ property.val().bathrooms }}</p>
+              <p>{{ property.bathrooms }}</p>
             </div>
-            <div v-if="property.val().garage">
+            <div v-if="property.garage">
               <p>Garage</p>
               <p>1</p>
             </div>

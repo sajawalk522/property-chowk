@@ -39,21 +39,21 @@ export default {
   computed: {
     superHot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
-        return f.val().featured;
+        return f.featured;
       });
       return filteredFeatrued.slice(0, 20);
     },
     Hot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
         return (
-          f.val().city.toLowerCase() == this.details.toLowerCase() &&
-          f.val().feature_type > 0
+          f.city.toLowerCase() == this.details.toLowerCase() &&
+          f.feature_type > 0
         );
       });
       if (!filteredFeatrued) {
         filteredFeatrued = this.$store.state.properties.filter((f) => {
           return (
-            f.val().city.toLowerCase() == "Lahore" && f.val().feature_type > 0
+            f.city.toLowerCase() == "Lahore" && f.feature_type > 0
           );
         });
       }
@@ -121,7 +121,7 @@ export default {
     //   let _tutorials = [];
     //   items.forEach((item) => {
     //     let key = item.key;
-    //     let data = item.val();
+    //     let data = item;
     //     _tutorials.push({
     //       key: key,
     //       title: data.title,

@@ -20,7 +20,7 @@
     </carousel>
 
     <div class="icons-wrapper">
-      <div class="icon">
+      <div class="icon" v-if="data.bedrooms">
         <div class="i-img">
           <img src="../../assets/images/bed.png" />
         </div>
@@ -28,7 +28,7 @@
           <p>{{data.bedrooms}}</p>
         </div>
       </div>
-      <div class="icon">
+      <div class="icon" v-if="data.bathrooms">
         <div class="i-img">
           <img src="../../assets/images/bath.png" />
         </div>
@@ -36,7 +36,7 @@
           <p>{{data.bathrooms}}</p>
         </div>
       </div>
-      <div class="icon">
+      <div class="icon" >
         <div class="i-img">
           <img src="../../assets/images/ft.png" />
         </div>

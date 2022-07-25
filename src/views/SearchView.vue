@@ -597,7 +597,7 @@ export default {
       }
 
       var filtered = this.$store.state.properties.filter(function(item) {
-        var x = item.val();
+        var x = item;
         for (var key in v) {
           if (x[key] === undefined || x[key] != v[key]) return false;
         }
@@ -606,27 +606,27 @@ export default {
 
       if (price && !priceto) {
         filtered = filtered.filter(item => {
-          return item.val().price == parseInt(price);
+          return item.price == parseInt(price);
         });
       }
       if (!price && priceto) {
         filtered = filtered.filter(item => {
-          return item.val().price <= parseInt(priceto);
+          return item.price <= parseInt(priceto);
         });
       }
       if (price && priceto) {
         filtered = filtered.filter(item => {
           return (
-            item.val().price >= parseInt(price) &&
-            item.val().price <= parseInt(priceto)
+            item.price >= parseInt(price) &&
+            item.price <= parseInt(priceto)
           );
         });
       }
       if (v.property_type == "Residential/commercial") {
         filtered = filtered.filter(item => {
           return (
-            item.val().property_type == "Residential" ||
-            item.val().property_type == "Commercial"
+            item.property_type == "Residential" ||
+            item.property_type == "Commercial"
           );
         });
       }
