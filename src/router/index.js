@@ -31,7 +31,7 @@ const routes = [
     component: SearchView
   },
   {
-    path: '/property-details',
+    path: '/property-detail',
     name: 'property-details',
     component: PropertyDetails
   },

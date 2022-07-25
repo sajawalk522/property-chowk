@@ -3,43 +3,48 @@
     <ul class="details-list">
       <li>
         <div>Property Type</div>
-        <div>House</div>
+        <div>{{ data.property_type }}</div>
       </li>
 
       <li>
         <div>City</div>
-        <div>Islamabad</div>
+        <div>{{ data.city }}</div>
       </li>
 
       <li>
         <div>Area</div>
-        <div>1 Kanal</div>
+        <div>{{ data.area }} {{ data.area_type }}</div>
       </li>
       <li>
         <div>Floor</div>
-        <div>2</div>
+        <div>{{ data.floor }}</div>
       </li>
 
       <li>
         <div>Address</div>
-        <div>Street 4, Block A, Phase 6, DHA, Islamabad</div>
+        <div>
+          <span v-if="data.street">Street {{ data.street }},</span>
+          <span data.block>Block {{ data.block }},</span>
+          <span v-if="data.phase">Phase {{ data.phase }},</span>
+          {{ data.society }}, {{ data.city }}
+        </div>
       </li>
 
       <li>
         <div>Bedrooms</div>
-        <div>3</div>
+        <div>{{ data.bedrooms }}</div>
       </li>
       <li>
         <div>Bathrooms</div>
-        <div>3</div>
+        <div>{{ data.bathrooms }}</div>
       </li>
       <li>
         <div>Property Title</div>
-        <div>Prime</div>
+        <div>{{ data.property_title }}</div>
       </li>
       <li>
         <div>Property Number</div>
-        <div>212</div>
+        <div>{{ data.property_number }}</div>
       </li>
     </ul>
   </div>
@@ -48,6 +53,7 @@
 <script>
 export default {
   name: "DescriptionView",
+  props: ["data"],
 };
 </script>
 
