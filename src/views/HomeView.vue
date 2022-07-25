@@ -39,7 +39,7 @@ export default {
   computed: {
     superHot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
-        return f.featured;
+        return f.featured && f.property_title;
       });
       return filteredFeatrued.slice(0, 20);
     },
@@ -53,7 +53,7 @@ export default {
       if (!filteredFeatrued) {
         filteredFeatrued = this.$store.state.properties.filter((f) => {
           return (
-            f.city.toLowerCase() == "Lahore" && f.feature_type > 0
+            f.city.toLowerCase() == "lahore" && f.feature_type > 0
           );
         });
       }
@@ -121,7 +121,7 @@ export default {
     //   let _tutorials = [];
     //   items.forEach((item) => {
     //     let key = item.key;
-    //     let data = item;
+    //     let data = item.val();
     //     _tutorials.push({
     //       key: key,
     //       title: data.title,

@@ -13,9 +13,9 @@ export default {
       let _properties = [];
       items.forEach((item) => {
         var data = {id: i++ ,...item.val()}
-        console.log(data)
         _properties.push(data);
       });
+      _properties.reverse();
       this.$store.dispatch("setProperties", _properties);
     };
     PropertiesDataService.getAll().on("value", onDataChange);

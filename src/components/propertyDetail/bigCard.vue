@@ -1,4 +1,5 @@
 <template>
+  <div v-if="!data.images">NOT FOUND</div>
   <section class="main-card">
     <carousel
       :settings="settings"
@@ -25,7 +26,7 @@
           <img src="../../assets/images/bed.png" />
         </div>
         <div>
-          <p>{{data.bedrooms}}</p>
+          <p>{{ data.bedrooms }}</p>
         </div>
       </div>
       <div class="icon" v-if="data.bathrooms">
@@ -33,15 +34,15 @@
           <img src="../../assets/images/bath.png" />
         </div>
         <div>
-          <p>{{data.bathrooms}}</p>
+          <p>{{ data.bathrooms }}</p>
         </div>
       </div>
-      <div class="icon" >
+      <div class="icon">
         <div class="i-img">
           <img src="../../assets/images/ft.png" />
         </div>
         <div>
-          <p>{{data.area}} {{data.area_type}}</p>
+          <p>{{ data.area }} {{ data.area_type }}</p>
         </div>
       </div>
     </div>
@@ -52,18 +53,18 @@
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination } from "vue3-carousel";
 export default {
-  props:['data'],
+  props: ["data"],
   name: "BigCard",
   components: {
     Carousel,
     Slide,
-    Pagination
+    Pagination,
   },
   data: () => ({
     // carousel settings
     settings: {
       itemsToShow: 1,
-      snapAlign: "center"
+      snapAlign: "center",
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -71,15 +72,15 @@ export default {
       // 700px and up
       700: {
         itemsToShow: 3.5,
-        snapAlign: "center"
+        snapAlign: "center",
       },
       // 1024 and up
       1024: {
         itemsToShow: 1,
-        snapAlign: "start"
-      }
-    }
-  })
+        snapAlign: "start",
+      },
+    },
+  }),
 };
 </script>
 

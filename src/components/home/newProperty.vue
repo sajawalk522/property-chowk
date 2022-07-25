@@ -12,7 +12,7 @@
       v-if="$store.state.properties.length"
     >
       <slide v-for="(property, index) in data" :key="index">
-        <div>
+        <router-link :to="`property-detail?id=${property.id}`">
           <div class="new-property-container">
             <div class="water-mark" v-if="property.images">
               <img src="../../assets/images/Propertylogowatermark.png" />
@@ -77,7 +77,7 @@
             </div>
             <p>2019/05/30</p>
           </div>
-        </div>
+        </router-link>
       </slide>
       <template #addons>
         <navigation />
