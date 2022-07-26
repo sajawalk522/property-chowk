@@ -348,7 +348,7 @@ export default {
 .activeS .model {
   visibility: visible;
   opacity: 1;
-  transition-delay: 2s;
+  transition-delay: 0.3s;
 }
 .model .primary-model {
   position: relative;
