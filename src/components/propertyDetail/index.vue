@@ -1,7 +1,10 @@
 <template>
   <section class="container">
     <!-- top header  -->
-    <div class="top-head" v-if="Object.keys(myProperty).length !== 0">
+    <div
+      class="top-head"
+      v-if="myProperty && Object.keys(myProperty).length !== 0"
+    >
       <!-- New Upper Portion For Sale DHA2 Islamabad -->
       <h3>
         {{ myProperty.property_title }} {{ myProperty.society }}
@@ -18,7 +21,10 @@
     <div class="detail-container">
       <!-- left content  -->
       <div class="details-left">
-        <BigCard :data="myProperty" v-if="Object.keys(myProperty).length !== 0" />
+        <BigCard
+          :data="myProperty"
+          v-if="myProperty && Object.keys(myProperty).length !== 0"
+        />
         <div v-else>
           <!-- <h1 class="heading-skeleton"></h1> -->
           <div class="image-skeleton"></div>
@@ -83,33 +89,33 @@ export default {
     DESCRIPTION,
     PropertyDetails,
     FeaturesView,
-    AgentDetails
+    AgentDetails,
   },
   data() {
     return {
-      myProperty: {}
+      myProperty: {},
     };
   },
   computed: {
     properties() {
       return this.$store.state.properties;
-    }
+    },
   },
   methods: {
     filterProperty() {
       var { id } = this.$route.query;
-      var filtered = this.$store.state.properties.filter(function(item) {
+      var filtered = this.$store.state.properties.filter(function (item) {
         return item.id == id;
       });
       // console.log(filtered[0]);
       this.myProperty = filtered[0];
-    }
+    },
   },
   watch: {
     properties: {
-      handler: function() {
+      handler: function () {
         this.filterProperty();
-      }
+      },
       // immediate: true,
     },
     "$route.query": {
@@ -118,9 +124,9 @@ export default {
           this.filterProperty();
         }
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 
@@ -141,6 +147,8 @@ export default {
   font-size: 18px;
   color: #000000;
   text-transform: uppercase;
+  width: 66%;
+  line-height: 1.5;
 }
 .top-head .btn-hot {
   background: #f9193a;
@@ -148,12 +156,12 @@ export default {
 .detail-container .details-left {
   width: 70%;
 }
- .heading-skeleton {
+.heading-skeleton {
   height: 30px;
   background: #eee;
   width: 50%;
 }
-.btn-skeleton{
+.btn-skeleton {
   width: 150px;
   height: 30px;
   background: #eee;

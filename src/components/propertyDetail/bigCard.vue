@@ -8,6 +8,7 @@
       </div>
     </div>
     <carousel
+      v-if="data.images"
       :settings="settings"
       :autoplay="2000"
       :wrap-around="true"

@@ -2,7 +2,7 @@
   <div class="home">
     <default-layout>
       <PropertyDetailPage />
-      <AppFooter />
+      <!-- <AppFooter /> -->
     </default-layout>
   </div>
 </template>
