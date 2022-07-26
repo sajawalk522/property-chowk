@@ -22,5 +22,6 @@ export default {
 }
 .contentheader h1{
   color: #fff;
+  font-size: 14px;
 }
 </style>
