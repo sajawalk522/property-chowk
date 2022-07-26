@@ -40,8 +40,8 @@
           <content-layout :title="'FEATURES'">
             <FeaturesView :data="myProperty" />
           </content-layout>
-          <content-layout :title="'AGENT DETAILS'">
-            <AgentDetails />
+          <content-layout :title="'AGENT DETAILS'" v-if="agentData">
+            <AgentDetails :agentData="agentData" />
           </content-layout>
         </div>
       </div>
@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import firebase from "../../firebase";
+const db = firebase.firestore();
 import BigCard from "../propertyDetail/bigCard.vue";
 import SendEmail from "../propertyDetail/email.vue";
 import QuickLinks from "../propertyDetail/quickLinks.vue";
@@ -94,6 +96,7 @@ export default {
   data() {
     return {
       myProperty: {},
+      agentData: {},
     };
   },
   computed: {
@@ -102,6 +105,14 @@ export default {
     },
   },
   methods: {
+    getAgentInfo(id) {
+      db.collection("users")
+        .doc(id)
+        .get()
+        .then((querySnapshot) => {
+          this.agentData = querySnapshot.data();
+        });
+    },
     filterProperty() {
       var { id } = this.$route.query;
       var filtered = this.$store.state.properties.filter(function (item) {
@@ -109,6 +120,9 @@ export default {
       });
       // console.log(filtered[0]);
       this.myProperty = filtered[0];
+      if (this.myProperty) {
+        this.getAgentInfo(this.myProperty.seller_id);
+      }
     },
   },
   watch: {

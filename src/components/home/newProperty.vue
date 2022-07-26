@@ -75,7 +75,8 @@
             <div>
               <img src="../../assets/images/calender.png" />
             </div>
-            <p>2019/05/30</p>
+            <!-- eslint-disable-next-line -->
+            <p>{{ dateFormate(property.date) }}</p>
           </div>
         </router-link>
       </slide>
@@ -103,30 +104,40 @@ export default {
     Carousel,
     Slide,
     CardSkeleton,
-    Navigation
+    Navigation,
   },
-  data: () => ({
-    skeleton: 3,
-    // carousel settings
-    settings: {
-      itemsToShow: 1,
-      snapAlign: "center"
-    },
-    // breakpoints are mobile first
-    // any settings not specified will fallback to the carousel settings
-    breakpoints: {
-      // 700px and up
-      700: {
-        itemsToShow: 3,
-        snapAlign: "center"
+  data() {
+    return {
+      skeleton: 3,
+      // carousel settings
+      settings: {
+        itemsToShow: 1,
+        snapAlign: "center",
       },
-      // 1024 and up
-      1024: {
-        itemsToShow: 3,
-        snapAlign: "start"
-      }
-    }
-  })
+      // breakpoints are mobile first
+      // any settings not specified will fallback to the carousel settings
+      breakpoints: {
+        // 700px and up
+        700: {
+          itemsToShow: 3,
+          snapAlign: "center",
+        },
+        // 1024 and up
+        1024: {
+          itemsToShow: 3,
+          snapAlign: "start",
+        },
+      },
+    };
+  },
+  methods: {
+    dateFormate(current) {
+      if (!current) return;
+      var currentdate = new Date(current);
+      var date = currentdate.toLocaleDateString("zh-Hans-CN");
+      return date;
+    },
+  },
 };
 </script>
 

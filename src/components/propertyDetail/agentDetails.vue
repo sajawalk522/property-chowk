@@ -4,20 +4,23 @@
       <ul class="details-list">
         <li>
           <div>Agent Name</div>
-          <div>Lorem Ipsum</div>
+          <div>{{ agentData.name }}</div>
         </li>
 
         <li>
           <div>Agent Phone Number</div>
-          <div>0312-3456789</div>
+          <div>{{ agentData.phone_number }}</div>
         </li>
 
         <li>
           <div>Estate Name</div>
-          <div>Lorem Ipsum</div>
+          <div>{{ agentData.estate_name }}</div>
         </li>
       </ul>
-      <div class="agent-image">
+      <div class="agent-image" v-if="agentData.image">
+        <img :src="agentData.image" />
+      </div>
+       <div class="agent-image" v-else>
         <img src="../../assets/images/avatar.svg" />
       </div>
     </div>
@@ -27,6 +30,7 @@
 <script>
 export default {
   name: "AgentDetails",
+  props: ["agentData"],
 };
 </script>
 

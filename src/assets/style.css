@@ -316,6 +316,12 @@ label {
 .explert-carousel{
   padding: 40px 0 40px 0px;
 }
+.card-property .card-list{
+  justify-content: flex-start!important;
+}
+.card-property .card-container{
+  margin-right: 20px;
+}
 /* .explert-carousel, .explert-carousel .carousel__track{
   height: 315px;
 } */
