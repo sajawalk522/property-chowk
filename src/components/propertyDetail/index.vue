@@ -10,15 +10,19 @@
       <button class="btn btn-hot" v-if="myProperty.featured">SUPER HOT</button>
       <button class="btn btn-hot" v-if="myProperty.featured_type">HOT</button>
     </div>
-    <div v-else>
-      <h1>Loading...</h1>
+    <div class="top-head" v-else>
+      <h1 class="heading-skeleton"></h1>
+      <div class="btn-skeleton"></div>
     </div>
     <!-- top header  -->
     <div class="detail-container">
       <!-- left content  -->
       <div class="details-left">
-        <BigCard :data="myProperty" v-if="Object.keys(myProperty).length !== 0"/>
-        <div v-else><h1>Loading...</h1></div>
+        <BigCard :data="myProperty" v-if="Object.keys(myProperty).length !== 0" />
+        <div v-else>
+          <!-- <h1 class="heading-skeleton"></h1> -->
+          <div class="image-skeleton"></div>
+        </div>
         <div class="overview">
           <h2>OVERVIEW</h2>
           <content-layout :title="'DESCRIPTION'">
@@ -31,14 +35,14 @@
             <FeaturesView :data="myProperty" />
           </content-layout>
           <content-layout :title="'AGENT DETAILS'">
-            <AgentDetails  />
+            <AgentDetails />
           </content-layout>
         </div>
       </div>
       <!-- left content  -->
       <!-- right content  -->
       <div class="details-right">
-        <SendEmail :data="myProperty"/>
+        <SendEmail :data="myProperty" />
         <QuickLinks />
       </div>
       <!-- right content  -->
@@ -54,7 +58,7 @@
         <SimilarProperty />
         <SimilarProperty />
       </div>
-    </div> -->
+    </div>-->
     <!-- similar propert cards  -->
   </section>
 </template>
@@ -79,33 +83,33 @@ export default {
     DESCRIPTION,
     PropertyDetails,
     FeaturesView,
-    AgentDetails,
+    AgentDetails
   },
   data() {
     return {
-      myProperty: {},
+      myProperty: {}
     };
   },
   computed: {
     properties() {
       return this.$store.state.properties;
-    },
+    }
   },
   methods: {
     filterProperty() {
       var { id } = this.$route.query;
-      var filtered = this.$store.state.properties.filter(function (item) {
+      var filtered = this.$store.state.properties.filter(function(item) {
         return item.id == id;
       });
       // console.log(filtered[0]);
       this.myProperty = filtered[0];
-    },
+    }
   },
   watch: {
     properties: {
-      handler: function () {
+      handler: function() {
         this.filterProperty();
-      },
+      }
       // immediate: true,
     },
     "$route.query": {
@@ -114,9 +118,9 @@ export default {
           this.filterProperty();
         }
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 
@@ -131,6 +135,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  /* margin-left: 20px; */
 }
 .top-head h3 {
   font-size: 18px;
@@ -142,6 +147,22 @@ export default {
 }
 .detail-container .details-left {
   width: 70%;
+}
+ .heading-skeleton {
+  height: 30px;
+  background: #eee;
+  width: 50%;
+}
+.btn-skeleton{
+  width: 150px;
+  height: 30px;
+  background: #eee;
+  text-align: right;
+}
+.image-skeleton {
+  background: #eee;
+  height: 400px;
+  width: 100%;
 }
 .detail-container .details-right {
   width: 30%;

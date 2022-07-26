@@ -11,7 +11,7 @@
             />
           </div>
         </div>
-        <HeroHeader v-if="pageData" :pageData="pageData"/>
+        <HeroHeader v-if="pageData" :pageData="pageData" />
       </div>
     </section>
     <main>
@@ -28,20 +28,20 @@ export default {
   components: {
     AppFooter,
     AppHeader,
-    HeroHeader,
+    HeroHeader
   },
   data() {
     return {
       images: [],
-      imageShow: 0,
+      imageShow: 0
     };
   },
-  props:['pageData'],
+  props: ["pageData"],
   mounted() {
     if (this.pageData && this.pageData[0].img) {
       this.images = [this.pageData[0].img];
     } else {
-      this.images = ["hero1.jpg", "hero2.jpg"];
+      this.images = ["banner-1.jpg", "banner-2.jpg", "banner-3.jpg"];
     }
     var itration = this.images.length - 1;
     setInterval(() => {
@@ -51,7 +51,7 @@ export default {
         this.imageShow = 0;
       }
     }, 5000);
-  },
+  }
 };
 </script>
 
@@ -90,6 +90,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #06758f7a;
+  /* background-color: #06758f7a; */
 }
 </style>

@@ -1,6 +1,12 @@
 <template>
   <div v-if="!data.images">NOT FOUND</div>
   <section class="main-card">
+    <div class="image-card" v-if="!data.images">
+      <img src="../../assets/images/about.png" />
+      <div class="water-mark-logo">
+        <img src="../../assets/images/logo-transparent.svg" />
+      </div>
+    </div>
     <carousel
       :settings="settings"
       :autoplay="2000"
@@ -11,6 +17,9 @@
       <slide v-for="(slide, index) in data.images" :key="index">
         <div class="image-card">
           <img :src="slide" />
+          <div class="water-mark" v-if="data.images">
+              <img src="../../assets/images/Propertylogowatermark.png" />
+            </div>
         </div>
       </slide>
 
@@ -85,6 +94,30 @@ export default {
 </script>
 
 <style scoped>
+.water-mark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark img {
+  width: 150px !important;
+  height: 120px !important;
+  opacity: 0.5;
+}
+.water-mark-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.water-mark-logo img {
+  width: 200px !important;
+}
 .main-card .image-card {
   display: flex;
   justify-content: center;
@@ -92,6 +125,10 @@ export default {
   background: #e8e8e8;
   height: 400px;
   width: 100%;
+}
+.main-card .image-card img {
+  width: 100%;
+  height: 100%;
 }
 .icons-wrapper {
   padding: 15px 15px;

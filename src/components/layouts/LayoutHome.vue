@@ -30,8 +30,9 @@ export default {
   data() {
     return {
       images: [
-        "hero1.jpg",
-        "hero2.jpg",
+        "banner-1.jpg",
+        "banner-2.jpg",
+        "banner-3.jpg",
       ],
       imageShow: 0,
     };
@@ -84,7 +85,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #06758f7a;
+  /* background-color: #06758f7a; */
   position:absolute;
   top:0;
 }

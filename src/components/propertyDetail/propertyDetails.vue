@@ -76,7 +76,7 @@ export default {
   white-space: nowrap;
 }
 .details-list li div:nth-child(1) {
-  min-width: 150px;
+  min-width: 125px;
 }
 .details-list li div:nth-child(2) {
   color: #000 !important;
