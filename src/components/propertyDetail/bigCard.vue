@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!data.images">NOT FOUND</div>
+  <!-- <div v-if="!data.images">NOT FOUND</div> -->
   <section class="main-card">
     <div class="image-card" v-if="!data.images">
       <img src="../../assets/images/about.png" />
