@@ -38,11 +38,6 @@ const routes = [
     component: PropertyDetails
   },
   {
-    path: '/post-detail',
-    name: 'post-details',
-    component: PostDetails
-  },
-  {
     path: '/plots',
     name: 'plots',
     component: PlotsView
@@ -85,7 +80,12 @@ const routes = [
   {
     path: '/blog',
     name: 'blog',
-    component: Blog
+    component: Blog,
+  },
+  {
+    path: '/blog/post/:id',
+    name:'post',
+    component: PostDetails,
   },
   {
     path: '/contact',
@@ -137,7 +137,7 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to) {
-    if (to.path === '/search') return
+    if (to.path === '/search' || to.path === '/blog') return
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ behavior: 'smooth', left: 0, top: 0 })

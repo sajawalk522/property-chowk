@@ -1,10 +1,10 @@
 <template>
   <div>
-    <layout-home>
+    <layout-home :title="getPost.title">
       <div class="container">
         <div class="post-main">
           <div class="blog-left">
-            <PostDetail />
+            <PostDetail :data="getPost"/>
           </div>
           <div class="blog-right">
             <PopularPosts />
@@ -34,12 +34,20 @@ export default {
   methods: {
     clickCallback(num) {
       this.$refs.slider.slideTo(num);
-    }
-  }
+    },
+  },
+  computed: {
+    getPost() {
+      var post = this.$store.state.posts;
+      var { id } = this.$route.params;
+      var getDetail = post[id - 1];
+      return getDetail;
+    },
+  },
 };
 </script>
 <style scoped>
-.section-pagination{
+.section-pagination {
   display: flex;
   justify-content: center;
 }

@@ -1,10 +1,13 @@
 import { createStore } from "vuex";
+import { posts } from "./postDb";
 
 export default createStore({
   state: {
     user: false,
     userInfo: {},
     properties: [],
+    //  posts
+    posts: posts,
     // trendings
     trendings: [
       {

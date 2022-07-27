@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="blog-post" >
-      <h1>Post Title</h1>
+      <h1>{{ data.title }}</h1>
       <div class="post-card">
         <div class="posted">
           <div>
@@ -11,16 +11,19 @@
           <span>POSTED ON JULY 19, 2022</span>
         </div>
         <div class="post-image">
-          <img src="../../assets/images/blog.png" />
+          <img :src="require(`../../assets/images/${data.img}`)" />
         </div>
         <div class="post-des">
-          <div>Discription</div>
+          <div>
+            <div v-html="data.description"></div>
+          </div>
         </div>
         <div class="post-bottom">
-          <div class="continue-btn">
-            <!-- <div @click="readLess(i)" v-if="i == fullRead">LESS READING...</div> -->
-            <div ><router-link to="/post-detail">CONTINUE READING...</router-link></div>
-          </div>
+          <!-- <div class="continue-btn">
+            <div>
+              <router-link to="/blog/post/1">CONTINUE READING...</router-link>
+            </div>
+          </div> -->
           <div class="view-container">
             <div>
               <img src="../../assets/images/profileimage.png" />
@@ -43,22 +46,8 @@
 
 <script>
 export default {
-  name: "PostDetail",
-  data() {
-    return {
-      fullRead: null,
-      showFullText: false,
-      
-    };
-  },
-  methods: {
-    readText(value) {
-      this.fullRead = value;
-    },
-    readLess() {
-      this.fullRead = null;
-    }
-  }
+  name: "blogPost",
+  props:['data']
 };
 </script>
 
@@ -122,7 +111,7 @@ export default {
   padding: 15px 0;
 }
 
-.post-bottom .continue-btn div a{
+.post-bottom .continue-btn div a {
   text-decoration: none;
   font-size: 16px;
   color: #333;

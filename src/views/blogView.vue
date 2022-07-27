@@ -1,16 +1,16 @@
 <template>
   <div>
-    <layout-home>
+    <layout-home :title="'Blogs'">
       <div class="container">
         <div class="post-main">
-          <div class="blog-left">
-            <BolgPosts />
-            <BolgPosts />
+          <div class="blog-left" ref="scrolldivTo">
+            <BolgPosts :posts="postsPaginate" />
+            <!-- <BolgPosts /> -->
             <section class="section-pagination">
               <paginate
                 :page-range="3"
                 :margin-pages="2"
-                :page-count="1"
+                :page-count="$store.state.posts.length / 4"
                 :click-handler="clickCallback"
                 :prev-text="'Prev'"
                 :next-text="'Next'"
@@ -44,17 +44,39 @@ export default {
     PopularPosts,
     PostSearch,
     RecentPosts,
-    Paginate
+    Paginate,
+  },
+  computed: {
+    postsPaginate() {
+      var page = this.$route.query.page;
+      var startCopy = 4 * page - 4;
+      var copyEnd = 4 * page
+      return this.$store.state.posts.slice(startCopy, copyEnd);
+    },
   },
   methods: {
     clickCallback(num) {
-      this.$refs.slider.slideTo(num);
+      this.$router.push(`/blog?page=${num}`)
+      this.scrollToElement();
+    },
+     scrollToElement() {
+      const el = this.$refs.scrolldivTo;
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
+  created(){
+    var q = this.$route.query.page;
+    if(!q){
+      this.$router.replace('/blog?page=1')
     }
+    // window.scrollTo({top:0, behavior: "smooth"})
   }
 };
 </script>
 <style scoped>
-.section-pagination{
+.section-pagination {
   display: flex;
   justify-content: center;
 }
