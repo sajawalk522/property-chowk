@@ -2,7 +2,7 @@
   <section class="email-container">
     <div class="email-card">
       <h3 v-if="data && data.price">PKR {{ converter(data.price) }}</h3>
-      <button class="btn btn-blue">CALL</button>
+      <a  href="" class="btn btn-blue call-link">CALL</a>
       <form class="form">
         <input type="text" name="name" placeholder="Name" />
         <input type="email" name="email" placeholder="Email" />
@@ -38,6 +38,13 @@ export default {
 </script>
 
 <style scoped>
+.call-link{
+  width: unset!important;
+  text-decoration: none;
+  display: flex;
+    text-align: center;
+    justify-content: center;
+}
 .email-container .email-card {
   padding: 15px 20px;
   box-shadow: 0px 0px 10px #00000012;
