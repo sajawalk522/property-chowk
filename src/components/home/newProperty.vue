@@ -5,7 +5,7 @@
     </div>
     <carousel
       :settings="settings"
-      :autoplay="4000"
+      :autoplay="false"
       :wrap-around="true"
       :breakpoints="breakpoints"
       class="carousel-container"

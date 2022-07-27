@@ -64,7 +64,7 @@ export default {
   justify-content: space-between;
 }
 .property-list .card-container {
-  width: 252px;
+  width: 240px;
 }
 /* right side */
 .rite-side {

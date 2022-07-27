@@ -40,8 +40,8 @@
         </div>-->
       </div>
       <div class="card-content">
-        <div class="location-button" v-if="dataList.property_title">
-          <button class="btn btn-blue">{{ dataList.property_title }}</button>
+        <div class="location-button" >
+          <button class="btn btn-blue" v-if="dataList.property_title">{{ dataList.property_title }}</button>
         </div>
         <div class="type-headding">
           <h2>{{ dataList.sub_type }} {{ dataList.property_type }} for Sale</h2>
@@ -56,41 +56,43 @@
             <span v-if="dataList.city"> {{ dataList.city }} </span>
           </p>
         </div>
-        <div class="icons-main">
-          <div class="icons-wrapper">
-            <div class="icon" v-if="dataList.bedrooms">
-              <div class="i-img">
-                <img src="../../assets/images/bed.png" />
+        <div class="card-main">
+          <div class="icons-main">
+            <div class="icons-wrapper">
+              <div class="icon" v-if="dataList.bedrooms">
+                <div class="i-img">
+                  <img src="../../assets/images/bed.png" />
+                </div>
+                <div>
+                  <p>{{ dataList.bedrooms }}</p>
+                </div>
               </div>
-              <div>
-                <p>{{ dataList.bedrooms }}</p>
+              <div class="icon" v-if="dataList.bathrooms">
+                <div class="i-img">
+                  <img src="../../assets/images/bath.png" />
+                </div>
+                <div>
+                  <p>{{ dataList.bathrooms }}</p>
+                </div>
+              </div>
+              <div class="icon">
+                <div class="i-img">
+                  <img src="../../assets/images/ft.png" />
+                </div>
+                <div>
+                  <p>{{ dataList.area }} {{ dataList.area_type }}</p>
+                </div>
+                <!-- <h1>{{dataList.city}}</h1> -->
               </div>
             </div>
-            <div class="icon" v-if="dataList.bathrooms">
-              <div class="i-img">
-                <img src="../../assets/images/bath.png" />
-              </div>
-              <div>
-                <p>{{ dataList.bathrooms }}</p>
-              </div>
+            <div class="wish-img" v-if="$store.state.user">
+              <svg class="svg-icon" viewBox="0 0 20 20">
+                <path
+                  fill="#07abd3"
+                  d="M9.719,17.073l-6.562-6.51c-0.27-0.268-0.504-0.567-0.696-0.888C1.385,7.89,1.67,5.613,3.155,4.14c0.864-0.856,2.012-1.329,3.233-1.329c1.924,0,3.115,1.12,3.612,1.752c0.499-0.634,1.689-1.752,3.612-1.752c1.221,0,2.369,0.472,3.233,1.329c1.484,1.473,1.771,3.75,0.693,5.537c-0.19,0.32-0.425,0.618-0.695,0.887l-6.562,6.51C10.125,17.229,9.875,17.229,9.719,17.073 M6.388,3.61C5.379,3.61,4.431,4,3.717,4.707C2.495,5.92,2.259,7.794,3.145,9.265c0.158,0.265,0.351,0.51,0.574,0.731L10,16.228l6.281-6.232c0.224-0.221,0.416-0.466,0.573-0.729c0.887-1.472,0.651-3.346-0.571-4.56C15.57,4,14.621,3.61,13.612,3.61c-1.43,0-2.639,0.786-3.268,1.863c-0.154,0.264-0.536,0.264-0.69,0C9.029,4.397,7.82,3.61,6.388,3.61"
+                />
+              </svg>
             </div>
-            <div class="icon">
-              <div class="i-img">
-                <img src="../../assets/images/ft.png" />
-              </div>
-              <div>
-                <p>{{ dataList.area }} {{ dataList.area_type }}</p>
-              </div>
-              <!-- <h1>{{dataList.city}}</h1> -->
-            </div>
-          </div>
-          <div class="wish-img" v-if="$store.state.user">
-            <svg class="svg-icon" viewBox="0 0 20 20">
-              <path
-              fill= "#07abd3"
-                d="M9.719,17.073l-6.562-6.51c-0.27-0.268-0.504-0.567-0.696-0.888C1.385,7.89,1.67,5.613,3.155,4.14c0.864-0.856,2.012-1.329,3.233-1.329c1.924,0,3.115,1.12,3.612,1.752c0.499-0.634,1.689-1.752,3.612-1.752c1.221,0,2.369,0.472,3.233,1.329c1.484,1.473,1.771,3.75,0.693,5.537c-0.19,0.32-0.425,0.618-0.695,0.887l-6.562,6.51C10.125,17.229,9.875,17.229,9.719,17.073 M6.388,3.61C5.379,3.61,4.431,4,3.717,4.707C2.495,5.92,2.259,7.794,3.145,9.265c0.158,0.265,0.351,0.51,0.574,0.731L10,16.228l6.281-6.232c0.224-0.221,0.416-0.466,0.573-0.729c0.887-1.472,0.651-3.346-0.571-4.56C15.57,4,14.621,3.61,13.612,3.61c-1.43,0-2.639,0.786-3.268,1.863c-0.154,0.264-0.536,0.264-0.69,0C9.029,4.397,7.82,3.61,6.388,3.61"
-              />
-            </svg>
           </div>
         </div>
         <!-- <div class="bottom-buttons">
@@ -133,7 +135,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.icons-main .wish-img svg{
+.icons-main .wish-img svg {
   width: 25px;
   margin-right: 10px;
 }
@@ -171,15 +173,21 @@ export default {
 .water-mark-logo img {
   width: 150px !important;
 }
+.card-main {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 .card-container {
   width: 276px;
   margin-bottom: 30px;
-  box-shadow: 0px 0px 10px #00000017;
+  box-shadow: 0px 1px 6px -2px #00000036;
   height: fit-content;
   background: #fff;
   border-radius: 5px;
   padding: 5px;
-  height: 340px;
+  height: 355px;
+  position: relative;
 }
 .card-container .card-top {
   width: 100%;
@@ -243,7 +251,7 @@ export default {
   text-align: left;
   line-height: 1.5;
   padding: 6px 0;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -251,6 +259,7 @@ export default {
   display: flex;
   width: 100%;
   justify-content: center;
+  height: 33px;
 }
 .card-content .location-button button {
   padding: 7px 15px !important;
@@ -262,6 +271,7 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   box-shadow: 0 10px 10px -5px #0000004a;
+  max-width:200px;
 }
 .bottom-buttons {
   display: flex;
@@ -282,7 +292,7 @@ export default {
   left: 0px;
 }
 .super-hot .btn-hot {
-      background-image: linear-gradient(to right, #e30000 , #ff3b00);
+  background-image: linear-gradient(to right, #e30000, #ff3b00);
   font-size: 12px;
   padding: 7px 15px 8px 8px;
   border-bottom-right-radius: 20px;
