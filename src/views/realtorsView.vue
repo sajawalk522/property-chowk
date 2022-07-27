@@ -1,6 +1,6 @@
 <template>
   <div>
-    <layout-home>
+    <layout-home title="REALTORS">
       <div class="container">
         <div class="agent-card-container">
           <AgentCard />

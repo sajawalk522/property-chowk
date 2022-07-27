@@ -8,7 +8,7 @@
             <img :src="require(`../../assets/images/${img}`)" :class="{ active: index == imageShow }" />
           </div>
         </div>
-        <SearchHeader />
+        <SearchHeader :title="title"/>
       </div>
     </section>
     <main>
@@ -37,6 +37,7 @@ export default {
       imageShow: 0,
     };
   },
+  props:['title'],
   mounted() {
     var itration = this.images.length - 1;
     setInterval(() => {

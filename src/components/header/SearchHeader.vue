@@ -5,10 +5,11 @@
         <div class="main-primary">
           <div class="search-header">
             <h1>Property Chowk</h1>
-            <h2>
+            <h2 v-if="$route.path == '/' || !title">
               A New Era of
               <br />Pakistan's Real Estate Market
             </h2>
+            <h2>{{ title }}</h2>
           </div>
           <section class="search" v-if="$route.path == '/'">
             <!-- <div class="heade-btns">
@@ -186,6 +187,7 @@
 </template>
 <script>
 export default {
+  props: ["title"],
   data() {
     return {
       search: "",
@@ -2280,7 +2282,7 @@ export default {
         {
           name: "Bahawalpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Balakot",
@@ -2290,42 +2292,42 @@ export default {
         {
           name: "Bannu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Barnala",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Batkhela",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bhakkar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bhalwal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Bhimber",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Buner",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Burewala",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chaghi",
@@ -2335,7 +2337,7 @@ export default {
         {
           name: "Chakwal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Charsadda",
@@ -2345,33 +2347,33 @@ export default {
         {
           name: "Chichawatni",
           isPop: false,
-          society: []
+          society: [],
         },
 
         {
           name: "Chiniot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chistian Sharif",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chitral",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Choa Saidan Shah",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Chunian",
           isPop: false,
-          society: []
+          society: [],
         },
 
         {
@@ -2382,874 +2384,874 @@ export default {
         {
           name: "Daharki",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Daska",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Daur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Depalpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Dera Ghazi Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Dera Ismail Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Dijkot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Dina",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Dobian",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Duniya Pur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Faislabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "FATA",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Fateh Jang",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Fort Abbas",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gaarho",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gadoon",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Galyat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Ghakhar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gharo",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Ghotki",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gilgit",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gojra",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gujar Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gujranwala",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gujrat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Gwadar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hafizabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hala",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hangu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Harappa",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Haripur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Haroonabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hasilpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hassan Abdal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Haveli Lakha",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hazro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hub Chowki",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hujra Shah Muqeem",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hunza",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Hyderabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jacobabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jahanian",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jalalpur Jattan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jampur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jamshoro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jatoi",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jauharabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jhang",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Jhelum",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kaghan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kahror Pakka",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kalat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kamalia",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kamoki",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kahna Canal View",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kandiaro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Karak",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kasur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khairpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khanewal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khanpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kharian",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khipro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khushab",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Khuzdar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kohat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kot Addu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kotli",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Kotri",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Lakki Marwat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Lalamusa",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Larkana",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Lasbela",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Layyah",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Liaqatpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Lodhran",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Loralai",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Lower Dir",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mailsi",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Makran",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Madina Garden",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Malakand",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mandi Bahauddin",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mangla",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mansehra",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mardan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Matiari",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Matli",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mian Channu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mianwali",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mingora",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mirpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mirpur Khas",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mirpur Sakro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Mitha Tiwana",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Moro",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Muridke",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Murree",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Muzaffarabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Muzaffargarh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Nankana Sahib",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Naran",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Narowal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Nasar Ullah Khan Town",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Nasirabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Naushahro Feroze",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Nawabshah",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Neelum",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "New Mirpur City",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Nowshera",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Okara",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Azad Kashmir",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Balochistan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Gilgit Baltistan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Khyber Pakhtunkhwa",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Punjab",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Others Sindh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Pakpattan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Peshawar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Pind Dadan Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Pindi Bhattian",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Pir Mahal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Qazi Ahmed",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Quetta",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Rahim Yar Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Rajana",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Rajanpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Ratwal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Rawalakot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Rohri",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sadiqabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sahiwal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sakrand",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Samundri",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sanghar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sangla Hill",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sarai Alamgir",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sargodha",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sehwan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shabqadar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shahdadpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shahkot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shahpur Chakar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shakargarh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shehr Sultan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sheikhupura",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sher Garh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shikarpur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Shorkot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sialkot",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sibi",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Skardu",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sudhnoti",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sujawal",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Sukkur",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Swabi",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Swat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Talagang",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Tando Adam",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Tando Allahyar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Tando Bago",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Tando Muhammad Khan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Taxila",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Tharparkar",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Thatta",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Toba Tek Singh",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Turbat",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Vehari",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Wah",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Wazirabad",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Waziristan",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Yazman",
           isPop: false,
-          society: []
+          society: [],
         },
         {
           name: "Zhob",
           isPop: false,
-          society: []
-        }
-      ]
+          society: [],
+        },
+      ],
     };
   },
   computed: {
@@ -3445,7 +3447,7 @@ h2 {
   margin-top: 40px;
   text-align: center;
   position: relative;
-  top:30px;
+  top: 30px;
 }
 .main-container .search {
   padding: 18px 24px 28px 24px;

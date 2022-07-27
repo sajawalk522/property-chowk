@@ -1,6 +1,6 @@
 <template>
   <section>
-    <AppHeader :transparent="false" />
+    <AppHeader :transparent="true" />
     <section class="container-main">
       <div class="primary">
         <div>
