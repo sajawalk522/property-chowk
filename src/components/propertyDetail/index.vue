@@ -37,7 +37,7 @@
           <content-layout :title="'DETAILS'">
             <PropertyDetails :data="myProperty" />
           </content-layout>
-          <content-layout :title="'FEATURES'">
+          <content-layout :title="'FEATURES'" v-if="myProperty && myProperty.property_features">
             <FeaturesView :data="myProperty" />
           </content-layout>
           <content-layout :title="'AGENT DETAILS'" v-if="agentData">

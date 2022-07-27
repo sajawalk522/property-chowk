@@ -82,11 +82,14 @@ export default {
     converter: (amount) => {
       if (!amount) return "";
       var val = Math.abs(amount);
+      if (val >= 1000000000) {
+        val = (val / 1000000000) + " Arab";
+      } 
       if (val >= 10000000) {
-        val = (val / 10000000).toFixed(2) + " Crore";
+        val = (val / 10000000)+ " Crore";
       } 
       if (val >= 100000) {
-        val = (val / 100000).toFixed(2) + " Lakh";
+        val = (val / 100000) + " Lakh";
       }
       return val;
     },

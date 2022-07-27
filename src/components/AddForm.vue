@@ -258,13 +258,28 @@
               <h1>Property Number</h1>
             </div>
             <div>
-              <div>
-                <input type="text" v-for="(n, key) in showInputs" :key="key" />
+              <div style="display: flex" v-if="showInputs == 1">
+                <input type="text" v-model="propertyNumber.pNumOne" />
+              </div>
+              <div style="display: flex" v-if="showInputs == 2">
+                <input type="text" v-model="propertyNumber.pNumOne" />
+                <input type="text" v-model="propertyNumber.pNumTwo" />
+              </div>
+              <div style="display: flex" v-if="showInputs == 3">
+                <input type="text" v-model="propertyNumber.pNumOne" />
+                <input type="text" v-model="propertyNumber.pNumTwo" />
+                <input type="text" v-model="propertyNumber.pNumThree" />
+              </div>
+              <div style="display: flex" v-if="showInputs == 4">
+                <input type="text" v-model="propertyNumber.pNumOne" />
+                <input type="text" v-model="propertyNumber.pNumTwo" />
+                <input type="text" v-model="propertyNumber.pNumthree" />
+                <input type="text" v-model="propertyNumber.pNumFour" />
               </div>
             </div>
           </div>
           <!-- input block -->
-          <div class="propertynumber">
+          <div class="propertynumber" v-if="finalData.property_type == 'Plot'">
             <RadioBox :name="'Pair'" @selected="numberSize" :value="2" />
             <RadioBox :name="'Triple'" @selected="numberSize" :value="3" />
             <RadioBox :name="'Tetra'" @selected="numberSize" :value="4" />
@@ -645,12 +660,19 @@ export default {
   },
   data() {
     return {
+      propertyNumber: {},
       loading: false,
       hotAds: null,
       search: "",
       searchSociety: "",
       finalData: {
         calculating_area: 4500,
+        street: "",
+        block: "",
+        phase: "",
+        road: "",
+        sector: "",
+        description: "",
       },
       showInputs: 1,
       toggelButton: false,
@@ -665,6 +687,7 @@ export default {
       society: {},
       city: "",
       subTypecat: 0,
+      pairCheck: "",
       // cities
       cities: [
         {
@@ -735,6 +758,7 @@ export default {
     };
   },
   mounted() {
+    this.finalData.property_type = "Plot";
     const clickAway = () => {
       this.dropdownCities = false;
     };
@@ -794,6 +818,7 @@ export default {
     },
     numberSize(v) {
       this.showInputs = v.value;
+      this.pairCheck = v.name;
     },
     propertyTypeSelected(v) {
       if (v.propertyType == "property") {
@@ -867,9 +892,6 @@ export default {
     },
     validateInputs() {
       var verify = this.finalData;
-      if (!verify.property_type) {
-        this.finalData.property_type = "Plot";
-      }
       if (!verify.sub_type) {
         // alert("please select sub Type");
         this.$swal({
@@ -936,6 +958,20 @@ export default {
     },
     submit() {
       if (!this.validateInputs()) return;
+      if (this.finalData.property_type == "Plot" && this.pairCheck) {
+        if (!this.finalData.property_features) {
+          this.finalData.property_features = [];
+        }
+        this.finalData.property_features.push(this.pairCheck);
+      }
+      // property number
+      const isEmpty = Object.keys(this.propertyNumber).length === 0;
+      if (!isEmpty) {
+        let values = Object.values(this.propertyNumber);
+        var numberString = values.toString();
+        this.finalData.property_number = numberString;
+      }
+      // property number
       const promises = [];
       if (this.images) {
         this.images.map((image) => {
@@ -994,8 +1030,8 @@ export default {
             this.finalData.price = this.finalData.price.toString();
           }
           let stemp = moment();
-          this.finalData.date = stemp.format('YYYY-MM-DDTHH:mm:ss');
-          console.log(this.finalData);
+          this.finalData.date = stemp.format("YYYY-MM-DDTHH:mm:ss");
+          // console.log(this.finalData);
           propertyServices
             .create(this.finalData)
             .then(() => {

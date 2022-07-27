@@ -273,7 +273,7 @@
           </div>
           <div>
             <div>
-              <input type="number" @change="onPnumber($event)" />
+              <input type="text" @change="onPnumber($event)" />
             </div>
           </div>
         </div>

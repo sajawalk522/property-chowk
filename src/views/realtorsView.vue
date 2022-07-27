@@ -23,6 +23,7 @@
           <paginate
             :page-range="3"
             :margin-pages="2"
+            :page-count="3"
             :click-handler="clickCallback"
             :prev-text="'Prev'"
             :next-text="'Next'"

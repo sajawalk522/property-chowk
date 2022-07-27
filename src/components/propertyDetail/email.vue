@@ -1,5 +1,5 @@
 <template>
-  <section class="email-container" >
+  <section class="email-container">
     <div class="email-card">
       <h3 v-if="data && data.price">PKR {{ converter(data.price) }}</h3>
       <button class="btn btn-blue">CALL</button>
@@ -17,16 +17,19 @@
 <script>
 export default {
   name: "SendEmail",
-  props:['data'],
+  props: ["data"],
   methods: {
     converter: (amount) => {
       if (!amount) return "";
       var val = Math.abs(amount);
+      if (val >= 1000000000) {
+        val = (val / 1000000000) + " Arab";
+      }
       if (val >= 10000000) {
-        val = (val / 10000000).toFixed(2) + " Crore";
-      } 
+        val = (val / 10000000) + " Crore";
+      }
       if (val >= 100000) {
-        val = (val / 100000).toFixed(2) + " Lakh";
+        val = (val / 100000) + " Lakh";
       }
       return val;
     },

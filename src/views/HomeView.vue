@@ -46,15 +46,13 @@ export default {
     Hot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
         return (
-          f.city.toLowerCase() == this.details.toLowerCase() &&
+          f.city && f.city.toLowerCase() == this.details.toLowerCase() &&
           f.feature_type > 0
         );
       });
       if (!filteredFeatrued) {
         filteredFeatrued = this.$store.state.properties.filter((f) => {
-          return (
-            f.city.toLowerCase() == "lahore" && f.feature_type > 0
-          );
+          return f.city && f.city.toLowerCase() == "lahore" && f.feature_type > 0;
         });
       }
       return filteredFeatrued.slice(0, 20);
