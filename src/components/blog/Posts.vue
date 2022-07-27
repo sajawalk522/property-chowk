@@ -23,8 +23,8 @@
         </div>
         <div class="post-bottom">
           <div class="continue-btn">
-            <div @click="readLess(i)" v-if="i == fullRead">LESS READING...</div>
-            <div @click="readText(i)" v-else>CONTINUE READING...</div>
+            <!-- <div @click="readLess(i)" v-if="i == fullRead">LESS READING...</div> -->
+            <div ><router-link to="/post-detail">CONTINUE READING...</router-link></div>
           </div>
           <div class="view-container">
             <div>
@@ -56,7 +56,7 @@ export default {
       posts: [
         {
           title: "Difference between investment and saving",
-          img: "post-img.png",
+          img: "blog.png",
           description: `Saving and investing are however a bit different from each other, but they share a common goal
 of financial stability. Saving and investing are equally important as both have their own
 advantages and disadvantages.
@@ -152,7 +152,7 @@ your investment in completely safe.`
         },
         {
           title: "Facts about PIA",
-          img: "post-img.png",
+          img: "blog.png",
           description: `<h3>Update: (July 21, 2022):</h3>
 Following the recent drop in fuel prices, Pakistan International Airlines (PIA) has revised its
 domestic and international fares. According to the details, PIA has reduced the price of tickets
@@ -345,7 +345,7 @@ internet services`
         },
         {
           title: "Guide for investment in DHA Lahore (1)",
-          img: "post-img.png",
+          img: "blog.png",
           description: `Property investment in DHA Lahore has long been a dream of many domestic and foreign
 property investors – and for good reason. The impeccably planned housing corporation offers its
 residents a selection of world-class comforts and amenities that not only promise luxury living,
@@ -445,7 +445,7 @@ sought by modern residents.`
         },
         {
           title: "How to  become real estate agent_",
-          img: "post-img.png",
+          img: "blog.png",
           description: `Realtors are the people who connect buyers, sellers, landlords and tenants and earn a
 commission for doing so. If you want to become a real estate agent, you should consider the
 following factors:
@@ -476,7 +476,7 @@ market.`
         },
         {
           title: "Important roads of Lahore",
-          img: "post-img.png",
+          img: "blog.png",
           description: `5 Most Important Lahore Roads You Must Know
 The development of the road structure in the city has helped a lot in regulating the flow of traffic.
 Numerous underpasses and flyovers in the city have not only increased the beauty of Lahore
@@ -555,7 +555,7 @@ Jashn-e-Baharaan and March 23rd.`
         },
         {
           title: "Make a choice between two smillar properties",
-          img: "post-img.png",
+          img: "blog.png",
           description: `For most potential buyers in the market, price and square footage are the two ultimate factors to
 consider before buying a home. But what happens when you come across two properties with
 the same square footage and the same prices? Since you can't compare two properties the
@@ -623,7 +623,7 @@ your choice.`
         },
         {
           title: "popular areas to buy plots in Lahore_",
-          img: "post-img.png",
+          img: "blog.png",
           description: `<h3>Most popular areas to buy plots in lahore are:</h3>
 1. DHA
 2. Bahria orchard
@@ -723,7 +723,7 @@ to range from PKR 85 lakh to 4.5 crore.`
         },
         {
           title: "Real estate relation with industries",
-          img: "post-img.png",
+          img: "blog.png",
           description: `COVID-19 has exposed the longstanding shortcomings faced in Pakistan.
 He questioned not only the course of action, but also the existing policies to improve health
 facilities, meet the basic needs of disadvantaged segments and, above all, revive the economy.
@@ -866,7 +866,7 @@ Corridor (CPEC) as a game changer.`
         },
         {
           title: "secure your real estate investment",
-          img: "post-img.png",
+          img: "blog.png",
           description: `<h3>Ways to Make a Secure Real Estate Investment in Pakistan</h3>
 If you're considering getting into the stock market by making your first investment, you might be
 worried about common investing mistakes you can make at this stage as well. These mistakes
@@ -934,7 +934,7 @@ keep your property in its best condition and pay the rent on time each month.`
         },
         {
           title: "Top investment opportunities in Lahore",
-          img: "post-img.png",
+          img: "blog.png",
           description: `Enjoying great commercial significance and historical importance, the city of Lahore has
 always been a hotspot for new infrastructure and real estate developments taking place in
 the region. This is one of the main reasons why it always attracts property investors and
@@ -1116,7 +1116,7 @@ yield profitable investment outcomes in the near future.`
         },
         {
           title: "Why appartments are better than flats",
-          img: "post-img.png",
+          img: "blog.png",
           description: `Looking for a place to live where you can work and play? Are you tired of bearing the expenses
 of huge houses? Perhaps a smaller, more private option is best for you: buy an apartment!
 <h3>Apartments vs. Houses</h3>
@@ -1273,7 +1273,7 @@ all work.`
   padding: 15px 0;
 }
 
-.post-bottom .continue-btn div {
+.post-bottom .continue-btn div a{
   text-decoration: none;
   font-size: 16px;
   color: #333;
@@ -1282,6 +1282,7 @@ all work.`
   line-height: 1.3;
   padding: 5px 0;
   cursor: pointer;
+  text-decoration: none;
 }
 .post-bottom {
   display: flex;

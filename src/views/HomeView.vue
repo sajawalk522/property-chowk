@@ -39,20 +39,20 @@ export default {
   computed: {
     superHot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
-        return f.featured && f.property_title;
+        return f.featured && f.feature_type == 0;
       });
       return filteredFeatrued.slice(0, 20);
     },
     Hot() {
       var filteredFeatrued = this.$store.state.properties.filter((f) => {
         return (
-          f.city && f.city.toLowerCase() == this.details.toLowerCase() &&
+         f.city && f.featured == false && f.feature_type == 1,
           f.feature_type > 0
         );
       });
       if (!filteredFeatrued) {
         filteredFeatrued = this.$store.state.properties.filter((f) => {
-          return f.city && f.city.toLowerCase() == "lahore" && f.feature_type > 0;
+          return f.city && f.featured == false && f.feature_type == 1;
         });
       }
       return filteredFeatrued.slice(0, 20);

@@ -40,9 +40,8 @@ export default {
 .get-app .app-inner {
   display: flex;
   justify-content: space-between;
-  /* box-shadow: 0px 0px 10px #0000001a; */
+  max-width: 1120px!important;
   margin: 30px auto;
-  /* padding: 10px 10px 0px 10px; */
 }
 .get-app .app-inner .app-left {
   width: 45%;

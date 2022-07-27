@@ -12,7 +12,10 @@
       v-if="$store.state.properties.length"
     >
       <slide v-for="(property, index) in data" :key="index">
-        <router-link :to="`property-detail?id=${property.id}`">
+        <CardProperty
+          :dataList="property"
+        />
+        <!-- <router-link :to="`property-detail?id=${property.id}`">
           <div class="new-property-container">
             <div class="water-mark" v-if="property.images">
               <img src="../../assets/images/Propertylogowatermark.png" />
@@ -75,10 +78,9 @@
             <div>
               <img src="../../assets/images/calender.png" />
             </div>
-            <!-- eslint-disable-next-line -->
             <p>{{ dateFormate(property.date) }}</p>
           </div>
-        </router-link>
+        </router-link> -->
       </slide>
       <template #addons>
         <navigation />
@@ -97,6 +99,7 @@
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 import CardSkeleton from "../common/cardSkeleton.vue";
+import CardProperty from "../common/CardProperty.vue";
 export default {
   name: "NewProperty",
   props: ["data", "title"],
@@ -104,11 +107,12 @@ export default {
     Carousel,
     Slide,
     CardSkeleton,
+    CardProperty,
     Navigation,
   },
   data() {
     return {
-      skeleton: 3,
+      skeleton: 4,
       // carousel settings
       settings: {
         itemsToShow: 1,
@@ -124,7 +128,7 @@ export default {
         },
         // 1024 and up
         1024: {
-          itemsToShow: 3,
+          itemsToShow: 4,
           snapAlign: "start",
         },
       },

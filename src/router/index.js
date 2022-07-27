@@ -19,6 +19,7 @@ import Blog from '../views/blogView.vue';
 import Contact from '../views/contactView.vue';
 import PropertyDetails from '../views/PropertyDetailsView.vue';
 import MyProperty from '../views/MyPropertyView.vue';
+import PostDetails from '../views/PostDetailView.vue';
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/property-detail',
     name: 'property-details',
     component: PropertyDetails
+  },
+  {
+    path: '/post-detail',
+    name: 'post-details',
+    component: PostDetails
   },
   {
     path: '/plots',

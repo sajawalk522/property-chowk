@@ -29,6 +29,9 @@ data() {
 </script>
 
 <style>
+.cards-skeleton .skeleton-conatiner{
+  width: 23%!important;
+}
 .skeleton-conatiner {
   display: flex;
   justify-content: space-between;

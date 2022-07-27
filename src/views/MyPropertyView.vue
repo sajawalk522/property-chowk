@@ -7,12 +7,11 @@
       <BlueHead :title="'My Properties'" />
       <div v-if="properties.length">
         <div ref="goDiv" class="card-property" v-if="filteredItems.length">
-          <PropertyList
-            :filteredItems="filteredItems"
-            v-if="filteredItems.length"
-          />
+          <PropertyList :filteredItems="filteredItems" v-if="filteredItems.length" />
         </div>
-        <div v-else>NOT FOUND</div>
+        <div class="not-found" v-else>
+          <h3>NOT FOUND</h3>
+        </div>
       </div>
       <div class="card-skeleton" v-else>
         <div class="pro-skeleton">
@@ -36,12 +35,12 @@ export default {
     DefaultLayout,
     BlueHead,
     PropertyList,
-    CardSkeleton,
+    CardSkeleton
   },
   data() {
     return {
       filteredItems: [],
-      skeleton: 9,
+      skeleton: 9
     };
   },
   computed: {
@@ -50,22 +49,22 @@ export default {
     },
     user() {
       return this.$store.state.userInfo;
-    },
+    }
   },
   methods: {
     filterProperty() {
       var { id } = this.user;
-      var filtered = this.$store.state.properties.filter(function (items) {
+      var filtered = this.$store.state.properties.filter(function(items) {
         return items.seller_id == id;
       });
       this.filteredItems = filtered;
-    },
+    }
   },
   watch: {
     properties: {
-      handler: function () {
+      handler: function() {
         this.filterProperty();
-      },
+      }
       // immediate: true,
     },
     "$route.query": {
@@ -74,13 +73,19 @@ export default {
           this.filterProperty();
         }
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 <style scoped>
-
+.not-found {
+  min-height: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .card-skeleton {
   display: flex;
   height: 100%;
