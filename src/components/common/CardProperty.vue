@@ -3,16 +3,25 @@
     <router-link :to="`property-detail?id=${dataList.id}`">
       <div class="card-top">
         <div class="image-card">
-          <div class="water-mark" v-if="dataList.images && dataList.images.length">
+          <div
+            class="water-mark"
+            v-if="dataList.images && dataList.images.length"
+          >
             <img src="../../assets/images/Propertylogowatermark.png" />
           </div>
           <div class="water-mark-logo" v-else>
             <img src="../../assets/images/logo-transparent.svg" />
           </div>
-          <img :src="dataList.images[0]" v-if="dataList.images && dataList.images.length" />
+          <img
+            :src="dataList.images[0]"
+            v-if="dataList.images && dataList.images.length"
+          />
           <img src="../../assets/images/about.png" v-else />
         </div>
-        <div class="super-hot" v-if="dataList.featured && dataList.feature_type == 0">
+        <div
+          class="super-hot"
+          v-if="dataList.featured && dataList.feature_type == 0"
+        >
           <button class="btn btn-hot">SUPER HOT</button>
         </div>
         <div class="super-hot" v-if="dataList.feature_type == 1">
@@ -31,7 +40,7 @@
         </div>-->
       </div>
       <div class="card-content">
-        <div class="location-button" v-if="dataList.property_title.length">
+        <div class="location-button" v-if="dataList.property_title">
           <button class="btn btn-blue">{{ dataList.property_title }}</button>
         </div>
         <div class="type-headding">
@@ -39,7 +48,13 @@
         </div>
         <div class="location">
           <h3>PKR {{ converter(dataList.price) }}</h3>
-          <p>{{ dataList.society }} {{ dataList.city }}</p>
+          <p>
+            <span v-if="dataList.block">Block {{ dataList.block }},</span>
+            <span v-if="dataList.sector">Sector {{ dataList.sector }},</span>
+            <span v-if="dataList.phase">Phase {{ dataList.phase }},</span>
+            <span v-if="dataList.society">{{ dataList.society }},</span>
+            <span v-if="dataList.city">{{ dataList.city }}</span>
+          </p>
         </div>
         <div class="icons-main">
           <div class="icons-wrapper">
@@ -92,7 +107,7 @@ export default {
   name: "CardView",
   props: ["dataList"],
   methods: {
-    converter: amount => {
+    converter: (amount) => {
       if (!amount) return "";
       var val = Math.abs(amount);
       if (val >= 1000000000) {
@@ -108,8 +123,8 @@ export default {
         val = val / 1000 + " Thousand";
       }
       return val;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -246,6 +261,7 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  box-shadow: 0 10px 10px -5px #0000004a;
 }
 .bottom-buttons {
   display: flex;
@@ -266,10 +282,11 @@ export default {
   left: 0px;
 }
 .super-hot .btn-hot {
-  background: #f9193a;
+      background-image: linear-gradient(to right, #e30000 , #ff3b00);
   font-size: 12px;
   padding: 7px 15px 8px 8px;
   border-bottom-right-radius: 20px;
+  min-width: 70px;
 }
 /* camera icon  */
 .camera {
