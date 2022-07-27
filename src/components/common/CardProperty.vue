@@ -49,11 +49,11 @@
         <div class="location">
           <h3>PKR {{ converter(dataList.price) }}</h3>
           <p>
-            <span v-if="dataList.block">Block {{ dataList.block }},</span>
-            <span v-if="dataList.sector">Sector {{ dataList.sector }},</span>
-            <span v-if="dataList.phase">Phase {{ dataList.phase }},</span>
-            <span v-if="dataList.society">{{ dataList.society }},</span>
-            <span v-if="dataList.city">{{ dataList.city }}</span>
+            <span v-if="dataList.block"> Block {{ dataList.block }}, </span>
+            <span v-if="dataList.sector"> Sector {{ dataList.sector }}, </span>
+            <span v-if="dataList.phase"> Phase {{ dataList.phase }}, </span>
+            <span v-if="dataList.society"> {{ dataList.society }}, </span>
+            <span v-if="dataList.city"> {{ dataList.city }} </span>
           </p>
         </div>
         <div class="icons-main">
