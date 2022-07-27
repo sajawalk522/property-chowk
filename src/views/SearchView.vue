@@ -515,6 +515,7 @@ export default {
     constructURL(page) {
       var url = "";
       var fl = "";
+      delete this.$route.query.page;
       if (!page) {
         fl = this.filter;
       } else {
