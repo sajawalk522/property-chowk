@@ -1032,9 +1032,6 @@ export default {
         {
           name: "Islamabad",
           isPop: true,
-<<<<<<< HEAD
-          society: ["7th Avenue", "9th Avenue ", "D-12"],
-=======
           society: [
             "7th Avenue",
             "9th Avenue",
@@ -1235,14 +1232,10 @@ export default {
             "Taramrri",
             "Others",
           ],
->>>>>>> 961703c3eb720fbef2e0104f2215d0105d4f62cf
         },
         {
           name: " Gujranwala",
           isPop: true,
-<<<<<<< HEAD
-          society: ["Bahria Town Karachi", "DHA"],
-=======
           society: [
             "Abadi Haji Ghulam Hassan",
             "Abid Colony",
@@ -1354,19 +1347,10 @@ export default {
             "Zahid Colony",
             "Others",
           ],
->>>>>>> 961703c3eb720fbef2e0104f2215d0105d4f62cf
         },
         {
           name: "Lahore",
           isPop: true,
-<<<<<<< HEAD
-          society: [],
-        },
-        {
-          name: "Abbotabad",
-          isPop: false,
-          society: [],
-=======
           society: [
             "Abbot Road",
             "Al Hadi Garden",
@@ -2328,7 +2312,6 @@ export default {
             "Abdullah Haroon Road",
             "Dhabeji",
           ],
->>>>>>> 961703c3eb720fbef2e0104f2215d0105d4f62cf
         },
         {
           name: "Peshawar",
@@ -2484,8 +2467,6 @@ export default {
           isPop: false,
           society: [],
         },
-<<<<<<< HEAD
-=======
         {
           name: "Abdul Hakim",
           isPop: false,
@@ -3508,7 +3489,6 @@ export default {
           isPop: false,
           society: [],
         },
->>>>>>> 961703c3eb720fbef2e0104f2215d0105d4f62cf
       ],
       typeData: [
         { type: "Plot", icon: "bath.png" },
