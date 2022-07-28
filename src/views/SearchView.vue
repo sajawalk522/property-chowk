@@ -321,7 +321,7 @@
             <FeatureBox
               :name="'Direct to Owner'"
               @selected="status"
-              :active="isExist('Direct to Owner')"
+              :active="isExist('Direct-to-Owner')"
             />
             <FeatureBox
               :name="'Bayana'"
@@ -331,7 +331,7 @@
             <FeatureBox
               :name="'Ndc Applied'"
               @selected="status"
-              :active="isExist('Ndc Applied')"
+              :active="isExist('Ndc-Applied')"
             />
             <FeatureBox
               :name="'Possession'"
@@ -346,12 +346,12 @@
             <FeatureBox
               :name="'Army Update'"
               @selected="status"
-              :active="isExist('Army Update')"
+              :active="isExist('Army-Update')"
             />
             <FeatureBox
               :name="'All Paid'"
               @selected="status"
-              :active="isExist('All Paid')"
+              :active="isExist('All-Paid')"
             />
             <FeatureBox
               :name="'File'"
@@ -438,7 +438,8 @@ export default {
       search: "",
       searchSociety: "",
       // cities
-      cities: [
+      
+cities: [
         {
           name: "Multan",
           isPop: true,
@@ -3599,7 +3600,7 @@ export default {
     status(s) {
       if (!s.isAdd) {
         this.statusArray = this.statusArray.filter((val) => {
-          return val != s.status;
+          return val != s.status.replace(/\s/g, "-");
         });
       } else {
         this.statusArray.push(s.status.replace(/\s/g, "-"));
@@ -3785,10 +3786,8 @@ export default {
       if (this.filter.status) {
         var arrayStatus = this.filter.status.split(",");
         var remDash = arrayStatus.map((e) => {
-          if (e != "Non-Possession") {
-            var ele = e.replace(/-/g, " ");
+            var ele = e.replace(/-/g, "-");
             return ele;
-          }
         });
         this.statusArray = remDash;
       } else {
