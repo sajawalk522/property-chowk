@@ -76,7 +76,7 @@ export default {
       var filtered = this.$store.state.properties.filter(function(item) {
         return item;
       });
-      var page = this.$route.query.page;
+      var page = this.$route.query.page || 1;
       // pagination
       this.totalPages = Math.round(filtered.length / 12);
       //   pagination

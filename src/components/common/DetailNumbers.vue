@@ -6,10 +6,10 @@
     <div class="type-list">
       <ul>
         <li
-          :class="{ active: !selected ? metaData == key: selected == n }"
+          :class="{ active: !selected ? metaData == key : selected == n + 1 }"
           v-for="(key, n) in data"
           :key="n"
-          @click="clickedOn(key, n)"
+          @click="clickedOn(key)"
         >
           {{ key }}
         </li>
@@ -27,13 +27,31 @@ export default {
     };
   },
   methods: {
-    clickedOn(val, index) {
-      this.selected = index;
+    clickedOn(val) {
+      this.selected = val;
       var detail = {
         type: this.title,
-        value: val
+        value: val,
+      };
+      this.$emit("propertyDetail", detail);
+    },
+    onRouteChange() {
+      var q = this.$route.query;
+      let [queryTest] = Object.keys(q);
+      let title = this.title.toLowerCase();
+      if (queryTest == title) {
+        this.selected = q[title];
+      } else {
+        this.selected = null;
       }
-      this.$emit('propertyDetail', detail)
+    },
+  },
+  watch: {
+    "$route.query": {
+      handler() {
+        this.onRouteChange();
+      },
+      immediate: true,
     },
   },
 };

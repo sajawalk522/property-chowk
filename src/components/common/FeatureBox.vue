@@ -6,6 +6,7 @@
         :id="`'${name}'`"
         v-model="activeCategories"
         v-on:change="filterMedia()"
+        :checked="active"
       />
       <label :for="`'${name}'`">{{ name }}</label>
     </div>
@@ -14,10 +15,10 @@
 
 <script>
 export default {
-  props: ["name", "type"],
+  props: ["name", "type", "active"],
   data() {
     return {
-      activeCategories: false,
+      activeCategories: this.active,
     };
   },
   methods: {
