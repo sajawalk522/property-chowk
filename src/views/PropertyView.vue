@@ -4,7 +4,12 @@
       <div class="add-banner">
         <img src="../assets/images/970x90.png" alt />
       </div>
-      <BlueHead :title="'Properties'" />
+      <div class="bluehead">
+        <h6>Properties</h6>
+        <router-link to="/search?page=1">
+          <img src="../assets/images/search.svg" alt />
+        </router-link>
+      </div>
       <div v-if="filteredItems.length">
         <div ref="goDiv">
           <PropertyList :filteredItems="filteredItems" v-if="filteredItems.length" />
@@ -34,7 +39,6 @@
 </template>
 <script>
 import DefaultLayout from "@/components/layouts/DefaultLayout.vue";
-import BlueHead from "@/components/common/BlueHeader.vue";
 import PropertyList from "@/components/PropertyList.vue";
 import Paginate from "vuejs-paginate-next";
 import CardSkeleton from "@/components/common/cardSkeleton.vue";
@@ -42,7 +46,6 @@ export default {
   name: "SearchView",
   components: {
     DefaultLayout,
-    BlueHead,
     PropertyList,
     Paginate,
     CardSkeleton
@@ -104,6 +107,26 @@ export default {
 };
 </script>
 <style scoped>
+.bluehead {
+  padding: 10px 25px;
+  background-image: linear-gradient(90deg, #0cb2da, #0cb2da);
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bluehead a {
+  text-decoration: none;
+}
+.bluehead img {
+  height: 30px;
+  cursor: pointer;
+}
+.bluehead h6 {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
 .card-skeleton {
   display: flex;
   height: 100%;
@@ -115,7 +138,7 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 75%;
-   height: 100%;
+  height: 100%;
 }
 .ads-skeleton {
   width: 25%;
@@ -130,7 +153,7 @@ export default {
 .add-banner img {
   width: 100%;
   height: 100%;
-   border: 1px solid #808080;
+  border: 1px solid #808080;
 }
 .toggle-buttons {
   margin-top: 30px;
