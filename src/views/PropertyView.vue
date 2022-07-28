@@ -119,7 +119,7 @@ export default {
   text-decoration: none;
 }
 .bluehead img {
-  height: 30px;
+  height: 22px;
   cursor: pointer;
 }
 .bluehead h6 {
