@@ -3765,9 +3765,8 @@ cities: [
           var statusQ = status.split(",");
           if (!item.status) return;
           var isFound = statusQ.every((element) => {
-            if (element != "Non-Possession") {
-              var ele = element.replace(/-/g, " ");
-            }
+              var ele = element != 'Non-Possession'? element.replace(/-/g, " ") : "Non-Possession";
+            // console.log(ele)
             return item.status.indexOf(ele) !== -1;
           });
           if (isFound) return true;
