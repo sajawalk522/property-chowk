@@ -10,8 +10,8 @@
         {{ myProperty.property_title }} {{ myProperty.society }}
         {{ myProperty.city }}
       </h3>
-      <button class="btn btn-hot" v-if="myProperty.featured">SUPER HOT</button>
-      <button class="btn btn-hot" v-if="myProperty.featured_type">HOT</button>
+      <button class="btn btn-hot" v-if="!myProperty.feature_type && myProperty.featured">SUPER HOT</button>
+      <button class="btn btn-hot" v-if="myProperty.feature_type == 1" >HOT</button>
     </div>
     <div class="top-head" v-else>
       <h1 class="heading-skeleton"></h1>
@@ -120,6 +120,7 @@ export default {
       });
       // console.log(filtered[0]);
       this.myProperty = filtered[0];
+      console.log(this.myProperty)
       if (this.myProperty) {
         this.getAgentInfo(this.myProperty.seller_id);
       }
